@@ -264,3 +264,20 @@ After building it will start on `localhost:8080`.
   - starts a server which can be accessed on `https://localhost:8080`
 
 You can now adjust the `radar.json` file. Changes will be copied to the `dist` folder and can be seen by refreshing the browser
+
+# Template description
+```html
+<h4>Description title</h4>
+<p>
+  Description
+</p>
+<br/>
+<h4>Pros:</h4>
+<ul><li><strong>pro</strong> description</li></ul>
+<br/>
+<h4>Cons:</h4>
+<ul><li><strong>con</strong> description</li></ul>
+<br/>
+<h4>Conclusion title</h4>
+<p>This is the conclusion</p>
+```
