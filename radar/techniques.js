@@ -79,17 +79,24 @@ const content = [
     description: `
       <h4>Description</h4>
       <p>
-        Description
+        <strong>TDD</strong> or Test Driven Development is a practice used in software development to make quality, neat, and errorless code,
+        especially when there is change bound to happen later on. As the name suggests, TDD is a way to do development that is driven by tests rather than
+        first writing your code and adding unit tests afterward.
       </p>
       <br/>
       <h4>Pros:</h4>
-      <ul><li><strong>pro</strong> description</li></ul>
+      <ul>
+        <li><strong>Test coverage</strong>&nbsp;By writing tests before you code, you know all your written code is covered by unit tests</li>
+        <li><strong>Quality</strong>&nbsp;The quality of your code will improve because you need to think about scenarios and functionality before you write a single line of code</li>
+      </ul>
       <br/>
       <h4>Cons:</h4>
-      <ul><li><strong>con</strong> description</li></ul>
+      <ul>
+        <li><strong>Learning curve</strong>&nbsp;It can be difficult to start with TDD, it takes time and effort to invest in this technique.</li>
+      </ul>
       <br/>
       <h4>Conclusion</h4>
-      <p>This is the conclusion</p>
+      <p>It's a tool you could use. It depends on the context if TDD would benefit you as a developer.</p>
     `
   },
   {
