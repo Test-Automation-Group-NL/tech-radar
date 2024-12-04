@@ -41,6 +41,8 @@ jobs:
         run: npm ci
       - name: Build project
         run:  npm run build:prod
+      - name: Generate JSON
+        run:  npm run radar:generate-json
       - name: Show output
         run: ls -l dist
       - name: Upload artifact
