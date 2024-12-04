@@ -1,21 +1,25 @@
-const fs = require('node:fs')
-const languagesFrameworks = require('./languages-frameworks').languagesFrameworks
-const platforms = require('./platforms').platforms
-const techniques = require('./techniques').techniques
-const tools = require('./tools').tools
+const fs = require('fs')
+
+const modulePaths = ['./languages-frameworks', './platforms', './techniques', './tools']
 
 const buildRadar = () => {
-  const radarJson = [...languagesFrameworks.content, ...platforms.content, ...techniques.content, ...tools.content]
-
   try {
+    const modules = modulePaths.map((modulePath) => {
+      delete require.cache[require.resolve(modulePath)]
+      return require(modulePath)
+    })
+
+    const radarJson = modules.flatMap((module) => module[Object.keys(module)[0]].content)
+
     if (!fs.existsSync('dist')) {
       fs.mkdirSync('dist')
     }
 
     fs.writeFileSync('./dist/radar.json', JSON.stringify(radarJson).replace(/(\r\n|\n|\r|\s{2,})/gm, ''))
-    // file written successfully
+
+    console.log('Radar JSON updated successfully.')
   } catch (err) {
-    console.error(err)
+    console.error('Error building radar:', err)
   }
 }
 

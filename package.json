@@ -15,7 +15,7 @@
     "lint-prettier:fix": "eslint . --fix && prettier --write .",
     "quality": "npm run lint-prettier:check && npm run test:coverage",
     "radar:watch": "node radar/radar.watch.js",
-    "radar:serve": "npx http-server dist",
+    "radar:serve": "npx http-server -c-1 dist",
     "local:dev": "LOCAL_DEV=true npm-run-all build:dev -p radar:watch radar:serve",
     "radar:generate-json": "node radar/build.radar.json.js"
   },
