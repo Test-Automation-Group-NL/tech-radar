@@ -16,7 +16,8 @@
     "quality": "npm run lint-prettier:check && npm run test:coverage",
     "radar:watch": "node radar.watch.js",
     "radar:serve": "npx http-server dist",
-    "local:dev": "LOCAL_DEV=true npm-run-all build:dev -p radar:watch radar:serve"
+    "local:dev": "LOCAL_DEV=true npm-run-all build:dev -p radar:watch radar:serve",
+    "radar:generate-json": "node radar/radar.js"
   },
   "author": "Thoughtworks",
   "repository": {
