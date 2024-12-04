@@ -155,17 +155,35 @@ const content = [
     description: `
       <h4>Description</h4>
       <p>
-        Description
+        Property-based testing is a powerful testing methodology that allows developers to automatically generate and test a wide range of input data against
+        specified properties of the software under test. Unlike traditional example-based testing, which uses specific, predefined inputs, property based
+        testing explores the entire input space to uncover edge cases and potential bugs.
+      </p>
+      <br/>
+      <p>
+        Examples of frameworks
+        <ul>
+          <li>QuickCheck</li>
+          <li>Hypothesis</li>
+          <li>ScalaCheck</li>
+        </ul>
       </p>
       <br/>
       <h4>Pros:</h4>
-      <ul><li><strong>pro</strong> description</li></ul>
+      <ul>
+        <li><i>unknown</i></li>
+      </ul>
       <br/>
       <h4>Cons:</h4>
-      <ul><li><strong>con</strong> description</li></ul>
+      <ul>
+        <li><i>unknown</i></li>
+      </ul>
       <br/>
       <h4>Conclusion</h4>
-      <p>This is the conclusion</p>
+      <p>
+        Property-based testing is a robust and versatile testing methodology that complements traditional example-based testing.<br/>
+        We would like to trial this technique and give a better judgment in a follow-up techradar.
+      </p>
     `
   },
   {
@@ -197,7 +215,9 @@ const content = [
       </ul>
       <br/>
       <h4>Cons:</h4>
-      <i>none</i>
+      <ul>
+        <li><i>none</i></li>
+      </ul>
       <br/>
       <h4>Conclusion</h4>
       <p>
