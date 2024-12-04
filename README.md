@@ -1,4 +1,4 @@
-> [!NOTE]  
+> [!NOTE]
 > You can find the result on [https://test-automation-group-nl.github.io/techradar/](https://test-automation-group-nl.github.io/techradar/)
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/thoughtworks/build-your-own-radar?sort=semver)](https://github.com/thoughtworks/build-your-own-radar/releases/latest)
@@ -253,3 +253,14 @@ To run End to End tests, start the dev server and follow the required steps belo
      $ docker run -p 8080:8080 -v $PWD:/app -w /app -it node:18 /bin/sh -c 'npm install && npm run dev'
 
 After building it will start on `localhost:8080`.
+
+## Run locally
+
+1. Clone the project
+2. Install all dependencies with `npm i`
+3. Run the development server with ` npm run local:dev`, this will
+  - build the radar
+  - watch the `radar.json` file and will copy it to the `dist` folder on file changes
+  - starts a server which can be accessed on `https://localhost:8080`
+
+You can now adjust the `radar.json` file. Changes will be copied to the `dist` folder and can be seen by refreshing the browser
