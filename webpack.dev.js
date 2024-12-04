@@ -68,6 +68,11 @@ module.exports = merge(common, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.ENVIRONMENT': JSON.stringify('development'),
+      'process.env.DEFAULT_JSON_URL': JSON.stringify(
+        process.env.LOCAL_DEV === 'true'
+          ? 'http://localhost:8080/radar.json'
+          : 'https://raw.githubusercontent.com/Test-Automation-Group-NL/techradar/refs/heads/master/radar.json',
+      ),
     }),
   ],
   devtool: 'source-map',
