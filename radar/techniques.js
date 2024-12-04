@@ -1,27 +1,5 @@
 const content = [
   {
-    name: "Cucumber",
-    ring: "Hold",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "Moved Out",
-    description: `
-      <h4>Description</h4>
-      <p>
-        Aquired by Smartbear a few years ago, they kicked out the last developer, so it's not maintained anymore. Please don't use it anymore because it sucks like...
-      </p>
-      <br/>
-      <h4>Pros:</h4>
-      <ul><li><strong>pro</strong> description</li></ul>
-      <br/>
-      <h4>Cons:</h4>
-      <ul><li><strong>con</strong> description</li></ul>
-      <br/>
-      <h4>Conclusion</h4>
-      <p>This is the conclusion</p>
-    `
-  },
-  {
     name: "Contract Testing",
     ring: "Assess",
     quadrant: "Techniques",
@@ -74,7 +52,6 @@ const content = [
         <ul>
           <li>Cucumber</li>
           <li>Behave / JBehave</li>
-          <li>Serenity BDD</li>
           <li>Specflow</li>
         </ul>
       </p>
@@ -121,7 +98,51 @@ const content = [
     quadrant: "Techniques",
     isNew: "FALSE",
     status: "No Change",
-    description: "<p>Is there a future in (AI driven) visual regression testing? Or are we still just scratching the surface of a technique not yet completely adopted</p>"
+    description: `
+      <h4>Description</h4>
+      <p>
+        By using a visual regression testing tool you can detect GUI visual issues which cannot be found easily by running other automated tests,
+        or only when doing manual tests repeatedly.<br/>
+        Visual regression testing is not usable in every situation, but could be a benefit for some. When you use storybook for instance, it would be
+        very easy to also use the chromatic plugin and easily check you components visually.
+      </p>
+      <p>
+        There are also a number of tools which implement visual testing on their own, each with their own benefits. But the major drawback still is that
+        your performing a pixel by pixel comparison of a baseline with a current snapshot, which can easily result in flaky tests or missed regression because
+        your threshold is too high.
+      </p>
+      <p>
+        Is there perhaps a future in AI driven visual regression testing. That is also a subject we as a group would like to investigate. So maybe in the future
+        we will see more development in this technique.
+      <p>
+        Examples of popular visual testing tools are
+        <ul>
+          <li>Chromatic</li>
+          <li>Percy</li>
+          <li>Testtool implementations, e.g. Playwright</li>
+        </ul>
+      </p>
+      <br/>
+      <h4>Pros:</h4>
+      <ul>
+        <li><strong>Easy</strong>&nbsp;A lot of tools who support visual testing are easy to implement and use</li>
+        <li><strong>Visual regression</strong>&nbsp;By using tools you can monitor visual regression more easily than by doing it manually</li>
+      </ul>
+      <br/>
+      <h4>Cons:</h4>
+      <ul>
+        <li><strong>Flaky</strong>&nbsp;Visual comparisons can result in flaky tests if thresholds are not correctly setup</li>
+        <li><strong>Pricing</strong>&nbsp;Good tools are paid and doing a lot of comparisons could increase the licensing costs a lot</li>
+      </ul>
+      <br/>
+      <h4>Conclusion</h4>
+      <p>
+        If you are using visual regression testing (tools) in your current setup, please continue doing so. But keep in mind the size of your
+        visual test set and keep looking at maintainability and usage.
+        We expect in the future that AI will contribute to visual regression testing by making it easier to compare snapshots and update baselines,
+        so we will keep an eye on that.
+      </p>
+    `
   },
   {
     name: "PBT (property-based testing)",
@@ -214,28 +235,6 @@ const content = [
   {
     name: "Component testing",
     ring: "Trial",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "FALSE",
-    description: `
-      <h4>Description</h4>
-      <p>
-        Description
-      </p>
-      <br/>
-      <h4>Pros:</h4>
-      <ul><li><strong>pro</strong> description</li></ul>
-      <br/>
-      <h4>Cons:</h4>
-      <ul><li><strong>con</strong> description</li></ul>
-      <br/>
-      <h4>Conclusion</h4>
-      <p>This is the conclusion</p>
-    `
-  },
-  {
-    name: "Observability",
-    ring: "Adopt",
     quadrant: "Techniques",
     isNew: "FALSE",
     status: "FALSE",
