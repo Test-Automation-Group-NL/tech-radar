@@ -114,6 +114,8 @@ const content = [
       <p>
         Is there perhaps a future in AI driven visual regression testing. That is also a subject we as a group would like to investigate. So maybe in the future
         we will see more development in this technique.
+      </p>
+      <br/>
       <p>
         Examples of popular visual testing tools are
         <ul>
@@ -175,17 +177,34 @@ const content = [
     description: `
       <h4>Description</h4>
       <p>
-        Description
+        Mutation testing is conceptually quite simple.<br/>
+        Faults (or mutations) are automatically seeded into your code, then your tests are run. If your tests fail then the mutation is killed, if your tests pass then the mutation lived.<br/>
+        The quality of your tests can be gauged from the percentage of mutations killed.
+      </p>
+      <br/>
+      <p>
+        A short list of mutation testing tools (incomplete)
+        <ul>
+          <li>PIT (pitest.org)</li>
+          <li>Arcmutate (arcmutate.com)</li>
+          <li>Stryker Mutator (stryker-mutator.io)</li>
+        </ul>
       </p>
       <br/>
       <h4>Pros:</h4>
-      <ul><li><strong>pro</strong> description</li></ul>
+      <ul>
+        <li><strong>Detect faults</strong>&nbsp;Mutation testing can check if your (unit) tests actually detects faults</li>
+      </ul>
       <br/>
       <h4>Cons:</h4>
-      <ul><li><strong>con</strong> description</li></ul>
+      <i>none</i>
       <br/>
       <h4>Conclusion</h4>
-      <p>This is the conclusion</p>
+      <p>
+        Traditional test coverage (i.e line, statement, branch, etc.) measures only which code is executed by your tests.
+        It does not check that your tests are actually able to detect faults in the executed code. It is therefore only able to identify code that is definitely not tested.<br/>
+        Mutation testing is much better, as it is actually able to detect whether each statement is meaningfully tested. Therefore giving an accurate report on the quality of your tests.
+      </p>
     `
   },
   {
