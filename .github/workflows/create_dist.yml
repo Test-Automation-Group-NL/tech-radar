@@ -36,13 +36,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # You can adjust this version as needed
+          node-version: '18' # You can adjust this version as needed
       - name: Install dependencies
         run: npm ci
       - name: Build project
-        run:  npm run build:prod
+        run: npm run build:prod
       - name: Generate JSON
-        run:  npm run radar:generate-json
+        run: npm run radar:generate-json:prod
       - name: Show output
         run: ls -l dist
       - name: Upload artifact

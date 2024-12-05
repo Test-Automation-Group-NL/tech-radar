@@ -23,4 +23,8 @@ const buildRadar = () => {
   }
 }
 
+if (process.env.ENVIRONMENT === 'production') {
+  buildRadar()
+}
+
 module.exports = { buildRadar }
