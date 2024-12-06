@@ -1,5 +1,5 @@
 > [!NOTE]
-> You can find the result on [https://test-automation-group-nl.github.io/techradar/](https://test-automation-group-nl.github.io/techradar/)
+> You can find the result on [https://test-automation-group-nl.github.io/tech-radar/](https://test-automation-group-nl.github.io/tech-radar/)
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/thoughtworks/build-your-own-radar?sort=semver)](https://github.com/thoughtworks/build-your-own-radar/releases/latest)
 [![Thoughtworks](https://circleci.com/gh/thoughtworks/build-your-own-radar.svg?style=shield)](https://circleci.com/gh/thoughtworks/build-your-own-radar)
@@ -263,11 +263,11 @@ After building it will start on `localhost:8080`.
   - watch the `radar.json` file and will copy it to the `dist` folder on file changes
   - starts a server which can be accessed on `https://localhost:8080`
 
-You can now adjust the `radar.json` file. Changes will be copied to the `dist` folder and can be seen by refreshing the browser
+You can now adjust the files in the `radar`-folder file. Changes will be automatically generated and copied to the `dist` folder and can be seen by refreshing the browser
 
 # Template description
 ```html
-<h4>Description title</h4>
+<h4>Description</h4>
 <p>
   Description
 </p>
@@ -278,6 +278,6 @@ You can now adjust the `radar.json` file. Changes will be copied to the `dist` f
 <h4>Cons:</h4>
 <ul><li><strong>con</strong> description</li></ul>
 <br/>
-<h4>Conclusion title</h4>
+<h4>Conclusion</h4>
 <p>This is the conclusion</p>
 ```
