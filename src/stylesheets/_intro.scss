@@ -2,21 +2,12 @@
 @import 'layout';
 
 @if $UIRefresh2022 {
-  .hero-banner {
-    height: $tabletBannerHeight;
-    background-color: $amethyst;
-    color: $white;
+  .intro-overview {
+    background-color: $white;
+    color: $black;
     display: flex;
     align-items: center;
-    margin: 0 !important;
-
-    a{
-      color: $white;
-    }
-
-    @include media-query-xlarge {
-      height: $bannerHeight;
-    }
+    margin: 20px 0 !important;
 
     &__wrapper {
       margin: auto;
