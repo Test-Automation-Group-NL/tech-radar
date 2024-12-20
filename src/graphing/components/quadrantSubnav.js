@@ -66,16 +66,18 @@ function renderQuadrantSubnav(radarHeader, quadrants, renderFullRadar) {
     )
   })
 
-  const subnavOffset =
-    (window.innerWidth < 1024 ? uiConfig.tabletBannerHeight : uiConfig.bannerHeight) + uiConfig.headerHeight
-
   window.addEventListener('scroll', function () {
-    if (subnavOffset <= window.scrollY) {
-      d3.select('.quadrant-subnav').classed('sticky', true)
-      d3.select('.search-container').classed('sticky-offset', true)
+    const quadrantGraphHeader = d3.select('.graph-header')
+    const quadrantSubnav = d3.select('.quadrant-subnav')
+    const searchContainer = d3.select('.search-container')
+    const graphHeaderRect = quadrantGraphHeader.node().getBoundingClientRect()
+
+    if (graphHeaderRect.top <= 0) {
+      quadrantSubnav.classed('sticky', true)
+      searchContainer.classed('sticky-offset', true)
     } else {
-      d3.select('.quadrant-subnav').classed('sticky', false)
-      d3.select('.search-container').classed('sticky-offset', false)
+      quadrantSubnav.classed('sticky', false)
+      searchContainer.classed('sticky-offset', false)
     }
   })
 }
