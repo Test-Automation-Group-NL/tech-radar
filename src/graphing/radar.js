@@ -625,13 +625,13 @@ const Radar = function (size, radar) {
       addButton(quadrants[i])
     })
 
-    buttonsGroup
-      .append('div')
-      .classed('print-radar-btn', true)
-      .append('div')
-      .classed('print-radar button no-capitalize', true)
-      .text('Print this radar')
-      .on('click', window.print.bind(window))
+    // buttonsGroup
+    //   .append('div')
+    //   .classed('print-radar-btn', true)
+    //   .append('div')
+    //   .classed('print-radar button no-capitalize', true)
+    //   .text('Print this radar')
+    //   .on('click', window.print.bind(window))
 
     alternativeDiv
       .append('div')
@@ -771,13 +771,14 @@ const Radar = function (size, radar) {
     currentSheet = radar.getCurrentSheet()
 
     const radarHeader = d3.select('main .graph-header')
+    const radarSearch = d3.select('main .graph-search')
     const radarFooter = d3.select('main .graph-footer')
 
     renderBanner(renderFullRadar)
 
     if (featureToggles.UIRefresh2022) {
       renderQuadrantSubnav(radarHeader, quadrants, renderFullRadar)
-      renderSearch(radarHeader, quadrants)
+      renderSearch(radarSearch, quadrants)
       renderAlternativeRadars(radarFooter, alternatives, currentSheet)
       renderQuadrantTables(quadrants, rings)
       renderButtons(radarFooter)

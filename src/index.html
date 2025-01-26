@@ -13,21 +13,15 @@
 </head>
 
 <body>
-  <header class="input-sheet__logo">
-    <div>
-      <span>Powered by</span>
-      <a href="https://www.thoughtworks.com">
-        <img src="/images/tw-logo.png" alt="Thoughtworks logo">
-      </a>
-    </div>
-  </header>
   <div class="hero-banner">
     <div class="hero-banner__wrapper">
       <h1 class="hero-banner__title-text">Test Automation TechRadar</h1>
-      <p>
-        By <a href="https://detesters.nl/" target="_blank">deTesters</a>, <a href="https://testcoders.nl/"
-          target="_blank">TestCoders</a> & <a href="https://techchamps.io/" target="_blank">TechChamps</a>
-      </p>
+      <p class="hero-banner__subtitle-text">Powered by:</p>
+      <div class="hero-banner__logos">
+        <img src="/images/logo-detesters.png" alt="deTesters logo">
+        <img src="/images/logo-testcoders.png" alt="TestCoders logo">
+        <img src="/images/logo-techchamps.png" alt="TechChamps logo">
+      </div>
     </div>
   </div>
   <main>
@@ -69,7 +63,8 @@
         <a href="https://www.thoughtworks.com/radar/byor#guide">Need help?</a>
       </form>
     </div>
-    <div class="intro" class="intro-overview">
+    <div class="graph-header"></div>
+    <div class="intro-overview">
       <div class="intro-overview__wrapper">
         <h1>Introduction</h1>
         <p>The Test Automation TechRadar is designed to guide Test Automation Engineers, QA teams, and engineering
@@ -88,7 +83,7 @@
           balancing innovation with practical needs.</p>
       </div>
     </div>
-    <div class="intro" class="intro-overview">
+    <div class="intro-overview intro-overview__color">
       <div class="intro-overview__wrapper">
         <h1>Overview</h1>
         <p>The TechRadar organizes technologies into two key dimensions: quadrants and rings.</p>
@@ -133,14 +128,12 @@
           tools, the TechRadar will help you prioritize and act confidently.</p>
       </div>
     </div>
-    <div class="graph-header"></div>
-    <div id="radar">
-      <p class="no-blip-text">
-        There are no blips on this quadrant, please check your Google sheet/CSV/JSON file once.
-      </p>
+    <div class="menu-anchor"></div>
+    <div class="graph-search"></div>
     </div>
-    <div class="all-quadrants-mobile show-all-quadrants-mobile"></div>
-    <div class="graph-footer"></div>
+    <div id="radar">
+      <div class="all-quadrants-mobile show-all-quadrants-mobile"></div>
+      <div class="graph-footer"></div>
   </main>
   <footer class="home-page">
     <div class="pdf-footer">

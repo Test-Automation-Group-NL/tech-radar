@@ -7,7 +7,12 @@
     color: $black;
     display: flex;
     align-items: center;
-    margin: 20px 0 !important;
+    margin: 0 !important;
+    padding: 100px 0 ;
+
+    &__color {
+      background-color: rgb(241, 245, 249);
+    }
 
     &__wrapper {
       margin: auto;
