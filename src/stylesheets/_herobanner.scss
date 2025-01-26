@@ -3,19 +3,15 @@
 
 @if $UIRefresh2022 {
   .hero-banner {
-    height: $tabletBannerHeight;
-    background-color: $amethyst;
+    background-color: $wave;
     color: $white;
     display: flex;
     align-items: center;
     margin: 0 !important;
+    padding: 40px 0;
 
-    a{
+    a {
       color: $white;
-    }
-
-    @include media-query-xlarge {
-      height: $bannerHeight;
     }
 
     &__wrapper {
@@ -30,17 +26,42 @@
       @include layout-margin(1, $screen-xxxlarge);
     }
 
+    &__logos {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+
+      @include media-query-small {
+        gap: 10px;
+        img {
+          max-width: 80px;
+        }
+      }
+
+      @include media-query-medium {
+        gap: 15px;
+        img {
+          max-width: 90px;
+        }
+      }
+    }
+
     &__title-text {
-      width: fit-content;
+      width: 100%;
       text-align: left;
       text-transform: none;
       letter-spacing: 0;
       cursor: pointer;
+      text-align: center;
+      margin-bottom: 1rem;
     }
 
     &__subtitle-text {
       font-weight: 630;
-      width: 50%;
+      width: 100%;
       text-align: left;
       text-transform: none;
       letter-spacing: 0;
@@ -50,18 +71,23 @@
       line-height: 1.75rem;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
+      text-align: center;
+      margin-bottom: 2rem;
 
       @include media-query-medium {
-        width: 37.5%;
         -webkit-line-clamp: 2;
       }
+    }
 
-      @include media-query-large {
-        width: 25%;
-      }
+    img {
+      max-width: 175px;
+      height: auto;
+      padding: 10px;
+      transition: all 0.2s ease-in-out;
 
-      @include media-query-xlarge {
-        width: 33%;
+
+      &:hover {
+        transform: scale(1.1);
       }
     }
   }

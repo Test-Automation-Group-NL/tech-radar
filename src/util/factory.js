@@ -345,8 +345,6 @@ function plotLoading(content) {
 
     setDocumentTitle()
 
-    plotLogo(content)
-
     var bannerText =
       '<h1>Building your radar...</h1><p>Your Technology Radar will be available in just a few seconds</p>'
     plotBanner(content, bannerText)
@@ -356,13 +354,6 @@ function plotLoading(content) {
     document.querySelector('.input-sheet-form').style.display = 'none'
     document.querySelector('.helper-description .loader-text').style.display = 'block'
   }
-}
-
-function plotLogo(content) {
-  content
-    .append('div')
-    .attr('class', 'input-sheet__logo')
-    .html('<a href="https://www.thoughtworks.com"><img src="images/tw-logo.png" alt="logo"/ ></a>')
 }
 
 function plotFooter(content) {
@@ -413,8 +404,6 @@ function plotErrorMessage(exception, fileType) {
   } else {
     const content = d3.select('body').append('div').attr('class', 'input-sheet')
     setDocumentTitle()
-
-    plotLogo(content)
 
     const bannerText =
       '<div><h1>Build your own radar</h1><p>Once you\'ve <a href ="https://www.thoughtworks.com/radar/byor">created your Radar</a>, you can use this service' +
@@ -481,8 +470,6 @@ function plotUnauthorizedErrorMessage() {
   if (!featureToggles.UIRefresh2022) {
     content = d3.select('body').append('div').attr('class', 'input-sheet')
     setDocumentTitle()
-
-    plotLogo(content)
 
     const bannerText = '<div><h1>Build your own radar</h1></div>'
 
