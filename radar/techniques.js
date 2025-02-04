@@ -78,9 +78,7 @@ const content = [
     description: `
       <h4>Description</h4>
       <p>
-        <strong>TDD</strong> or Test Driven Development is a practice used in software development to make quality, neat, and errorless code,
-        especially when there is change bound to happen later on. As the name suggests, TDD is a way to do development that is driven by tests rather than
-        first writing your code and adding unit tests afterward.
+        <strong>TDD</strong> or Test Driven Development is a practice used in software development to make quality, neat, and errorless code, especially when there is change bound to happen later on. As the name suggests, TDD is a way to do development that is driven by tests rather than first writing your code and adding unit tests afterward.
       </p>
       <br/>
       <h4>Pros:</h4>
@@ -89,13 +87,15 @@ const content = [
         <li><strong>Quality</strong>&nbsp;The quality of your code will improve because you need to think about scenarios and functionality before you write a single line of code</li>
       </ul>
       <br/>
+      <br/>
       <h4>Cons:</h4>
       <ul>
         <li><strong>Learning curve</strong>&nbsp;It can be difficult to start with TDD, it takes time and effort to invest in this technique.</li>
       </ul>
       <br/>
+      <br/>
       <h4>Conclusion</h4>
-      <p>It's a tool you could use. It depends on the context if TDD would benefit you as a developer.</p>
+      <p>TDD can dramatically improve the quality of your code as it forces you to think about tests before actually writing code and gives you rapid feedback when making changes.  We would recommend evaluating if TDD fits within the context of your organization, e.g. if your product is relatively well-defined and doesn’t change in extreme forms very rapidly.</p>
     `
   },
   {
