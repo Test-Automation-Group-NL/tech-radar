@@ -18,15 +18,15 @@ const content = [{
       <br/>
       <h4>Pros:</h4>
       <ul>
-        <li><strong>Fast</strong> Contact tests run fast and are not reliant on other systems Easy to maintain</li>
+        <li><strong>Fast</strong> Contract tests run fast and are not reliant on other systems Easy to maintain</li>
         Easy to maintain
       </ul>
       <br/>
       <br/>
       <h4>Cons:</h4>
-      <li><strong>Sharing</strong> Contracts have to be shared between producer and consumer</li>
+      <li><strong>Sharing:</strong> Contracts have to be shared between producer and consumer</li>
       <br/>
-      <h4>Conclusion</h4>
+      <h4>Conclusio:</h4>
       <p>Contract Testing is a great addition to any project that deals with large-scale and highly distributed application(s). Integration issues between consumers and providers can be detected early without the need for setting up expensive integration environments. We would definitely recommend assessing contract testing as a technique.</p>
     `,
 },
@@ -45,9 +45,9 @@ const content = [{
       <p>
         Examples of popular BDD frameworks are
         <ul>
-          <li>• Cucumber</li>
-          <li>• Behave / JBehave</li>
-          <li>• Specflow</li>
+          <li>Cucumber</li>
+          <li>Behave / JBehave</li>
+          <li>Specflow</li>
         </ul>
       </p>
       <br/>
@@ -56,13 +56,14 @@ const content = [{
       <br/>
       <br/>
       <h4>Cons:</h4>
-      <ul><li>Doing BDD correctly is actually extremely difficult. It requires strong collaboration between developers, testers, and business stakeholders, which can be challenging to establish and maintain.
-         BDD, in most projects, is often misused as merely a way to write tests in a human-readable language. Without the collaborative focus on shared understanding and behavior specification, it holds little value.
-         In some projects, BDD is misinterpreted as a low-code automation solution, appealing to teams as a shortcut to start automating. However, BDD's purpose is not to simplify automation but to foster collaboration and ensure a shared understanding of the system's expected behaviors.
-</li></ul>
+      <ul>
+            <li>Doing BDD correctly is actually extremely difficult. It requires strong collaboration between developers, testers, and business stakeholders, which can be challenging to establish and maintain.</li>
+            <li>BDD, in most projects, is often misused as merely a way to write tests in a human-readable language. Without the collaborative focus on shared understanding and behavior specification, it holds little value.</li>
+            <li>In some projects, BDD is misinterpreted as a low-code automation solution, appealing to teams as a shortcut to start automating. However, BDD's purpose is not to simplify automation but to foster collaboration and ensure a shared understanding of the system's expected behaviors.</li>
+      </ul>
       <br/>
       <br/>
-      <h4>Conclusion</h4>
+      <h4>Conclusion:</h4>
       <p>
         While BDD is widely adopted, we do not recommend its use in most cases. In our experience, BDD is rarely applied for its intended purpose—facilitating collaboration and ensuring shared understanding between developers, testers, and business stakeholders. Instead, it often becomes an additional layer of complexity, where the Gherkin syntax adds little value beyond traditional testing approaches. Furthermore, tools like Cucumber often restrict access to the full feature set of underlying testing frameworks, leading to inefficient use of resources. For these reasons, we would not recommend starting new projects with BDD.
       </p>
@@ -82,8 +83,8 @@ const content = [{
       <br/>
       <h4>Pros:</h4>
       <ul>
-        <li><strong>Test coverage</strong> By writing tests before you code, you know all your written code is covered by unit tests</li>
-        <li><strong>Quality</strong> The quality of your code will improve because you need to think about scenarios and functionality before you write a single line of code</li>
+        <li><strong>Test coverage:</strong> By writing tests before you code, you know all your written code is covered by unit tests</li>
+        <li><strong>Quality:</strong> The quality of your code will improve because you need to think about scenarios and functionality before you write a single line of code</li>
       </ul>
       <br/>
       <br/>
@@ -93,7 +94,7 @@ const content = [{
       </ul>
       <br/>
       <br/>
-      <h4>Conclusion</h4>
+      <h4>Conclusion:</h4>
       <p>TDD can dramatically improve the quality of your code as it forces you to think about tests before actually writing code and gives you rapid feedback when making changes.  We would recommend evaluating if TDD fits within the context of your organization, e.g. if your product is relatively well-defined and doesn’t change in extreme forms very rapidly.</p>
     `,
   },
@@ -112,10 +113,10 @@ const content = [{
       <p>
         Examples of popular visual testing tools are
         <ul>
-          <li>• Chromatic</li>
-          <li>• Percy</li>
-          <li>• Test tool implementations, e.g. Playwright, WebdriverIO</li>
-          <li>• Applitools</li>
+          <li>Chromatic</li>
+          <li>Percy</li>
+          <li>Test tool implementations, e.g. Playwright, WebdriverIO</li>
+          <li>Applitools</li>
         </ul>
       </p>
       <br/>
@@ -129,55 +130,15 @@ const content = [{
       <h4>Cons:</h4>
       <ul>
         <li><strong>Flakiness:</strong> Visual comparisons can result in flaky tests if thresholds are not correctly set leading to time-consuming debugging tasks.</li>
-        <li><strong>Pricing</strong> High quality tools are often paid and doing a lot of comparisons could increase the licensing costs a lot.</li>
+        <li><strong>Pricing:</strong> High quality tools are often paid and doing a lot of comparisons could increase the licensing costs a lot.</li>
       </ul>
       <br/>
       <br/>
-      <h4>Conclusion</h4>
+      <h4>Conclusion:</h4>
       <p>
         Visual Regression Testing can be very beneficial when implemented correctly, preventing unnoticed UI changes and improving overall design consistency. However, improper setup can turn it into a time sink.
         <br/>
         For teams using Storybook, visual testing is an especially natural fit, as it enables seamless validation of UI components in isolation. If your project includes a well-defined, static component library, investing in visual regression testing is highly recommended. Otherwise, teams may find better value in other QA activities.
-      </p>
-    `,
-  },
-  {
-    name: 'PBT (property-based testing)',
-    ring: 'Trial',
-    quadrant: 'Techniques',
-    isNew: 'FALSE',
-    status: 'No Change',
-    description: `
-      <h4>Description</h4>
-      <p>
-        Property-based testing is a powerful testing methodology that allows developers to automatically generate and test a wide range of input data against specified properties of the software under test. Unlike traditional example-based testing, which uses specific, predefined inputs, property based testing explores the entire input space to uncover edge cases and potential bugs.
-      </p>
-      <br/>
-      <p>
-        Examples of frameworks
-        <ul>
-          <li>• QuickCheck</li>
-          <li>• Hypothesis</li>
-          <li>• ScalaCheck</li>
-        </ul>
-      </p>
-      <br/>
-      <h4>Pros:</h4>
-      <ul>
-        <li><i>unknown</i></li>
-      </ul>
-      <br/>
-      <br/>
-      <h4>Cons:</h4>
-      <ul>
-        <li><i>unknown</i></li>
-      </ul>
-      <br/>
-      <br/>
-      <h4>Conclusion</h4>
-      <p>
-        Property-based testing is a robust and versatile testing methodology that complements traditional example-based testing.
-        We would like to trial this technique and give a better judgment in a follow-up techradar.
       </p>
     `,
   },
@@ -196,9 +157,9 @@ const content = [{
       <p>
         Here are a few examples of mutation testing tools (not an exhaustive list):
         <ul>
-          <li>• PIT (pitest.org)</li>
-          <li>• Arcmutate (arcmutate.com)</li>
-          <li>• Stryker Mutator (stryker-mutator.io)</li>
+          <li>PIT (pitest.org)</li>
+          <li>Arcmutate (arcmutate.com)</li>
+          <li>Stryker Mutator (stryker-mutator.io)</li>
         </ul>
       </p>
       <br/>
@@ -211,63 +172,18 @@ const content = [{
       <br/>
       <h4>Cons:</h4>
       <ul>
-        <li><i>Mutation testing can be computationally expensive, especially in large projects, as it requires running the test suite multiple times for each mutation.
-        It may require additional configuration or tuning to integrate seamlessly with your existing testing pipelines
-        </i></li>
+        <li>Mutation testing can be computationally expensive, especially in large projects, as it requires running the test suite multiple times for each mutation.</li>
+        <li>It may require additional configuration or tuning to integrate seamlessly with your existing testing pipelines</li>
       </ul>
       <br/>
       <br/>
-      <h4>Conclusion</h4>
+      <h4>Conclusion:</h4>
       <p>
         Mutation Testing is an amazing technique to validate if you can actually rely on your tests to inform you of changed behavior. Traditional test coverage (i.e. line, statement, branch, etc.) measures only which code is executed by your tests. It does not check that your tests are actually able to detect faults in the executed code. It is therefore only able to identify code that is definitely not tested.
         Mutation testing is much better, as it is actually able to detect whether each
         statement is meaningfully tested. Therefore giving an accurate report on the quality of your tests.
         <br/>We would definitely recommend checking it out!
       </p>
-    `,
-  },
-  {
-    name: 'Shift Left',
-    ring: 'Adopt',
-    quadrant: 'Techniques',
-    isNew: 'FALSE',
-    status: 'FALSE',
-    description: `
-      <h4>Description</h4>
-      <p>
-        Description
-      </p>
-      <br/>
-      <h4>Pros:</h4>
-      <ul><li><strong>pro</strong> description</li></ul>
-      <br/>
-      <h4>Cons:</h4>
-      <ul><li><strong>con</strong> description</li></ul>
-      <br/>
-      <h4>Conclusion</h4>
-      <p>This is the conclusion</p>
-    `,
-  },
-  {
-    name: 'Shift Right',
-    ring: 'Trial',
-    quadrant: 'Techniques',
-    isNew: 'FALSE',
-    status: 'FALSE',
-    description: `
-      <h4>Description</h4>
-      <p>
-        Description
-      </p>
-      <br/>
-      <h4>Pros:</h4>
-      <ul><li><strong>pro</strong> description</li></ul>
-      <br/>
-      <h4>Cons:</h4>
-      <ul><li><strong>con</strong> description</li></ul>
-      <br/>
-      <h4>Conclusion</h4>
-      <p>This is the conclusion</p>
     `,
   },
   {
@@ -298,7 +214,7 @@ const content = [{
       </ul>
       <br/>
       <br/>
-      <h4>Conclusion</h4>
+      <h4>Conclusion:</h4>
       <p>Component testing is a proven practice that delivers significant value, especially in projects using modular architectures. However, it should complement, not replace, unit testing (UT). Each layer of testing has its own purpose, and overlapping coverage between unit and component tests should be avoided to prevent redundancy. Additionally, component testing can be effectively combined with visual testing to verify both behavior and UI consistency. We strongly recommend adopting component testing for immediate use wherever it fits project requirements, as part of a comprehensive and efficient testing strategy.</p>
     `,
   },
