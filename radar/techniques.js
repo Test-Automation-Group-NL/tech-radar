@@ -1,11 +1,10 @@
-const content = [
-  {
-    name: "Contract Testing",
-    ring: "Assess",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "Moved In",
-    description: `
+const content = [{
+  name: 'Contract Testing',
+  ring: 'Assess',
+  quadrant: 'Techniques',
+  isNew: 'FALSE',
+  status: 'Moved In',
+  description: `
       <h4>Description</h4>
       <p>
       Contract testing is a methodology for ensuring that two separate systems (such as two microservices) are compatible and can communicate with one another. It captures the interactions that are exchanged between each service, storing them in a contract, which then can be used to verify that both parties adhere to it. Contract testing goes beyond schema testing, requiring both parties to come to a consensus on the allowed set of interactions and allowing for evolution over time.
@@ -19,7 +18,7 @@ const content = [
       <br/>
       <h4>Pros:</h4>
       <ul>
-        <li><strong>Fast</strong>&nbsp;Contact tests run fast and are not reliant on other systems Easy to maintain</li>
+        <li><strong>Fast</strong> Contact tests run fast and are not reliant on other systems Easy to maintain</li>
         Easy to maintain
       </ul>
       <br/>
@@ -29,14 +28,14 @@ const content = [
       <br/>
       <h4>Conclusion</h4>
       <p>Contract Testing is a great addition to any project that deals with large-scale and highly distributed application(s). Integration issues between consumers and providers can be detected early without the need for setting up expensive integration environments. We would definitely recommend assessing contract testing as a technique.</p>
-    `
-  },
+    `,
+},
   {
-    name: "BDD",
-    ring: "Hold",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "No Change",
+    name: 'BDD',
+    ring: 'Hold',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'No Change',
     description: `
       <h4>Description</h4>
       <p>
@@ -67,14 +66,14 @@ const content = [
       <p>
         While BDD is widely adopted, we do not recommend its use in most cases. In our experience, BDD is rarely applied for its intended purpose—facilitating collaboration and ensuring shared understanding between developers, testers, and business stakeholders. Instead, it often becomes an additional layer of complexity, where the Gherkin syntax adds little value beyond traditional testing approaches. Furthermore, tools like Cucumber often restrict access to the full feature set of underlying testing frameworks, leading to inefficient use of resources. For these reasons, we would not recommend starting new projects with BDD.
       </p>
-    `
+    `,
   },
   {
-    name: "TDD",
-    ring: "Assess",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "No Change",
+    name: 'TDD',
+    ring: 'Assess',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'No Change',
     description: `
       <h4>Description</h4>
       <p>
@@ -83,27 +82,27 @@ const content = [
       <br/>
       <h4>Pros:</h4>
       <ul>
-        <li><strong>Test coverage</strong>&nbsp;By writing tests before you code, you know all your written code is covered by unit tests</li>
-        <li><strong>Quality</strong>&nbsp;The quality of your code will improve because you need to think about scenarios and functionality before you write a single line of code</li>
+        <li><strong>Test coverage</strong> By writing tests before you code, you know all your written code is covered by unit tests</li>
+        <li><strong>Quality</strong> The quality of your code will improve because you need to think about scenarios and functionality before you write a single line of code</li>
       </ul>
       <br/>
       <br/>
       <h4>Cons:</h4>
       <ul>
-        <li><strong>Learning curve</strong>&nbsp;It can be difficult to start with TDD, it takes time and effort to invest in this technique.</li>
+        <li><strong>Learning curve</strong> It can be difficult to start with TDD, it takes time and effort to invest in this technique.</li>
       </ul>
       <br/>
       <br/>
       <h4>Conclusion</h4>
       <p>TDD can dramatically improve the quality of your code as it forces you to think about tests before actually writing code and gives you rapid feedback when making changes.  We would recommend evaluating if TDD fits within the context of your organization, e.g. if your product is relatively well-defined and doesn’t change in extreme forms very rapidly.</p>
-    `
+    `,
   },
   {
-    name: "Visual Regression Testing",
-    ring: "Hold",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "No Change",
+    name: 'Visual Regression Testing',
+    ring: 'Hold',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'No Change',
     description: `
       <h4>Description</h4>
       <p>
@@ -122,14 +121,14 @@ const content = [
       <br/>
       <h4>Pros:</h4>
       <ul>
-        <li><strong>Ease of Implementation:</strong>&nbsp;Many visual testing tools are simple to set up and integrate into existing workflows.</li>
+        <li><strong>Ease of Implementation:</strong> Many visual testing tools are simple to set up and integrate into existing workflows.</li>
         <li><strong>Automated Visual Monitoring:</strong> By using tools you can monitor visual regression more easily than by doing it manually</li>
       </ul>
       <br/>
       <br/>
       <h4>Cons:</h4>
       <ul>
-        <li><strong>Flakiness:</strong>&nbsp;Visual comparisons can result in flaky tests if thresholds are not correctly set leading to time-consuming debugging tasks.</li>
+        <li><strong>Flakiness:</strong> Visual comparisons can result in flaky tests if thresholds are not correctly set leading to time-consuming debugging tasks.</li>
         <li><strong>Pricing</strong> High quality tools are often paid and doing a lot of comparisons could increase the licensing costs a lot.</li>
       </ul>
       <br/>
@@ -140,14 +139,14 @@ const content = [
         <br/>
         For teams using Storybook, visual testing is an especially natural fit, as it enables seamless validation of UI components in isolation. If your project includes a well-defined, static component library, investing in visual regression testing is highly recommended. Otherwise, teams may find better value in other QA activities.
       </p>
-    `
+    `,
   },
   {
-    name: "PBT (property-based testing)",
-    ring: "Trial",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "No Change",
+    name: 'PBT (property-based testing)',
+    ring: 'Trial',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'No Change',
     description: `
       <h4>Description</h4>
       <p>
@@ -180,14 +179,14 @@ const content = [
         Property-based testing is a robust and versatile testing methodology that complements traditional example-based testing.
         We would like to trial this technique and give a better judgment in a follow-up techradar.
       </p>
-    `
+    `,
   },
   {
-    name: "Mutation testing",
-    ring: "Hold",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "No Change",
+    name: 'Mutation testing',
+    ring: 'Hold',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'No Change',
     description: `
       <h4>Description</h4>
       <p>
@@ -205,7 +204,7 @@ const content = [
       <br/>
       <h4>Pros:</h4>
       <ul>
-        <li><strong>Ensures Test Quality:</strong>&nbsp;Mutation testing helps determine not just test coverage but also test effectiveness, ensuring your tests can detect actual faults in the code.</li>
+        <li><strong>Ensures Test Quality:</strong> Mutation testing helps determine not just test coverage but also test effectiveness, ensuring your tests can detect actual faults in the code.</li>
         <li><strong>Identifies Weak Tests:</strong> It can highlight weak or redundant tests that might be passing but are not effectively validating the application's behavior.</li>
       </ul>
       <br/>
@@ -225,14 +224,14 @@ const content = [
         statement is meaningfully tested. Therefore giving an accurate report on the quality of your tests.
         <br/>We would definitely recommend checking it out!
       </p>
-    `
+    `,
   },
   {
-    name: "Shift Left",
-    ring: "Adopt",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "FALSE",
+    name: 'Shift Left',
+    ring: 'Adopt',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'FALSE',
     description: `
       <h4>Description</h4>
       <p>
@@ -247,14 +246,14 @@ const content = [
       <br/>
       <h4>Conclusion</h4>
       <p>This is the conclusion</p>
-    `
+    `,
   },
   {
-    name: "Shift Right",
-    ring: "Trial",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "FALSE",
+    name: 'Shift Right',
+    ring: 'Trial',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'FALSE',
     description: `
       <h4>Description</h4>
       <p>
@@ -269,14 +268,14 @@ const content = [
       <br/>
       <h4>Conclusion</h4>
       <p>This is the conclusion</p>
-    `
+    `,
   },
   {
-    name: "Component testing",
-    ring: "Trial",
-    quadrant: "Techniques",
-    isNew: "FALSE",
-    status: "FALSE",
+    name: 'Component testing',
+    ring: 'Trial',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'FALSE',
     description: `
       <h4>Description</h4>
       <p>
@@ -301,7 +300,7 @@ const content = [
       <br/>
       <h4>Conclusion</h4>
       <p>Component testing is a proven practice that delivers significant value, especially in projects using modular architectures. However, it should complement, not replace, unit testing (UT). Each layer of testing has its own purpose, and overlapping coverage between unit and component tests should be avoided to prevent redundancy. Additionally, component testing can be effectively combined with visual testing to verify both behavior and UI consistency. We strongly recommend adopting component testing for immediate use wherever it fits project requirements, as part of a comprehensive and efficient testing strategy.</p>
-    `
+    `,
   },
 ]
 
