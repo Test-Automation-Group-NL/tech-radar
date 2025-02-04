@@ -144,7 +144,7 @@ const content = [{
   },
   {
     name: 'Mutation testing',
-    ring: 'Hold',
+    ring: 'Trial',
     quadrant: 'Techniques',
     isNew: 'FALSE',
     status: 'No Change',
