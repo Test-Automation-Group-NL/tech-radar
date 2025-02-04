@@ -107,48 +107,38 @@ const content = [
     description: `
       <h4>Description</h4>
       <p>
-        By using a visual regression testing tool you can detect GUI visual issues which cannot be found easily by running other automated tests,
-        or only when doing manual tests repeatedly.<br/>
-        Visual regression testing is not usable in every situation, but could be a benefit for some. When you use storybook for instance, it would be
-        very easy to also use the chromatic plugin and easily check you components visually.
-      </p>
-      <p>
-        There are also a number of tools which implement visual testing on their own, each with their own benefits. But the major drawback still is that
-        your performing a pixel by pixel comparison of a baseline with a current snapshot, which can easily result in flaky tests or missed regression because
-        your threshold is too high.
-      </p>
-      <p>
-        Is there perhaps a future in AI driven visual regression testing. That is also a subject we as a group would like to investigate. So maybe in the future
-        we will see more development in this technique.
+       If your team or company has a static component library, performing Visual Regression tests can provide massive value by providing visual validation of these components on every iteration.  Obviously, you could detect these differences manually but sometimes they’re extremely small and it’s quite time-consuming. Most tools offer a pixel-by-pixel comparison and work similarly. The difficulty comes with searching for a threshold that’s a perfect tradeoff between not having flaky tests, missed regression, or having to update the snapshots all the time.
       </p>
       <br/>
       <p>
         Examples of popular visual testing tools are
         <ul>
-          <li>Chromatic</li>
-          <li>Percy</li>
-          <li>Testtool implementations, e.g. Playwright</li>
+          <li>• Chromatic</li>
+          <li>• Percy</li>
+          <li>• Test tool implementations, e.g. Playwright, WebdriverIO</li>
+          <li>• Applitools</li>
         </ul>
       </p>
       <br/>
       <h4>Pros:</h4>
       <ul>
-        <li><strong>Easy</strong>&nbsp;A lot of tools who support visual testing are easy to implement and use</li>
-        <li><strong>Visual regression</strong>&nbsp;By using tools you can monitor visual regression more easily than by doing it manually</li>
+        <li><strong>Ease of Implementation:</strong>&nbsp;Many visual testing tools are simple to set up and integrate into existing workflows.</li>
+        <li><strong>Automated Visual Monitoring:</strong> By using tools you can monitor visual regression more easily than by doing it manually</li>
       </ul>
+      <br/>
       <br/>
       <h4>Cons:</h4>
       <ul>
-        <li><strong>Flaky</strong>&nbsp;Visual comparisons can result in flaky tests if thresholds are not correctly setup</li>
-        <li><strong>Pricing</strong>&nbsp;Good tools are paid and doing a lot of comparisons could increase the licensing costs a lot</li>
+        <li><strong>Flakiness:</strong>&nbsp;Visual comparisons can result in flaky tests if thresholds are not correctly set leading to time-consuming debugging tasks.</li>
+        <li><strong>Pricing</strong> High quality tools are often paid and doing a lot of comparisons could increase the licensing costs a lot.</li>
       </ul>
+      <br/>
       <br/>
       <h4>Conclusion</h4>
       <p>
-        If you are using visual regression testing (tools) in your current setup, please continue doing so. But keep in mind the size of your
-        visual test set and keep looking at maintainability and usage.
-        We expect in the future that AI will contribute to visual regression testing by making it easier to compare snapshots and update baselines,
-        so we will keep an eye on that.
+        Visual Regression Testing can be very beneficial when implemented correctly, preventing unnoticed UI changes and improving overall design consistency. However, improper setup can turn it into a time sink.
+        <br/>
+        For teams using Storybook, visual testing is an especially natural fit, as it enables seamless validation of UI components in isolation. If your project includes a well-defined, static component library, investing in visual regression testing is highly recommended. Otherwise, teams may find better value in other QA activities.
       </p>
     `
   },
