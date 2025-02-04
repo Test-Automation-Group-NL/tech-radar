@@ -100,7 +100,7 @@ const content = [{
   },
   {
     name: 'Visual Regression Testing',
-    ring: 'Hold',
+    ring: 'Trial',
     quadrant: 'Techniques',
     isNew: 'FALSE',
     status: 'No Change',
