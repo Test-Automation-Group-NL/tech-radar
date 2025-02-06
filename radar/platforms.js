@@ -75,7 +75,7 @@ const content = [
     description: `
       <h4>Description:</h4>
       <p>
-        <strong>Applitools</strong> is a visual testing platform that leverages AI-powered algorithms to perform visual regression testing. It focuses exclusively on visual testing and requires integration with a cloud vendor or local grid for test execution, as it does not include a (proper) execution environment. By sending test data to Applitools for analysis, teams can ensure UI consistency across multiple browsers and devices.
+        Applitools is a visual testing platform that leverages AI-powered algorithms to perform visual regression testing. It focuses exclusively on visual testing and requires integration with a cloud vendor or local grid for test execution, as it does not include a (proper) execution environment. By sending test data to Applitools for analysis, teams can ensure UI consistency across multiple browsers and devices.
       </p>
       <br/>
       <h4>Pros:</h4>
