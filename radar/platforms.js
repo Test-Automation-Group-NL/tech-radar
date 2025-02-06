@@ -65,6 +65,41 @@ const content = [
        However, teams considering LambdaTest for larger projects or enterprise use should evaluate it carefully, given migration complexities, documentation gaps, and stability concerns. We recommend trialing LambdaTest to assess its fit, especially for teams aiming to leverage its cutting-edge AI capabilities and scalable infrastructure.</p>
     `,
   },
+
+  {
+    name: 'Applitools',
+    ring: 'Trial',
+    quadrant: 'Platforms',
+    isNew: 'FALSE',
+    status: 'No Change',
+    description: `
+      <h4>Description:</h4>
+      <p>
+        <strong>Applitools</strong> is a visual testing platform that leverages AI-powered algorithms to perform visual regression testing. It focuses exclusively on visual testing and requires integration with a cloud vendor or local grid for test execution, as it does not include a (proper) execution environment. By sending test data to Applitools for analysis, teams can ensure UI consistency across multiple browsers and devices.
+      </p>
+      <br/>
+      <h4>Pros:</h4>
+      <ul>
+        <li><strong>AI-Powered Accuracy:</strong> Reduces false positives by intelligently detecting meaningful visual differences.</li>
+        <li><strong>Broad Framework Compatibility:</strong> Works seamlessly with tools like Selenium, Playwright, and WebdriverIO.</li>
+        <li><strong>Cross-Platform Testing:</strong> Ensures consistent UI experiences across browsers and devices.</li>
+      </ul>
+      <br/>
+      <br/>
+      <h4>Cons:</h4>
+      <ul>
+        <li><strong>Requires External Grid:</strong> Teams must pair it with a cloud vendor or local grid for executing tests, as Applitools only handles the visual validation aspect.</li>
+        <li><strong>Data Dependency:</strong> All test data must be sent to Applitools, which could be a concern for teams with strict data security policies.</li>
+        <li><strong>Expensive for Scaling:</strong> Costs can escalate quickly for teams with large-scale or enterprise-level visual testing needs.</li>
+      </ul>
+      <br/>
+      <br/>
+      <h4>Conclusion:</h4>
+      <p>Applitools offers an exceptional visual testing solution, backed by AI for accuracy and efficiency. However, its reliance on external execution environments and its pricing structure may pose challenges for some teams. It is best suited for teams that already have access to a test execution grid or cloud vendor and are looking to enhance their visual regression testing capabilities.
+       <br/>We recommend trialing Applitools to determine its value for your workflows, especially if visual consistency is a high priority for your projects.</p>
+    `,
+  },
+
   {
     name: 'BrowserStack',
     ring: 'Adopt',
