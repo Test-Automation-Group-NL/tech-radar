@@ -41,7 +41,7 @@ const content = [
     description: `
       <h4>Description:</h4>
       <p>
-        <strong>LambdaTest</strong> is a cloud-based testing platform that has quickly emerged as a strong contender in the test automation space. Known for its rapid feature development, LambdaTest offers a performant infrastructure for virtual browsers, emulators, and simulators. However, its unique implementation of capabilities and differences in defaults compared to tools like Selenium and Appium can make migrations more complex. Its recent introduction of Kane AI, a powerful AI-driven solution, sets it apart from competitors by enhancing test analysis and efficiency.
+        LambdaTest is a cloud-based testing platform that has quickly emerged as a strong contender in the test automation space. Known for its rapid feature development, LambdaTest offers a performant infrastructure for virtual browsers, emulators, and simulators. However, its unique implementation of capabilities and differences in defaults compared to tools like Selenium and Appium can make migrations more complex. Its recent introduction of Kane AI, a powerful AI-driven solution, sets it apart from competitors by enhancing test analysis and efficiency.
       </p>
       <br/>
       <h4>Pros:</h4>
