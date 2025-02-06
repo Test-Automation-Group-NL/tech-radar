@@ -32,6 +32,39 @@ const content = [
        <br/>We recommend placing Sauce Labs on hold for new projects and exploring alternatives like BrowserStack or LambdaTest, which offer faster support, more modern infrastructure, and competitive features for mobile and web testing.</p>
     `,
   },
+  {
+    name: 'Lambda Test',
+    ring: 'Trial',
+    quadrant: 'Platforms',
+    isNew: 'FALSE',
+    status: 'No Change',
+    description: `
+      <h4>Description:</h4>
+      <p>
+        <strong>LambdaTest</strong> is a cloud-based testing platform that has quickly emerged as a strong contender in the test automation space. Known for its rapid feature development, LambdaTest offers a performant infrastructure for virtual browsers, emulators, and simulators. However, its unique implementation of capabilities and differences in defaults compared to tools like Selenium and Appium can make migrations more complex. Its recent introduction of Kane AI, a powerful AI-driven solution, sets it apart from competitors by enhancing test analysis and efficiency.
+      </p>
+      <br/>
+      <h4>Pros:</h4>
+      <ul>
+        <li><strong>Rapid Feature Development:</strong> Continuously rolling out innovative tools and capabilities, providing users with cutting-edge features.</li>
+        <li><strong>Performant Emulator/Simulator Infrastructure:</strong> Offers reliable and fast environments for Android and iOS testing.</li>
+        <li><strong>Kane AI:</strong>  A unique AI solution that enhances workflows, accelerates test analysis, and improves efficiency.</li>
+      </ul>
+      <br/>
+      <br/>
+      <h4>Cons:</h4>
+      <ul>
+        <li><strong>Migration Complexity:</strong> Differences in capabilities and defaults compared to tools like Selenium and Appium can complicate transitions from local grids or other platforms.</li>
+        <li><strong>Documentation Challenges:</strong> Documentation lacks clarity and depth in certain areas, making it harder for users to fully leverage the platform's features.</li>
+        <li><strong>Stability for Large Test Suites:</strong> While suitable for smaller projects and organizations, stability concerns with large-scale test suites or enterprise-level testing make it riskier without thorough evaluation.</li>
+      </ul>
+      <br/>
+      <br/>
+      <h4>Conclusion:</h4>
+      <p>LambdaTest is a fast-growing platform with a strong focus on innovation, highlighted by its performant infrastructure and Kane AI solution, which offers a significant competitive advantage in test execution/analysis and efficiency. It is particularly well-suited for smaller projects or organizations looking for a feature-rich and modern testing platform.
+       However, teams considering LambdaTest for larger projects or enterprise use should evaluate it carefully, given migration complexities, documentation gaps, and stability concerns. We recommend trialing LambdaTest to assess its fit, especially for teams aiming to leverage its cutting-edge AI capabilities and scalable infrastructure.</p>
+    `,
+  },
 ]
 
 exports.platforms = {
