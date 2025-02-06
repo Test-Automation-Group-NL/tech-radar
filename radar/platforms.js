@@ -109,7 +109,7 @@ const content = [
     description: `
       <h4>Description:</h4>
       <p>
-        <strong>BrowserStack</strong> is a cloud-based testing platform that has been a trusted name in the industry for nearly as long as Sauce Labs. Unlike its competitors, BrowserStack focuses heavily on developer and small-team workflows, offering extensive integrations and features designed for streamlined testing. However, it does not provide support for emulators and simulators, differentiating it from alternatives like LambdaTest or Sauce Labs.
+        BrowserStack is a cloud-based testing platform that has been a trusted name in the industry for nearly as long as Sauce Labs. Unlike its competitors, BrowserStack focuses heavily on developer and small-team workflows, offering extensive integrations and features designed for streamlined testing. However, it does not provide support for emulators and simulators, differentiating it from alternatives like LambdaTest or Sauce Labs.
       </p>
       <br/>
       <h4>Pros:</h4>
