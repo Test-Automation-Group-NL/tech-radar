@@ -33,7 +33,7 @@ const content = [
     `,
   },
   {
-    name: 'Lambda Test',
+    name: 'LambdaTest',
     ring: 'Trial',
     quadrant: 'Platforms',
     isNew: 'FALSE',
