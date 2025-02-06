@@ -8,7 +8,7 @@ const content = [
     description: `
       <h4>Description:</h4>
       <p>
-        <strong>Sauce Labs</strong> is a cloud-based platform for cross-browser and cross-device testing, offering a virtual browser/(real)device cloud. It has been a trusted solution in the industry for years, providing extensive browser and (real) device coverage with strong documentation and support.
+        Sauce Labs is a cloud-based platform for cross-browser and cross-device testing, offering a virtual browser/(real)device cloud. It has been a trusted solution in the industry for years, providing extensive browser and (real) device coverage with strong documentation and support.
       </p>
       <br/>
       <h4>Pros:</h4>
