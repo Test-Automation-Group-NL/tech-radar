@@ -512,11 +512,19 @@ const Radar = function (size, radar) {
 
     d3.select('#auto-complete').property('value', '')
 
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    })
+    // window.scrollTo({
+    //   top: 0,
+    //   left: 0,
+    //   behavior: 'smooth',
+    // })
+    // This new function will scroll to the top of the radar when it's needed
+    const menuAnchor = document.querySelector('.menu-anchor')
+
+    if (menuAnchor) {
+      menuAnchor.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }
 
     d3.select('#radar-plot').classed('sticky', false)
     d3.select('#radar-plot').classed('quadrant-view', false)
