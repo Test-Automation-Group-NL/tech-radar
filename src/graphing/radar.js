@@ -633,13 +633,13 @@ const Radar = function (size, radar) {
       addButton(quadrants[i])
     })
 
-    // buttonsGroup
-    //   .append('div')
-    //   .classed('print-radar-btn', true)
-    //   .append('div')
-    //   .classed('print-radar button no-capitalize', true)
-    //   .text('Print this radar')
-    //   .on('click', window.print.bind(window))
+    buttonsGroup
+      .append('div')
+      .classed('print-radar-btn', true)
+      .append('div')
+      .classed('print-radar button no-capitalize', true)
+      .text('Print this radar')
+      .on('click', window.print.bind(window))
 
     alternativeDiv
       .append('div')

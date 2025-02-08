@@ -47,7 +47,7 @@
 
   footer.home-page {
     a {
-      color: black;
+      color: white;
     }
 
     p {
@@ -56,10 +56,12 @@
       max-width: none;
 
       &.agree-terms {
+        page-break-before: always;
+
         a:after {
           content: ' <' attr(href) '> ';
           font-weight: normal;
-          color: black;
+          color: white;
         }
       }
     }
@@ -116,7 +118,28 @@
     a:after {
       content: ' <' attr(href) '> ';
       font-weight: normal;
-      color: black;
+      color: white;
+    }
+
+    .all-quadrants-mobile {
+      display: none;
+    }
+  }
+
+  .intro-overview {
+    display: block !important;
+    height: max-content !important;
+    margin: 0 auto !important;
+    padding: 0;
+    page-break-before: always;
+
+    &__wrapper{
+      margin: 0 auto !important;
+      width: 100% !important;
+    }
+
+    &__color{
+      background-color: transparent !important;
     }
   }
 
@@ -213,7 +236,7 @@
   }
 
   .hero-banner,
-  main > *:not(#pdf-cover-page, #radar),
+  main > *:not(#pdf-cover-page, #radar, .intro-overview),
   #radar > #radar-plot,
   .radar-legends,
   .ui-helper-hidden-accessible,
