@@ -115,9 +115,26 @@
 
           & > * {
             font-family: inherit !important;
-            font-size: inherit !important;
-            line-height: inherit !important;
+            font-size: 14px !important;
+            line-height: 1.2rem !important;
             margin: 0 !important;
+          }
+
+          & > h4 {
+            font-size: 16px !important;
+            margin: 4px 0 8px 0 !important;
+          }
+
+          & > p {
+            padding-bottom: 4px !important;
+          }
+
+          & > ul {
+            margin-left: 15px !important;
+
+            & > li {
+             list-style-type: disc !important;
+            }
           }
         }
       }
