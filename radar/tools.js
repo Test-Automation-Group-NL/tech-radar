@@ -234,6 +234,48 @@ const content = [
 </p>
 `,
   },
+  {
+    name: 'K6',
+    ring: 'trial',
+    quadrant: 'Tools',
+    isNew: 'False',
+    status: 'FALSE',
+    description: `
+<H4>Description:</H4>
+<p>K6 is an open-source performance testing tool designed for modern developers and DevOps teams.
+Built with a focus on load testing, K6 enables users to write tests in JavaScript and execute them efficiently at scale.
+It is particularly well-suited for testing APIs, microservices, and web applications, offering smooth integration with CI/CD pipelines.
+K6 is scriptable, lightweight, and can be run locally or in the cloud.</p>
+<H4>Pros</h4>
+<ul>
+  <li>
+    <strong>Developer-friendly:</strong> Written in JavaScript, making it easy for developers to script and maintain tests.
+  </li>
+  <li>
+    <strong>High performance:</strong> Efficiently handles large-scale load tests with minimal resource consumption.
+  </li>
+  <li>
+    <strong>CI/CD Integration:</strong> Works seamlessly with modern CI/CD workflows for automated performance testing.
+  </li>
+    <li>
+    <strong>Detailed Metrics:</strong> Provides in-depth insights into response times, request rates, and system behavior under load.
+  </li>
+    <li>
+    <strong>Open-source:</strong> Free to use, with an active community contributing to improvements and new features.
+  </li>
+</ul>
+<H4>Cons</h4>
+<ul>
+  <li>
+    <strong>UI:</strong> K6 provides a user interface with Grafana K6 Studio. Currently, this is under public preview. Making K6 more suitable for an audience with a development background.
+  </li>
+</ul>
+<h4>Conclusion:</h4>
+<p>K6 is a powerful and efficient tool for load testing, particularly for teams looking to integrate performance testing into their CI/CD pipelines.
+While it lacks a UI and built-in functional testing features, its scripting capabilities and high performance make it an excellent choice for developers focused on API and application performance.
+For organizations needing extensive protocol support or non-technical users, alternative solutions like JMeter might be more suitable.</p>
+`,
+  },
 ]
 
 exports.tools = {
