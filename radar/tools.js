@@ -277,8 +277,8 @@ k6 is scriptable, lightweight, and can be run locally or in the cloud.</p>
 </ul>
 <h4>Conclusion:</h4>
 <p>k6 is a powerful and efficient tool for load testing, particularly for teams looking to integrate performance testing into their CI/CD pipelines.
-While it lacks a UI and built-in functional testing features, its scripting capabilities and high performance make it an excellent choice for developers focused on API and application performance.
-For organizations needing extensive protocol support or non-technical users, alternative solutions like JMeter might be more suitable.</p>
+While it lacks a detailed and mature UI and built-in functional testing features, its scripting capabilities and high performance make it an excellent choice for developers focused on API and application performance.
+</p>
 `,
   },
 ]
