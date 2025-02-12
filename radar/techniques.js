@@ -21,7 +21,7 @@ const content = [
       </ul>
       <h4>Cons:</h4>
       <li><strong>Sharing:</strong> Contracts have to be shared between producer and consumer</li>
-      <h4>Conclusio:</h4>
+      <h4>Conclusion:</h4>
       <p>Contract Testing is a great addition to any project that deals with large-scale and highly distributed application(s). Integration issues between consumers and providers can be detected early without the need for setting up expensive integration environments. We would definitely recommend assessing contract testing as a technique.</p>
     `,
   },
