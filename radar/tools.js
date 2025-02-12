@@ -234,6 +234,53 @@ const content = [
 </p>
 `,
   },
+  {
+    name: 'k6',
+    ring: 'trial',
+    quadrant: 'Tools',
+    isNew: 'False',
+    status: 'FALSE',
+    description: `
+<H4>Description:</H4>
+<p>k6 is an open-source performance testing tool designed for modern developers and DevOps teams.
+Built with a focus on load testing, k6 enables users to write tests in JavaScript and execute them efficiently at scale.
+It is particularly well-suited for testing APIs, microservices, and web applications, offering smooth integration with CI/CD pipelines.
+k6 is scriptable, lightweight, and can be run locally or in the cloud.</p>
+<H4>Pros</h4>
+<ul>
+  <li>
+    <strong>Developer-friendly:</strong> Written in JavaScript, making it easy for developers to script and maintain tests.
+  </li>
+  <li>
+    <strong>High performance:</strong> Efficiently handles large-scale load tests with low resource consumption.
+  </li>
+  <li>
+    <strong>CI/CD Integration:</strong> Works with modern CI/CD workflows for automated performance testing.
+  </li>
+    <li>
+    <strong>Detailed Metrics:</strong> Provides detailed insights into response times, request rates, and system behavior under load.
+  </li>
+    <li>
+    <strong>Open-source:</strong> Free to use, with an active community contributing to improvements and new features.
+  </li>
+</ul>
+<H4>Cons</h4>
+<ul>
+  <li>
+    <strong>UI:</strong> k6 provides a user interface with Grafana k6 Studio. Currently, this is under public preview.
+    Making k6 more suitable for an audience with a development background.
+  </li>
+    <li>
+    <strong>Grafana Cloud k6:</strong> Grafana Cloud k6 is a paid service that offers additional features like cloud execution and advanced analytics.
+    This means that for additional possibilities, you will have to pay.
+  </li>
+</ul>
+<h4>Conclusion:</h4>
+<p>k6 is a powerful and efficient tool for load testing, particularly for teams looking to integrate performance testing into their CI/CD pipelines.
+While it lacks a detailed and mature UI and built-in functional testing features, its scripting capabilities and high performance make it an excellent choice for developers focused on API and application performance.
+</p>
+`,
+  },
 ]
 
 exports.tools = {
