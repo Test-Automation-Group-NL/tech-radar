@@ -234,6 +234,52 @@ const content = [
 </p>
 `,
   },
+  {
+    name: 'k6',
+    ring: 'trial',
+    quadrant: 'Tools',
+    isNew: 'False',
+    status: 'FALSE',
+    description: `
+<H4>Description:</H4>
+<p>k6 is an open-source performance testing tool designed for modern developers and DevOps teams.
+Built with a focus on load testing, k6 enables users to write tests in both JavaScript & Typescript since v0.57 and execute them efficiently at scale.
+Making k6 more suitable for an audience with a development background.
+It is particularly well-suited for testing APIs, microservices, and web applications, offering smooth integration with CI/CD pipelines.
+k6 is scriptable, lightweight, and can be run locally or in the cloud. k6 provides a user interface with Grafana k6 Studio. Currently, this is under public preview.
+Free to use, with an active community contributing to improvements and new features.</p>
+<H4>Pros</h4>
+<ul>
+  <li>
+    <strong>Developer-friendly:</strong> Written in JavaScript/Typescript, making it easy for developers to script and maintain tests.
+  </li>
+  <li>
+    <strong>Distributed testing:</strong> k6 allows for distributed testing, enabling users to run tests across multiple machines and simulate real-world scenarios.
+    Thus making it possible to test the scalability of your application.
+  </li>
+  <li>
+    <strong>Detailed Metrics:</strong> Provides detailed insights into response times, request rates, and system behavior under load.
+  </li>
+</ul>
+<H4>Cons</h4>
+<ul>
+    <li>
+    <strong>Grafana Cloud k6:</strong> Grafana Cloud k6 is a paid service that offers additional features like cloud execution and advanced analytics.
+    This means that for additional possibilities, you will have to pay.
+  </li>
+  <li>
+    <strong>Not language agnostic:</strong> k6 is limited to JavaScript/Typescript, which may not be ideal for teams using or being familiar with other languages.
+  </li>
+  <li>
+    <strong>Learning Curve:</strong> While k6 is developer-friendly, users might face a learning curve if they are not familiar with performance testing.
+  </li>
+</ul>
+<h4>Conclusion:</h4>
+<p>k6 is a powerful and efficient tool for load testing, particularly for teams looking to integrate performance testing into their CI/CD pipelines.
+While it lacks a detailed and mature UI and built-in functional testing features, its scripting capabilities and high performance make it an excellent choice for developers focused on API and application performance.
+</p>
+`,
+  },
 ]
 
 exports.tools = {
