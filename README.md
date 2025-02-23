@@ -11,6 +11,36 @@
 
 A library that generates an interactive radar, inspired by [thoughtworks.com/radar](http://thoughtworks.com/radar).
 
+## Run locally
+
+1. Clone the project
+2. Install all dependencies with `npm i`
+3. Run the development server with ` npm run local:dev`, this will
+  - build the radar
+  - watch the `radar.json` file and will copy it to the `dist` folder on file changes
+  - starts a server which can be accessed on `https://localhost:8080`
+
+You can now adjust the files in the `radar`-folder file. Changes will be automatically generated and copied to the `dist` folder and can be seen by refreshing the browser
+
+# Template description
+```html
+<h4>Description</h4>
+<p>
+  Description
+</p>
+<br/>
+<h4>Pros:</h4>
+<ul><li><strong>pro</strong> description</li></ul>
+<br/>
+<h4>Cons:</h4>
+<ul><li><strong>con</strong> description</li></ul>
+<br/>
+<h4>Conclusion</h4>
+<p>This is the conclusion</p>
+```
+
+# Original information
+
 ## Demo
 
 You can see this in action at https://radar.thoughtworks.com. If you plug in [this data](https://docs.google.com/spreadsheets/d/1GBX3-jzlGkiKpYHF9RvVtu6GxSrco5OYTBv9YsOTXVg/edit#gid=0) you'll see [this visualization](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1GBX3-jzlGkiKpYHF9RvVtu6GxSrco5OYTBv9YsOTXVg%2Fedit%23gid%3D0).
@@ -253,31 +283,3 @@ To run End to End tests, start the dev server and follow the required steps belo
      $ docker run -p 8080:8080 -v $PWD:/app -w /app -it node:18 /bin/sh -c 'npm install && npm run dev'
 
 After building it will start on `localhost:8080`.
-
-## Run locally
-
-1. Clone the project
-2. Install all dependencies with `npm i`
-3. Run the development server with ` npm run local:dev`, this will
-  - build the radar
-  - watch the `radar.json` file and will copy it to the `dist` folder on file changes
-  - starts a server which can be accessed on `https://localhost:8080`
-
-You can now adjust the files in the `radar`-folder file. Changes will be automatically generated and copied to the `dist` folder and can be seen by refreshing the browser
-
-# Template description
-```html
-<h4>Description</h4>
-<p>
-  Description
-</p>
-<br/>
-<h4>Pros:</h4>
-<ul><li><strong>pro</strong> description</li></ul>
-<br/>
-<h4>Cons:</h4>
-<ul><li><strong>con</strong> description</li></ul>
-<br/>
-<h4>Conclusion</h4>
-<p>This is the conclusion</p>
-```
