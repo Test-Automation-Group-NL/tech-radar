@@ -100,7 +100,7 @@ const content = [
   },
   {
     name: 'Cypress',
-    ring: 'Hold',
+    ring: 'Adopt',
     quadrant: 'languages-and-frameworks',
     isNew: 'FALSE',
     status: 'No Change',
@@ -108,9 +108,13 @@ const content = [
   <h4>Description:</h4>
 <p>Cypress, until April 2024, was the most downloaded end-to-end (e2e) testing tool according to npmtrends.com,
   showcasing its popularity. It is a commercially maintained tool with excellent free resources to get started,
-  including extensive documentation. However, after being lured in by the free features, once you really want to
-  integrate it into your pipeline and start running tests in parallel you’ll have to grab the credit card for paid
-  features.</p>
+  including very clear and extensive documentation. Integrating Cypress into your developer workflow; it has a nice UI which can be opened next to the browser,
+  which makes it easy to debug your code.</p>
+<p>A great feature of Cypress is its ability to create component tests. With this feature, you can test your components in isolation, which can have a positive impact on the
+   number of E2E tests needed to cover the application under test.</p>
+<p>Cypress also has a couple of features that are great for scaling your test suite, like extended reporting, Load Balanced Parallelization, Test Replay (because debugging in CI can be hard), UI coverage and more.
+   Some of these featuers are only available in the paid version of Cypress, but the free tier of the Cypress Cloud is still very powerful.
+</p>
 <h4>Pros:</h4>
 <ul>
   <li>
@@ -122,32 +126,25 @@ const content = [
     requiring payment.
   </li>
   <li>
-    <strong>Integrated Debugging Tools:</strong> Built-in debugging capabilities simplify troubleshooting during test
+    <strong>Integrated Debugging Tools:</strong> Built-in debugging capabilities simplify troubleshooting during
     development.
   </li>
 </ul>
 <h4>Cons:</h4>
 <ul>
   <li>
-    <strong>Scaling limitations:</strong> Parallel test execution in CI/CD requires a paid Cypress Cloud subscription.
+    <strong>Expensive Cloud features</strong> make it less attractive to make use of the Cypress Cloud.
   </li>
   <li>
-    <strong>Commercially Locked Features:</strong> Valuable advanced features, such as analytics and parallelism, are
-    paywalled, reducing its appeal compared to free alternatives.
+    <strong>Potential bottleneck:</strong> Parallelism of tests inside a single CI/CD runner can make a testrun slower. This can be solved by parallelizing the tests over multiple runners.
   </li>
   <li>
-    <strong>Potential bottleneck:</strong> Limited parallelism out of the box may slow down lead time in CI/CD practices
-    with frequent builds and deployments.
+      <strong>Cypress Cloud Data Storage:</strong> The data storage of the Cypress Cloud is located in the US, which can be a problem for companies that are not allowed to store data outside of the EU.
   </li>
 </ul>
 <h4>Conclusion:</h4>
-<p>Cypress is a great choice for teams starting their automation journey, offering robust free features and a
-  beginner-friendly experience. However, its reliance on paid subscriptions for key capabilities, like Cypress Cloud and
-  parallel test execution, makes it less attractive for scaling projects compared to free competitors.</p>
-<p>While Cypress is not a bad tool, it falls short in comparison to open-source alternatives that provide more
-  scalability without added costs. For new projects, we do not recommend Cypress as the best option, but for teams
-  already using it, migration may not be immediately necessary if the tool meets current needs.
-</p>
+<p>Cypress is a great choice for teams starting their automation journey or teams who lean on more outdated testframeworks, offering robust free features and a
+  beginner-friendly experience.</p>
 `,
   },
   {
