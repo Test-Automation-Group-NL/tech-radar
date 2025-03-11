@@ -1,5 +1,34 @@
 const content = [
   {
+    name: 'Page Object Model',
+    ring: 'Hold',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'Moved In',
+    description: `
+      <h4>Description</h4>
+      <p>
+      The Page Object Model (POM) is a design pattern used to 'architect' the testcode. It reduces code duplication and improves test maintenance by encapsulating the logic for interacting with a page in a single place.
+      When a POM grows, the setup can become complex because its architecture can diverge from the architecture of the application under test. This can lead to a situation where the POM is no longer a good representation of the application, which can make it difficult to understand and maintain
+by developers.
+      </p>
+      <h4>Pros:</h4>
+      <ul>
+        <li><strong>DRY:</strong> using a POM you can keep your code DRY</li>
+      </ul>
+      <ul>
+        <li><strong>Readability:</strong> Writing your tests with POM can make your test code readable.</li>
+      </ul>
+      <h4>Cons:</h4>
+      <li><strong>Complexity:</strong> POM can become complex to implement and maintain when your testsuite grows and therefore become expensive.
+            Within frameworks like Playwright or Cypress, the POM is not necessary because 'flat' helper functions can be used to interact with the page.
+            Adding <a href="https://testing-library.com/" target="blank>Testing-Library</a> to your testsuite can help you write even better tests that focus on the user's perspective.
+      </li>
+      <h4>Conclusion:</h4>
+      <p>The Page Object Model focusses mainly on maintainability and readability. This said, we would recommend not using the Page Object Model in your test suite. Instead, we would recommend using flat helper functions to interact with the page and use Testing-Library to write better tests that focus on the user's perspective.</p>
+    `,
+  },
+  {
     name: 'Contract Testing',
     ring: 'Assess',
     quadrant: 'Techniques',
