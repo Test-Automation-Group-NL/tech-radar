@@ -1,32 +1,63 @@
 const content = [
   {
     name: 'Page Object Model',
-    ring: 'Hold',
+    ring: 'Adopt',
     quadrant: 'Techniques',
     isNew: 'FALSE',
     status: 'Moved In',
     description: `
       <h4>Description</h4>
       <p>
-      The Page Object Model (POM) is a design pattern used to 'architect' the testcode. It reduces code duplication and improves test maintenance by encapsulating the logic for interacting with a page in a single place.
-      When a POM grows, the setup can become complex because its architecture can diverge from the architecture of the application under test. This can lead to a situation where the POM is no longer a good representation of the application, which can make it difficult to understand and maintain
-by developers.
+      The Page Object Model (POM) is a design pattern commonly used to structure test code, typically reflecting the structure of the application under test. By encapsulating the logic for interacting with a page in a single location, POM reduces code duplication and enhances test maintainability.
+      Typically, these page objects extend a base class that includes shared methods for interacting with common page elements, such as clicking buttons or filling out forms. However, modern test frameworks like Playwright and Cypress offer built-in functionality for interacting with page elements, rendering the need for base classes less critical.
+      As frameworks like React have popularized the use of UI components, test frameworks should adopt a similar approach. Instead of relying on base pages, consider using Component Objects and applying composition to your Page Objects. This approach not only aligns with mod
       </p>
       <h4>Pros:</h4>
       <ul>
-        <li><strong>DRY:</strong> using a POM you can keep your code DRY</li>
-      </ul>
-      <ul>
-        <li><strong>Readability:</strong> Writing your tests with POM can make your test code readable.</li>
+        <li><strong>Reduced Code Duplication:</strong> POM helps centralize the logic for interacting with page elements in a single class. This minimizes code repetition, making it easier to maintain test scripts when the UI changes.</li>
+        <li><strong>Improved Test Maintainability:</strong> Since the page logic is separated into different classes, updating the UI (e.g., changing button names or locations) only requires changes to the corresponding page object class, not throughout every test script.</li>
+        <li><strong>Separation of Concerns:</strong> POM separates the test logic (what you are testing) from the interaction logic (how you interact with the page), making your tests cleaner, more organized, and easier to read.</li>
       </ul>
       <h4>Cons:</h4>
-      <li><strong>Complexity:</strong> POM can become complex to implement and maintain when your testsuite grows and therefore become expensive.
-            Within frameworks like Playwright or Cypress, the POM is not necessary because 'flat' helper functions can be used to interact with the page.
-            Adding <a href="https://testing-library.com/" target="blank>Testing-Library</a> to your testsuite can help you write even better tests that focus on the user's perspective.
-      </li>
+      <ul>
+        <li><strong>Increased Complexity for Small Projects:</strong> For small projects, the overhead of creating and maintaining page objects may outweigh the benefits. In these cases, a simpler approach may be more appropriate.</li>
+        <li><strong>Dependency on UI Structure:</strong> If the UI changes frequently, maintaining page objects can become time-consuming. In these cases, consider using more flexible selectors or alternative testing strategies.</li>
+        <li><strong>Over-Abstraction:</strong> Overusing the Page Object Model can lead to overly complex test code, making it harder to understand and maintain. Be cautious of creating unnecessary levels of abstraction.
+      </ul>
       <h4>Conclusion:</h4>
-      <p>The Page Object Model focusses mainly on maintainability and readability. This said, we would recommend not using the Page Object Model in your test suite. Instead, we would recommend using flat helper functions to interact with the page and use Testing-Library to write better tests that focus on the user's perspective.</p>
-    `,
+      <p>The Page Object Model (POM) can be an effective design pattern, especially for large and complex applications. However, it's important to be mindful of the potential drawbacks and strike a careful balance between principles like Don't Repeat Yourself (DRY) and Keep It Simple, Stupid (KISS). By considering these principles, 
+      POM can still be a valid and valuable choice for structuring your test code, as long as you apply it thoughtfully. Alternatively, if your application primarily consists of components, you could also apply App Actions</p> 
+      `,
+  },
+  {
+    name: 'Functional Helpers',
+    ring: 'Adopt',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'Moved In',
+    description: `
+    <h4>Description</h4>
+    <p>
+      Functional helpers are a lightweight approach to interacting with web page elements in automated tests. Rather than abstracting interactions through page object classes, functional helpers use standalone functions to perform actions directly on the page (e.g., clicking buttons, filling out forms). This approach capitalizes on the composability of modern testing frameworks like Playwright and Cypress, where you directly call functions that interact with elements.
+      While this approach offers a simpler structure compared to Page Object Models (POM), it can quickly lead to tests that lack clear structure and organization, especially in larger applications. Without careful management, functional helpers can lead to a **lack of separation of concerns**, where the test logic becomes tightly coupled with how the page is interacted with, making tests harder to read and maintain.
+    </p>
+    <h4>Pros:</h4>
+    <ul>
+      <li><strong>Simplicity:</strong> Functional helpers focus on straightforward, easy-to-understand functions that interact directly with elements, reducing the need for complex abstractions like base page classes.</li>
+      <li><strong>Better Debugging:</strong> Since functional helpers are simple and typically self-contained, they are easier to debug. Test failures can be traced directly to the helper function without needing to navigate through multiple layers of abstraction.</li>
+      <li><strong>Flexibility and Reusability:</strong> Tests become more flexible because functional helpers allow for easy composition and reuse of actions across different scenarios without inheriting unnecessary logic from page objects.</li>
+    </ul>
+    <h4>Cons:</h4>
+    <ul>
+      <li><strong>Harder to Read and Maintain:</strong> One of the key challenges with functional helpers is that they often lack **clear separation of concerns**. In large tests, this can make it difficult to distinguish between **what** you're testing (business logic) and **how** you're interacting with the page (UI logic). This overlap can make tests harder to read, especially when tests grow in complexity.</li>
+      <li><strong>Lack of Structure and Organization:</strong> In larger applications, functional helpers might lead to disorganized code. While functional helpers might be effective for small, isolated tests, when tests begin to scale, the lack of a cohesive structure may lead to repetition, lack of context, and difficulty in understanding test scenarios.</li>
+      <li><strong>Potential for Code Duplication:</strong> Without a clear abstraction layer like POM, it’s easy for helper functions to be duplicated across tests. Rewriting the same interactions for different tests can increase maintenance overhead, as changes to these actions must be made across multiple places in the codebase.</li>
+    </ul>
+    <h4>Conclusion:</h4>
+    <p>
+      Functional helpers may be an appealing choice for simpler or smaller applications or applications that heavily rely om UI components, where their lightweight and flexible nature can improve readability and speed of development. However, in larger applications or where tests become more complex, the lack of clear structure and separation of concerns can lead to maintainability challenges. The coupling of test logic and interaction logic might make tests more difficult to read, especially when working with large teams or scaling the test suite. In these cases, more structured approaches Page Object Models (POM, combined with composition, may be a better fit to keep tests readable and maintainable in the long term.
+    </p>
+  `,
   },
   {
     name: 'Contract Testing',
@@ -52,7 +83,7 @@ by developers.
       <li><strong>Sharing:</strong> Contracts have to be shared between producer and consumer</li>
       <h4>Conclusion:</h4>
       <p>Contract Testing is a great addition to any project that deals with large-scale and highly distributed application(s). Integration issues between consumers and providers can be detected early without the need for setting up expensive integration environments. We would definitely recommend assessing contract testing as a technique.</p>
-    `,
+      `,
   },
   {
     name: 'BDD',
