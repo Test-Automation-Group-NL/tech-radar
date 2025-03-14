@@ -55,7 +55,7 @@ const content = [
     </ul>
     <h4>Conclusion:</h4>
     <p>
-      Functional helpers may be an appealing choice for applications that heavily rely om UI components, where their lightweight and flexible nature can improve readability and speed of development. However, in larger applications or where tests become more complex, the lack of clear structure and separation of concerns can lead to maintainability challenges. The coupling of test logic and interaction logic might make tests more difficult to read, especially when working with large teams or scaling the test suite. In these cases, more structured approaches Page Object Models (POM), combined with composition, may be a better fit to keep tests readable and maintainable in the long term.
+      Functional helpers may be an appealing choice for applications that heavily rely om UI components, where their lightweight and flexible nature can improve readability and speed of development. In larger applications or where tests become more complex, the lack of clear structure and separation of concerns can lead to maintainability challenges. The coupling of test logic and interaction logic might make tests more difficult to read, especially when working with large teams or scaling the test suite. In these cases, more structured approaches Page Object Models (POM), combined with composition, may be a better fit to keep tests readable and maintainable in the long term. Both POM and Functional Helpers can be excellent choices for your automation framework.
     </p>
   `,
   },
