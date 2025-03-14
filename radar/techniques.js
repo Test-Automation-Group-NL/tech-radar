@@ -3,7 +3,7 @@ const content = [
     name: 'Page Object Model',
     ring: 'Adopt',
     quadrant: 'Techniques',
-    isNew: 'FALSE',
+    isNew: 'TRUE',
     status: 'Moved In',
     description: `
       <h4>Description</h4>
