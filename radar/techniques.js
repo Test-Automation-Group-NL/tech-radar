@@ -63,7 +63,7 @@ const content = [
     name: 'Contract Testing',
     ring: 'Assess',
     quadrant: 'Techniques',
-    isNew: 'FALSE',
+    isNew: 'TRUE',
     status: 'Moved In',
     description: `
       <h4>Description</h4>
