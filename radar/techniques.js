@@ -27,35 +27,42 @@ const content = [
   },
   {
     name: 'BDD',
-    ring: 'Hold',
+    ring: 'Adopt',
     quadrant: 'Techniques',
     isNew: 'FALSE',
     status: 'No Change',
     description: `
       <h4>Description</h4>
       <p>
-        <strong>BDD</strong>, Behavior Driven Development is a technique mostly used to enable easier collaboration between developer, tester, and (business) users. Stories (features) are written in a human-readable form, focusing on the behavior of the system. Usually, these files are written in Gherkin, a special syntax used in BDD to allow tools like Cucumber and SpecFlow to automatically validate the “behaviors” encoded for a process.
-        Every step in the stories or feature files are then translated to actions in the application under test via Page Object, Steps and Actions.
+        <strong>BDD</strong>, Behavior Driven Development is a technique intended to make proving desired behaviour of the application works as part of the development cycle. Acceptence criteria are written as a test to be automated. This makes it one of the easier Test First Approaches. <br>
+        The technique is mostly used to enable easier collaboration between developer, tester, and (business) users. Applying BDD focusses on creating testable user stories that require a lower cognitive load from the developer. <br>
+        Most popular automation frameworks support a BDD workflow. Tools that explicitly focus on BDD include:
       </p>
       <p>
         Examples of popular BDD frameworks are
         <ul>
-          <li>Cucumber</li>
+          <li>Cucumber / Specflow</li>
           <li>Behave / JBehave</li>
-          <li>Specflow</li>
         </ul>
       </p>
       <h4>Pros:</h4>
-      <ul><li>BDD allows spec-files to serve as both living documented requirements and tests.</li></ul>
+      <ul>
+        <li>BDD allows spec-files to serve as both living documented requirements and tests.</li>
+        <li>BDD drives user stories to be clearly defined because of the testable acceptance criteria.</li>
+        <li>BDD focusses on reducing functional complexity for the developers, reducing cognitive load.</li>
+      </ul>
       <h4>Cons:</h4>
       <ul>
-            <li>Doing BDD correctly is actually extremely difficult. It requires strong collaboration between developers, testers, and business stakeholders, which can be challenging to establish and maintain.</li>
+            <li>Doing BDD correctly is really difficult. It requires strong collaboration between developers, testers, and business stakeholders, which can be challenging to establish and maintain.</li>
             <li>BDD, in most projects, is often misused as merely a way to write tests in a human-readable language. Without the collaborative focus on shared understanding and behavior specification, it holds little value.</li>
-            <li>In some projects, BDD is misinterpreted as a low-code automation solution, appealing to teams as a shortcut to start automating. However, BDD's purpose is not to simplify automation but to foster collaboration and ensure a shared understanding of the system's expected behaviors.</li>
+            <li>In some projects, BDD is simplified to using Cucumber and is misinterpreted as a low-code automation solution, appealing to teams as a shortcut to start automating. However, BDD's purpose is not to simplify automation but to foster collaboration and ensure a shared understanding of the system's expected behaviors.</li>
       </ul>
       <h4>Conclusion:</h4>
       <p>
-        While BDD is widely adopted, we do not recommend its use in most cases. In our experience, BDD is rarely applied for its intended purpose—facilitating collaboration and ensuring shared understanding between developers, testers, and business stakeholders. Instead, it often becomes an additional layer of complexity, where the Gherkin syntax adds little value beyond traditional testing approaches. Furthermore, tools like Cucumber often restrict access to the full feature set of underlying testing frameworks, leading to inefficient use of resources. For these reasons, we would not recommend starting new projects with BDD.
+        While BDD is widely adopted, it is rarely done right. <br>
+        In our experience, BDD is rarely applied for its intended purpose—facilitating collaboration and ensuring shared understanding between developers, testers, and business stakeholders. Instead, it often becomes an additional layer of complexity, where the Gherkin syntax adds little value beyond traditional testing approaches. <br>
+        Where BDD is done right we see user stories delivered to production faster and a reduced need for other acceptance level tests. <br>
+        We recommend BDD when it is supported by business stakeholders, developers and testers. In other circumstances it is a wasted effort.
       </p>
     `,
   },
