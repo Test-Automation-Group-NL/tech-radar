@@ -34,7 +34,7 @@ const content = [
     description: `
       <h4>Description</h4>
       <p>
-        <strong>BDD</strong>, Behavior Driven Development is a technique intended to make proving desired behaviour of the application works as part of the development cycle. Acceptence criteria are written as a test to be automated. This makes it one of the easier Test First Approaches. <br>
+        <strong>BDD</strong> (Behavior Driven Development) is a technique intended to prove that the desired behaviour of the application works as part of the development cycle. Acceptance criteria are written as a test to be automated. This makes it one of the easier Test First Approaches. <br>
         The technique is mostly used to enable easier collaboration between developer, tester, and (business) users. Applying BDD focusses on creating testable user stories that require a lower cognitive load from the developer. <br>
         Most popular automation frameworks support a BDD workflow. Tools that explicitly focus on BDD include:
       </p>
