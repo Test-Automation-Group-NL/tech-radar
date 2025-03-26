@@ -39,7 +39,6 @@ const content = [
         Most popular automation frameworks support a BDD workflow. Tools that explicitly focus on BDD include:
       </p>
       <p>
-        Examples of popular BDD frameworks are
         <ul>
           <li>Cucumber / Reqnroll (successor of Specflow)</li>
           <li>Behave / JBehave</li>
