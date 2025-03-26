@@ -41,7 +41,7 @@ const content = [
       <p>
         Examples of popular BDD frameworks are
         <ul>
-          <li>Cucumber / Specflow</li>
+          <li>Cucumber / Reqnroll (successor of Specflow)</li>
           <li>Behave / JBehave</li>
         </ul>
       </p>
