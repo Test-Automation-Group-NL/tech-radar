@@ -45,7 +45,7 @@ const content = [
     <ul>
       <li><strong>Simplicity:</strong> Functional helpers focus on straightforward, easy-to-understand functions that interact directly with elements, reducing the need for complex abstractions like base page classes.</li>
       <li><strong>Better Debugging:</strong> Since functional helpers are simple and typically self-contained, they are easier to debug. Test failures can be traced directly to the helper function without needing to navigate through multiple layers of abstraction.</li>
-      <li><strong>Flexibility and Reusability:</strong> Tests become more flexible because functional helpers allow for easy composition and reuse of actions across different scenarios without inheriting unnecessary logic from page objects.</li>
+      <li><strong>Flexibility and Reusability:</strong> Tests become more flexible because functional helpers allow for easy composition and reuse of actions across different scenarios.</li>
     </ul>
     <h4>Cons:</h4>
     <ul>
