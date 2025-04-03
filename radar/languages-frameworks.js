@@ -112,8 +112,10 @@ const content = [
   which makes it easy to debug your code.</p>
 <p>A great feature of Cypress is its ability to create component tests. With this feature, you can test your components in isolation, which can have a positive impact on the
    number of E2E tests needed to cover the application under test.</p>
-<p>Cypress also has a couple of features that are great for scaling your test suite, like extended reporting, Load Balanced Parallelization, Test Replay (because debugging in CI can be hard), UI coverage and more.
+<p>Another greet feature of Cypress is its ability to run tests in parallel, which can significantly speed up the test execution time because Cypress is able to loadbalance the testrun via the Cypress Cloud. This feature does not need a payed tier.</p>
+<p>Cypress also has a couple of other features that are great for scaling your test suite, like extended reporting, est replay (because debugging in CI can be hard), UI coverage and more.
    Some of these featuers are only available in the paid version of Cypress, but the free tier of the Cypress Cloud is still very powerful.
+More on the pricing can be found here: <a href="https://www.cypress.io/pricing/">Cypress Pricing</a></p>
 </p>
 <h4>Pros:</h4>
 <ul>
@@ -126,18 +128,19 @@ const content = [
     requiring payment.
   </li>
   <li>
-    <strong>Integrated Debugging Tools:</strong> Built-in debugging capabilities simplify troubleshooting during
+    <strong>Integrated Debugging Tools:</strong>Built-in debugging capabilities simplify troubleshooting during
     development.
+  </li>
+  <li>
+    <strong>Potential bottleneck:</strong> Parallelism of tests inside a single CI/CD runner can make a testrun slower. This can be solved by parallelizing the tests over multiple runners.
   </li>
 </ul>
 <h4>Cons:</h4>
 <ul>
   <li>
-    <strong>Expensive Cloud features</strong> make it less attractive to make use of the Cypress Cloud.
+    <strong>Expensive Cloud features</strong> make it less attractive to make use a payed tier on the Cypress Cloud. Features like Flake Detection, Flaky Test analytics are great, but because the pricing is based on the number of tests run, it can be very expensive for larger test suites.
   </li>
-  <li>
-    <strong>Potential bottleneck:</strong> Parallelism of tests inside a single CI/CD runner can make a testrun slower. This can be solved by parallelizing the tests over multiple runners.
-  </li>
+
   <li>
       <strong>Cypress Cloud Data Storage:</strong> The data storage of the Cypress Cloud is located in the US, which can be a problem for companies that are not allowed to store data outside of the EU.
   </li>
