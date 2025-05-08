@@ -17,7 +17,6 @@ const content = [
       <h4>Pros:</h4>
       <ul>
         <li><strong>Fast</strong> Contract tests run fast and are not reliant on other systems Easy to maintain</li>
-        Easy to maintain
       </ul>
       <h4>Cons:</h4>
       <li><strong>Sharing:</strong> Contracts have to be shared between producer and consumer</li>
