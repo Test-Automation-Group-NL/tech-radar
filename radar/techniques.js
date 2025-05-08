@@ -1,9 +1,69 @@
 const content = [
   {
+    name: 'Page Object Model',
+    ring: 'Adopt',
+    quadrant: 'Techniques',
+    isNew: 'TRUE',
+    status: 'Moved In',
+    description: `
+      <h4>Description</h4>
+      <p>
+      The Page Object Model (POM) is a design pattern commonly used to structure test code, typically reflecting the structure of the application under test. By encapsulating the logic for interacting with a page in a single location, POM reduces code duplication and enhances test maintainability.
+      Typically, these page objects extend a base class that includes shared methods for interacting with common page elements, such as clicking buttons or filling out forms. However, modern test frameworks like Playwright and Cypress offer built-in functionality for interacting with page elements, rendering the need for base classes less critical.
+      As frameworks like React have popularized the use of UI components, test frameworks should adopt a similar approach. Instead of relying on base pages, consider using Component Objects and applying composition to your Page Objects. This approach ensures your framework closely mirrors the system under test
+      </p>
+      <h4>Pros:</h4>
+      <ul>
+        <li><strong>Reduced Code Duplication:</strong> POM helps centralize the logic for interacting with page elements in a single class. This minimizes code repetition, making it easier to maintain test scripts when the UI changes.</li>
+        <li><strong>Improved Test Maintainability:</strong> Since the page logic is separated into different classes, updating the UI (e.g., changing button names or locations) only requires changes to the corresponding page object class, not throughout every test script.</li>
+        <li><strong>Separation of Concerns:</strong> POM separates the test logic (what you are testing) from the interaction logic (how you interact with the page), making your tests cleaner, more organized, and easier to read.</li>
+      </ul>
+      <h4>Cons:</h4>
+      <ul>
+        <li><strong>Increased Complexity for Small Projects:</strong> For small projects, the overhead of creating and maintaining page objects may outweigh the benefits. In these cases, a simpler approach may be more appropriate.</li>
+        <li><strong>Dependency on UI Structure:</strong> If the UI changes frequently, maintaining page objects can become time-consuming. In these cases, consider using more flexible selectors or alternative testing strategies.</li>
+        <li><strong>Over-Abstraction:</strong> Overusing the Page Object Model can lead to overly complex test code, making it harder to understand and maintain. Be cautious of creating unnecessary levels of abstraction.
+      </ul>
+      <h4>Conclusion:</h4>
+      <p>The Page Object Model (POM) can be an effective design pattern, especially for large and complex applications. However, it's important to be mindful of the potential drawbacks and strike a careful balance between principles like Don't Repeat Yourself (DRY) and Keep It Simple, Stupid (KISS). By considering these principles, 
+      POM can still be a valid and valuable choice for structuring your test code, as long as you apply it thoughtfully. Alternatively, if your application primarily consists of components, you could also apply the functional helper pattern</p> 
+      `,
+  },
+  {
+    name: 'Functional Helpers',
+    ring: 'Adopt',
+    quadrant: 'Techniques',
+    isNew: 'FALSE',
+    status: 'Moved In',
+    description: `
+    <h4>Description</h4>
+    <p>
+      Functional helpers are a lightweight approach to interacting with web page elements in automated tests. Rather than abstracting interactions through page object classes, functional helpers use standalone functions to perform actions directly on the page (e.g., clicking buttons, filling out forms). This approach capitalizes on the composability of modern testing frameworks like Playwright and Cypress, where you directly call functions that interact with elements.
+      While this approach offers a simpler structure compared to Page Object Models (POM), it can quickly lead to tests that lack clear structure and organization, especially in larger applications. Without careful management, functional helpers can lead to a lack of separation of concerns, where the test logic becomes tightly coupled with how the page is interacted with, making tests harder to read and maintain.
+    </p>
+    <h4>Pros:</h4>
+    <ul>
+      <li><strong>Simplicity:</strong> Functional helpers focus on straightforward, easy-to-understand functions that interact directly with elements, reducing the need for complex abstractions like base page classes.</li>
+      <li><strong>Better Debugging:</strong> Since functional helpers are simple and typically self-contained, they are easier to debug. Test failures can be traced directly to the helper function without needing to navigate through multiple layers of abstraction.</li>
+      <li><strong>Flexibility and Reusability:</strong> Tests become more flexible because functional helpers allow for easy composition and reuse of actions across different scenarios.</li>
+    </ul>
+    <h4>Cons:</h4>
+    <ul>
+      <li><strong>Harder to Read and Maintain:</strong> One of the key challenges with functional helpers is that they often lack clear separation of concerns. In large tests, this can make it difficult to distinguish between what you're testing (business logic) and how you're interacting with the page (UI logic). This overlap can make tests harder to read, especially when tests grow in complexity.</li>
+      <li><strong>Lack of Structure and Organization:</strong> In larger applications, functional helpers might lead to disorganized code. While functional helpers might be effective for small, isolated tests, when tests begin to scale, the lack of a cohesive structure may lead to repetition, lack of context, and difficulty in understanding test scenarios.</li>
+      <li><strong>Potential for Code Duplication:</strong> Without a clear abstraction layer like POM, it’s easy for helper functions to be duplicated across tests. Rewriting the same interactions for different tests can increase maintenance overhead, as changes to these actions must be made across multiple places in the codebase.</li>
+    </ul>
+    <h4>Conclusion:</h4>
+    <p>
+      Functional helpers may be an appealing choice for applications that heavily rely om UI components, where their lightweight and flexible nature can improve readability and speed of development. In larger applications or where tests become more complex, the lack of clear structure and separation of concerns can lead to maintainability challenges. The coupling of test logic and interaction logic might make tests more difficult to read, especially when working with large teams or scaling the test suite. In these cases, more structured approaches Page Object Models (POM), combined with composition, may be a better fit to keep tests readable and maintainable in the long term. Both POM and Functional Helpers can be excellent choices for your automation framework.
+    </p>
+  `,
+  },
+  {
     name: 'Contract Testing',
     ring: 'Assess',
     quadrant: 'Techniques',
-    isNew: 'FALSE',
+    isNew: 'TRUE',
     status: 'Moved In',
     description: `
       <h4>Description</h4>
@@ -22,39 +82,45 @@ const content = [
       <li><strong>Sharing:</strong> Contracts have to be shared between producer and consumer</li>
       <h4>Conclusion:</h4>
       <p>Contract Testing is a great addition to any project that deals with large-scale and highly distributed application(s). Integration issues between consumers and providers can be detected early without the need for setting up expensive integration environments. We would definitely recommend assessing contract testing as a technique.</p>
-    `,
+      `,
   },
   {
     name: 'BDD',
-    ring: 'Hold',
+    ring: 'Adopt',
     quadrant: 'Techniques',
     isNew: 'FALSE',
     status: 'No Change',
     description: `
       <h4>Description</h4>
       <p>
-        <strong>BDD</strong>, Behavior Driven Development is a technique mostly used to enable easier collaboration between developer, tester, and (business) users. Stories (features) are written in a human-readable form, focusing on the behavior of the system. Usually, these files are written in Gherkin, a special syntax used in BDD to allow tools like Cucumber and SpecFlow to automatically validate the “behaviors” encoded for a process.
-        Every step in the stories or feature files are then translated to actions in the application under test via Page Object, Steps and Actions.
+        <strong>BDD</strong> (Behavior Driven Development) is a technique intended to prove that the desired behaviour of the application works as part of the development cycle. Acceptance criteria are written as a test to be automated. This makes it one of the easier Test First Approaches. <br>
+        The technique is mostly used to enable easier collaboration between developer, tester, and (business) users. Applying BDD focusses on creating testable user stories that require a lower cognitive load from the developer. <br>
+        Most popular automation frameworks support a BDD workflow. Tools that explicitly focus on BDD include:
       </p>
       <p>
-        Examples of popular BDD frameworks are
         <ul>
-          <li>Cucumber</li>
+          <li>Cucumber / Reqnroll (successor of Specflow)</li>
           <li>Behave / JBehave</li>
-          <li>Specflow</li>
         </ul>
       </p>
       <h4>Pros:</h4>
-      <ul><li>BDD allows spec-files to serve as both living documented requirements and tests.</li></ul>
+      <ul>
+        <li>BDD allows spec-files to serve as both living documented requirements and tests.</li>
+        <li>BDD drives user stories to be clearly defined because of the testable acceptance criteria.</li>
+        <li>BDD focusses on reducing functional complexity for the developers, reducing cognitive load.</li>
+      </ul>
       <h4>Cons:</h4>
       <ul>
-            <li>Doing BDD correctly is actually extremely difficult. It requires strong collaboration between developers, testers, and business stakeholders, which can be challenging to establish and maintain.</li>
+            <li>Doing BDD correctly is really difficult. It requires strong collaboration between developers, testers, and business stakeholders, which can be challenging to establish and maintain.</li>
             <li>BDD, in most projects, is often misused as merely a way to write tests in a human-readable language. Without the collaborative focus on shared understanding and behavior specification, it holds little value.</li>
-            <li>In some projects, BDD is misinterpreted as a low-code automation solution, appealing to teams as a shortcut to start automating. However, BDD's purpose is not to simplify automation but to foster collaboration and ensure a shared understanding of the system's expected behaviors.</li>
+            <li>In some projects, BDD is simplified to using Cucumber and is misinterpreted as a low-code automation solution, appealing to teams as a shortcut to start automating. However, BDD's purpose is not to simplify automation but to foster collaboration and ensure a shared understanding of the system's expected behaviors.</li>
       </ul>
       <h4>Conclusion:</h4>
       <p>
-        While BDD is widely adopted, we do not recommend its use in most cases. In our experience, BDD is rarely applied for its intended purpose—facilitating collaboration and ensuring shared understanding between developers, testers, and business stakeholders. Instead, it often becomes an additional layer of complexity, where the Gherkin syntax adds little value beyond traditional testing approaches. Furthermore, tools like Cucumber often restrict access to the full feature set of underlying testing frameworks, leading to inefficient use of resources. For these reasons, we would not recommend starting new projects with BDD.
+        While BDD is widely adopted, it is rarely done right. <br>
+        In our experience, BDD is rarely applied for its intended purpose—facilitating collaboration and ensuring shared understanding between developers, testers, and business stakeholders. Instead, it often becomes an additional layer of complexity, where the Gherkin syntax adds little value beyond traditional testing approaches. <br>
+        Where BDD is done right we see user stories delivered to production faster and a reduced need for other acceptance level tests. <br>
+        We recommend BDD when it is supported by business stakeholders, developers and testers. In other circumstances it is a wasted effort.
       </p>
     `,
   },
