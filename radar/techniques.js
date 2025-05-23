@@ -25,8 +25,8 @@ const content = [
         <li><strong>Over-Abstraction:</strong> Overusing the Page Object Model can lead to overly complex test code, making it harder to understand and maintain. Be cautious of creating unnecessary levels of abstraction.
       </ul>
       <h4>Conclusion:</h4>
-      <p>The Page Object Model (POM) can be an effective design pattern, especially for large and complex applications. However, it's important to be mindful of the potential drawbacks and strike a careful balance between principles like Don't Repeat Yourself (DRY) and Keep It Simple, Stupid (KISS). By considering these principles, 
-      POM can still be a valid and valuable choice for structuring your test code, as long as you apply it thoughtfully. Alternatively, if your application primarily consists of components, you could also apply the functional helper pattern</p> 
+      <p>The Page Object Model (POM) can be an effective design pattern, especially for large and complex applications. However, it's important to be mindful of the potential drawbacks and strike a careful balance between principles like Don't Repeat Yourself (DRY) and Keep It Simple, Stupid (KISS). By considering these principles,
+      POM can still be a valid and valuable choice for structuring your test code, as long as you apply it thoughtfully. Alternatively, if your application primarily consists of components, you could also apply the functional helper pattern</p>
       `,
   },
   {
@@ -56,6 +56,42 @@ const content = [
     <h4>Conclusion:</h4>
     <p>
       Functional helpers may be an appealing choice for applications that heavily rely om UI components, where their lightweight and flexible nature can improve readability and speed of development. In larger applications or where tests become more complex, the lack of clear structure and separation of concerns can lead to maintainability challenges. The coupling of test logic and interaction logic might make tests more difficult to read, especially when working with large teams or scaling the test suite. In these cases, more structured approaches Page Object Models (POM), combined with composition, may be a better fit to keep tests readable and maintainable in the long term. Both POM and Functional Helpers can be excellent choices for your automation framework.
+    </p>
+  `,
+  },
+  {
+    name: 'Observability Testing',
+    ring: 'Adopt',
+    quadrant: 'Techniques',
+    isNew: 'TRUE',
+    status: 'Moved In',
+    description: `
+    <h4>Description</h4>
+    <p>
+      Observability Testing refers to monitoring the internal state of your system during testing so that you deeply understand what is happening during test execution. Rather than simply knowing whether a test failed, observability enables you to determine why it failed and where in the system the issue occurred. This can be used to pinpoint where your application code fails so that you can fix it immediately. It is achieved by integrating telemetry data into the testing process. <br>
+      The concept stems from the widely used production monitoring, but observability testing is now becoming increasingly relevant in automated testing, especially within distributed systems and CI/CD pipelines. It helps finding bugs earlier, pinpoint test flakiness, and even detect problems in test environments themselves. <br>
+      Observability testing has three main components. Metrics, Logs and Traces, all of which are combined to track system performance, resource utilization, but also capture detailed application events and add a visual real-time representation of testcases.
+    </p>
+
+    <h4>Pros:</h4>
+    <ul>
+      <li>Faster Diagnosis of Failures: By capturing detailed logs and trace information during test execution, teams can quickly identify the root cause of issues without reproducing them manually.</li>
+      <li>Improved Test Confidence: Helps differentiate between genuine application bugs and environment-related flakiness or instability in the test setup.</li>
+      <li>Insight into Trends: Allows teams to monitor long-term trends in test behavior and system reliability, offering data-driven insights for test optimization.</li>
+      <li>Enhanced Developer Feedback: Developers receive clearer signals from test failures, accelerating the development and debugging cycle.</li>
+    </ul>
+
+    <h4>Cons:</h4>
+    <ul>
+      <li>Setup Complexity: Implementing observability requires consistent logging and monitoring infrastructure, which may be difficult to implement into legacy systems.</li>
+      <li>Tooling Overhead: Integrating observability tools (e.g., tracing systems, log aggregators) may require additional resources and operational support.</li>
+      <li>Data Volume: If you do not manage the volume of the data properly, it will become overwhelming and make analysis harder rather than easier.</li>
+    </ul>
+
+    <h4>Conclusion:</h4>
+    <p>
+      Observability is a great enabler for modern test strategies, especially in distributed, asynchronous, or event-driven systems. While often associated with production monitoring, its application during automated testing unlocks a deeper understanding of failure modes and test stability. <br>
+      We recommend adopting observability practices in any system where test reliability, fast debugging, or system-level visibility are important. However, teams should carefully consider the infrastructure and skills required to implement it effectively. When integrated properly, observability transforms test automation from a black-box signal into a rich, actionable feedback loop.
     </p>
   `,
   },
