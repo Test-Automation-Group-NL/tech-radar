@@ -383,7 +383,7 @@ function renderRadarQuadrants(size, svg, quadrant, rings, ringCalculator, tip) {
     .attr('y', rectCoordMap[quadrant.order].y)
     .attr('stroke-dasharray', rectCoordMap[quadrant.order].strokeDashArray)
     .attr('stroke-width', 2)
-    .attr('stroke', '#71777d')
+    .attr('stroke', 'rgba(255, 255, 255, 0)')
     .attr('tabindex', 0)
 
   renderRadarQuadrantName(quadrant, quadrantGroup, tip)
