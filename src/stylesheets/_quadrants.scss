@@ -1,4 +1,5 @@
 #radar {
+  background-color: $haze;
   width: 80%;
   margin: 0 auto;
   position: relative;
@@ -141,6 +142,128 @@
       }
     }
 
+    .quadrant-group-first {
+      circle {
+        &.first {
+          fill: $technique-bullet;
+        }
+      }
+
+      path {
+        &.ring-arc-0 {
+          fill: $fern;
+        }
+
+        &.first {
+          fill: $technique-bullet;
+        }
+
+        &.ring-arc-1 {
+          fill: $celadon;
+        }
+
+        &.ring-arc-2 {
+          fill: $sage;
+        }
+
+        &.ring-arc-3 {
+          fill: $sage-light;
+        }
+      }
+    }
+
+    .quadrant-group-second {
+      circle {
+        &.second {
+          fill: $platform-bullet;
+        }
+      }
+
+      path {
+        &.ring-arc-0 {
+          fill: $terracotta;
+        }
+
+        &.second {
+          fill: $platform-bullet;
+        }
+
+        &.ring-arc-1 {
+          fill: $apricot;
+        }
+
+        &.ring-arc-2 {
+          fill: $peach;
+        }
+
+        &.ring-arc-3 {
+          fill: $sandstone;
+        }
+      }
+    }
+
+    .quadrant-group-third {
+      circle {
+        &.third {
+          fill: $tool-bullet;
+        }
+      }
+
+      path {
+        &.ring-arc-0 {
+          fill: $mauve;
+        }
+
+        &.third {
+          fill: $tool-bullet;
+        }
+
+        &.ring-arc-1 {
+          fill: $rosewood;
+        }
+
+        &.ring-arc-2 {
+          fill: $blush;
+        }
+
+        &.ring-arc-3 {
+          fill: $petal;
+        }
+      }
+
+    }
+
+    .quadrant-group-fourth {
+      circle {
+        &.fourth {
+          fill: $lf-bullet;
+        }
+      }
+
+      path {
+        &.ring-arc-0 {
+          fill: $slate;
+        }
+
+        &.fourth {
+          fill: $lf-bullet;
+        }
+
+        &.ring-arc-1 {
+          fill: $steel;
+        }
+
+        &.ring-arc-2 {
+          fill: $fog;
+        }
+
+        &.ring-arc-3 {
+          fill: $mist-lightest;
+        }
+      }
+
+    }
+
     .blip-link {
       text-decoration: none;
       cursor: pointer;
@@ -177,7 +300,7 @@
     }
 
     line {
-      stroke: white;
+      stroke: $haze;
     }
 
     text {
@@ -222,7 +345,7 @@
       }
 
       line {
-        stroke: white;
+        stroke: $haze;
       }
 
       text {
