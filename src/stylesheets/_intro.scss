@@ -3,12 +3,15 @@
 
 @if $UIRefresh2022 {
   .intro-overview {
-    background-color: $white;
     color: $black;
     display: flex;
     align-items: center;
     margin: 0 !important;
-    padding: 100px 0 ;
+    padding: 40px 0;
+
+    h1 {
+      text-transform: uppercase;
+    }
 
     &__color {
       background-color: rgb(241, 245, 249);
@@ -16,7 +19,9 @@
 
     &__wrapper {
       margin: auto;
-      width: 90%;
+      display: flex;
+      gap: 20px;
+      width: 100%;
 
       @include layout-margin(1, $screen-small);
       @include layout-margin(1, $screen-medium);
@@ -24,6 +29,21 @@
       @include layout-margin(1, $screen-xlarge);
       @include layout-margin(1, $screen-xxlarge);
       @include layout-margin(1, $screen-xxxlarge);
+
+      &__content {
+        padding: 20px;
+        background-color: $white;
+        flex: 0 0 70%;
+      }
+
+      &__images {
+        flex: 0 0 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
     }
 
     &__title-text {
