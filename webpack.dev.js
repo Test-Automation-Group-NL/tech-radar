@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge')
 const webpack = require('webpack')
+const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
 const cssnano = require('cssnano')
@@ -29,6 +30,26 @@ module.exports = merge(common, {
   entry: { main: main },
   performance: {
     hints: false,
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    clean: true,
+  },
+  devServer: {
+    static: {
+      directory: './dist',
+    },
+    hot: true,
+    liveReload: true,
+    watchFiles: ['src/**/*'],
+    port: 8080,
+    open: true,
+    historyApiFallback: true,
+    client: {
+      overlay: true,
+      progress: true,
+    },
   },
   module: {
     rules: [
@@ -69,6 +90,7 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env.ENVIRONMENT': JSON.stringify('development'),
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   devtool: 'source-map',
 })

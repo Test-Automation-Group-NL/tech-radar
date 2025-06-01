@@ -15,10 +15,11 @@ A library that generates an interactive radar, inspired by [thoughtworks.com/rad
 
 1. Clone the project
 2. Install all dependencies with `npm i`
-3. Run the development server with ` npm run local:dev`, this will
+3. Run the development server with `npm run local:dev`, this will
   - build the radar
   - watch the `radar.json` file and will copy it to the `dist` folder on file changes
   - starts a server which can be accessed on `https://localhost:8080`
+  - hot-reload on changes in the `src`-folder
 
 You can now adjust the files in the `radar`-folder file. Changes will be automatically generated and copied to the `dist` folder and can be seen by refreshing the browser
 
