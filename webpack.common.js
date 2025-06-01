@@ -42,10 +42,8 @@ module.exports = {
     common: common,
   },
   output: {
-    // path: buildPath,
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'images/[name][ext]',
-    publicPath: '.', // Update this line to ensure relative paths
   },
   resolve: {
     extensions: ['.js', '.ts'],
