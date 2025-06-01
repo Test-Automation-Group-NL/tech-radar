@@ -14624,18 +14624,6 @@
     margin-bottom: 0;
   }
 
-  .hero-banner .hero-banner__logo {
-    margin: 25px 0 0 0;
-    max-width: 250px;
-  }
-
-  @media screen and (min-width: 600px) {
-    .hero-banner .hero-banner__logo {
-      margin: 50px 0 0 0;
-      max-width: 290px;
-    }
-  }
-
   .hero-banner.hero-banner--products {
     margin-bottom: 0;
     background: #1972ba no-repeat url(https://67fb162d391b3c725e9d-210fd98f9f4ad5bac2f98cc8e61aaae5.ssl.cf2.rackcdn.com/images/products-banner-mobile.jpg) center center;
