@@ -1,5 +1,5 @@
 #radar {
-  background-color: $haze;
+  background-color: $mist-lighter;
   width: 80%;
   margin: 0 auto;
   position: relative;
@@ -300,7 +300,7 @@
     }
 
     line {
-      stroke: $haze;
+      // stroke: $haze;
     }
 
     text {
@@ -345,7 +345,7 @@
       }
 
       line {
-        stroke: $haze;
+        stroke: $mist-lighter;
       }
 
       text {

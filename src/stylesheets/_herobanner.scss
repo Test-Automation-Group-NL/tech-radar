@@ -3,7 +3,7 @@
 
 @if $UIRefresh2022 {
   .hero-banner {
-    background-color: $wave;
+    background-color: $steel-blue;
     color: $white;
     display: flex;
     align-items: center;
@@ -62,7 +62,6 @@
     &__subtitle-text {
       font-weight: 630;
       width: 100%;
-      text-align: left;
       text-transform: none;
       letter-spacing: 0;
       overflow: hidden;
@@ -73,6 +72,14 @@
       -webkit-box-orient: vertical;
       text-align: center;
       margin-bottom: 2rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
 
       @include media-query-medium {
         -webkit-line-clamp: 2;

@@ -2,15 +2,6 @@
 @import 'layout';
 
 @if $UIRefresh2022 {
-  .graph-footer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    @include media-query-medium {
-      align-items: center;
-    }
-  }
 
   .alternative-radars {
     display: flex;
