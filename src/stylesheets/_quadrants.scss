@@ -139,6 +139,16 @@
       .quadrant-group {
         transition: opacity 0.5s ease-out;
         pointer-events: all;
+
+        text {
+          font-size: 1.125rem;
+          font-family: $baseFontFamily;
+          line-height: 1.4em;
+
+          @include media-query-xxlarge {
+            font-size: 1.25rem;
+          }
+        }
       }
     }
 
