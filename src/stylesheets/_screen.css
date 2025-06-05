@@ -2353,7 +2353,7 @@
     font-family: 'Open Sans', 'Microsoft YaHei', 'Hiragino Sans GB', 'Hiragino Sans GB W3', '微软雅黑', 'Helvetica Neue',
       Arial, sans-serif;
     font-size: 18px;
-    line-height: 1.6em;
+    line-height: 1.4em;
     color: #221d1f;
     background-color: #e4ecf2;
     margin: 0;
@@ -2411,7 +2411,7 @@
   }
 
   a.anchor-black:hover {
-    color: #ef5ba1;
+    color: #ffffff;
   }
 
   a.anchor-black.no-underline {
@@ -2419,14 +2419,14 @@
   }
 
   a {
-    color: #ee0b77;
+    color: #ffffff;
     text-decoration: none;
     cursor: pointer;
-    border-bottom: 1px solid #ee0b77;
+    border-bottom: 1px solid #ffffff;
   }
 
   a:hover {
-    border-bottom-color: #f867ac;
+    border-bottom-color: #ffffff;
   }
 
   a:hover {

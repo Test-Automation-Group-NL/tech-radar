@@ -103,6 +103,13 @@
           font: inherit;
           cursor: pointer;
           background-color: $steel-blue-light;
+          font-size: 1rem;
+          font-family: $baseFontFamily;
+          line-height: 1.4em;
+
+          @include media-query-xxlarge {
+            font-size: 1.125rem;
+          }
 
           @include media-query-xlarge {
             padding: 15px 40px;

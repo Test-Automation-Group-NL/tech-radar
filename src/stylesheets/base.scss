@@ -24,20 +24,22 @@
 
 :root {
   font-family: baseFontFamily;
+  font-size: $baseFont;
 }
 
 @supports (font-variation-settings: normal) {
   :root {
     font-family: baseFontFamily;
+    font-size: $baseFont;
   }
 }
 
 @media screen {
   body {
-    font: 18px 'Open Sans';
     opacity: 0;
     @if $UIRefresh2022 {
       font-family: $baseFontFamily;
+      font-size: $baseFont;
       opacity: 1;
 
       h1 {
@@ -99,23 +101,18 @@
         letter-spacing: normal;
       }
 
-      p {
-        font-size: 1rem;
+      p, li, span {
+        font-size: 1.125rem;
         font-family: $baseFontFamily;
+        line-height: 1.4em;
 
         @include media-query-xxlarge {
-          font-size: 1.125rem;
+          font-size: 1.25rem;
         }
       }
 
       a {
         color: $link-normal;
-        border-color: $link-normal;
-
-        &:hover {
-          color: $link-hover;
-          border-color: $link-hover;
-        }
       }
     }
 
