@@ -4,6 +4,16 @@
 @if $UIRefresh2022 {
 
   .alternative-radars {
+    .graph-footer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      @include media-query-medium {
+        align-items: center;
+      }
+    }
+
     display: flex;
     flex-direction: column;
     align-items: center;

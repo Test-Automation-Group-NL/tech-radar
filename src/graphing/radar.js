@@ -780,13 +780,16 @@ const Radar = function (size, radar) {
 
     const radarHeader = d3.select('main .graph-header')
     const radarSearch = d3.select('main .graph-search')
+    const radarFooter = d3.select('main .graph-footer')
 
     renderBanner(renderFullRadar)
 
     if (featureToggles.UIRefresh2022) {
       renderQuadrantSubnav(radarHeader, quadrants, renderFullRadar)
       renderSearch(radarSearch, quadrants)
+      renderAlternativeRadars(radarFooter, alternatives, currentSheet)
       renderQuadrantTables(quadrants, rings)
+      renderButtons(radarFooter)
 
       const landingPageElements = document.querySelectorAll('main .home-page')
       landingPageElements.forEach((elem) => {
