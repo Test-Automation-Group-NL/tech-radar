@@ -280,6 +280,58 @@ While it lacks a detailed and mature UI and built-in functional testing features
 </p>
 `,
   },
+  {
+    name: 'Shift Left & Shift Right',
+    ring: 'adopt',
+    quadrant: 'Techniques',
+    isNew: 'True',
+    status: 'TRUE',
+    description: `
+  <H4>Description:</H4>
+  <p>Shift Left and Shift Right are two complementary approaches in test automation that determine <strong>when</strong> and <strong>how</strong> testing activities are performed within the software development lifecycle.</p>
+
+  <H4>Shift Left</H4>
+  <p><strong>Description:</strong><br>
+  Shift Left involves moving testing activities earlier in the development process, often starting before any code is written. The goal is to detect and resolve bugs as early as possible, leveraging automation for rapid and repetitive testing during development and integration phases.
+  </p>
+
+  <H4>Pros</H4>
+  <ul>
+    <li><strong>Early Bug Detection:</strong> Bugs are found and fixed sooner, reducing the cost and complexity of fixes.</li>
+    <li><strong>Enhanced Collaboration:</strong> Developers and testers work closely, improving communication and overall software quality.</li>
+    <li><strong>Greater Automation:</strong> Increased use of automated tests leads to higher test coverage and faster feedback cycles.</li>
+  </ul>
+
+  <H4>Cons</H4>
+  <ul>
+    <li><strong>Cultural Shift Required:</strong> Teams may need significant changes in mindset and workflow, which can be challenging to implement.</li>
+    <li><strong>Initial Setup Overhead:</strong> Requires investment in tools, training, and process changes upfront.</li>
+    <li><strong>Potential for Incomplete Real-World Coverage:</strong> Early tests might miss issues that only appear under real user conditions or in production-like environments.</li>
+  </ul>
+
+  <H4>Shift Right</H4>
+  <p><strong>Description:</strong><br>
+  Shift Right focuses on testing and monitoring after the software is released, often in production environments. This approach emphasizes real user feedback, performance, and reliability under actual usage conditions.
+  </p>
+
+  <H4>Pros</H4>
+  <ul>
+    <li><strong>Real-World Validation:</strong> Catches issues that only arise under real user behavior and production loads.</li>
+    <li><strong>Continuous Improvement:</strong> Enables rapid iteration based on user feedback and live metrics.</li>
+    <li><strong>Improved User Experience:</strong> Directly addresses usability, stability, and performance in the environments users actually experience.</li>
+  </ul>
+
+  <H4>Cons</H4>
+  <ul>
+    <li><strong>Risk of User Impact:</strong> Bugs found in production can negatively affect real users before they are resolved.</li>
+    <li><strong>Requires Robust Monitoring:</strong> Needs advanced monitoring and alerting systems to detect and respond to issues quickly.</li>
+    <li><strong>Dependent on User Base:</strong> Effective shift right testing requires sufficient user activity to generate meaningful feedback and data.</li>
+  </ul>
+
+  <H4>Conclusion:</H4>
+  <p>Both approaches are most effective when used together, creating a balanced strategy that ensures quality throughout the development lifecycle and in production.</p>
+  `
+  },
 ]
 
 exports.tools = {
