@@ -253,7 +253,7 @@ const content = [
   },
   {
     name: 'Vibe Coding',
-    ring: 'Adopt',
+    ring: 'Trial',
     quadrant: 'Techniques',
     isNew: 'TRUE',
     status: 'Moved In',
