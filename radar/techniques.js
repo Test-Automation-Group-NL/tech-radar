@@ -251,6 +251,37 @@ const content = [
       <p>Component testing is a proven practice that delivers significant value, especially in projects using modular architectures. However, it should complement, not replace, unit testing (UT). Each layer of testing has its own purpose, and overlapping coverage between unit and component tests should be avoided to prevent redundancy. Additionally, component testing can be effectively combined with visual testing to verify both behavior and UI consistency. We strongly recommend adopting component testing for immediate use wherever it fits project requirements, as part of a comprehensive and efficient testing strategy.</p>
     `,
   },
+  {
+    name: 'Vibe Coding',
+    ring: 'Adopt',
+    quadrant: 'Techniques',
+    isNew: 'TRUE',
+    status: 'Moved In',
+    description: `
+      <h4>Description</h4>
+      <p>
+      Vibe Coding is an innovative approach that leverages artificial intelligence and natural language processing to write and generate code. Instead of manually coding, developers utilize AI-powered tools to translate written natural language instructions into functional code snippets, functions, or even entire applications.
+      This approach transforms the traditional coding process, making it more accessible, (possibly) faster, and aligned with human language, reducing the barriers for non-experts and increasing productivity for experienced developers.
+      </p>
+      <h4>Pros:</h4>
+      <ul>
+        <li><strong>Accelerated Development:</strong> Significantly reduces the time required to write boilerplate code or implement features.</li>
+        <li><strong>Lower Barrier to Entry:</strong> Empowers non-developers or less experienced team members to contribute through natural language prompts.</li>
+      </ul>
+      <h4>Cons:</h4>
+      <ul>
+        <li><strong>AI is not always accurate:</strong> Generated code may require review, multiple iterations and adjustment to be correct, especially in large(r) existing codebases.</li>
+        <li><strong>Potential for Ambiguity:</strong> Natural language instructions can sometimes be vague, leading to unintended code outputs.</li>  
+      </ul>
+      <h4>Conclusion:</h4>
+      <p>
+      Vibe coding could potentially represent a paradigm shift in software development, enabling developers to focus more on high-level design and problem-solving rather than low-level coding tasks. 
+      However, it is important to approach this technique with caution, AI generated code is not always accurate and may require multiple iterations to get right. This is exactly where it gets difficult, less experienced developers may not be able to determine whether the generated code is correct or not, leading to potential issues in the codebase.
+      Simply put, Vibe coding can enhance productivity but a fool with a tool is still a fool.
+      We recommend assessing the potential of vibe coding in your organization, especially if you have a large codebase or complex systems. It can be a valuable tool for experienced developers, but it should not replace traditional coding practices entirely.
+      </p>
+    `,
+  },
 ]
 
 exports.techniques = {
