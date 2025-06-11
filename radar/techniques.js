@@ -77,7 +77,7 @@ const content = [
     <ul>
       <li><strong>Faster Diagnosis of Failures:</strong> By capturing detailed logs and trace information during test execution, teams can quickly identify the root cause of issues without reproducing them manually.</li>
       <li><strong>Improved Test Confidence:</strong> Helps differentiate between genuine application bugs and environment-related flakiness or instability in the test setup.</li>
-      <li>Insight into Trends: Allows teams to monitor long-term trends in test behavior and system reliability, offering data-driven insights for test optimization.</li>
+      <li><strong>Insight into Trends:</strong> Allows teams to monitor long-term trends in test behavior and system reliability, offering data-driven insights for test optimization.</li>
       <li>Enhanced Developer Feedback: Developers receive clearer signals from test failures, accelerating the development and debugging cycle.</li>
     </ul>
 
