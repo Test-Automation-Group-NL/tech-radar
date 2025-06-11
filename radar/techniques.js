@@ -83,7 +83,7 @@ const content = [
 
     <h4>Cons:</h4>
     <ul>
-      <li>Setup Complexity: Implementing observability requires consistent logging and monitoring infrastructure, which may be difficult to implement into legacy systems.</li>
+      <li><strong>Setup Complexity:</strong> Implementing observability requires consistent logging and monitoring infrastructure, which may be difficult to implement into legacy systems.</li>
       <li><strong>Tooling Overhead:</strong> Integrating observability tools (e.g., tracing systems, log aggregators) may require additional resources and operational support.</li>
       <li><strong>Data Volume:</strong> If you do not manage the volume of the data properly, it will become overwhelming and make analysis harder rather than easier.</li>
     </ul>
