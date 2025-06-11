@@ -60,7 +60,7 @@ const content = [
   `,
   },
   {
-    name: 'Observability Testing',
+    name: 'Observability',
     ring: 'Adopt',
     quadrant: 'Techniques',
     isNew: 'TRUE',
@@ -68,9 +68,22 @@ const content = [
     description: `
     <h4>Description</h4>
     <p>
-      Observability Testing refers to monitoring the internal state of your system during testing so that you deeply understand what is happening during test execution. Rather than simply knowing whether a test failed, observability enables you to determine why it failed and where in the system the issue occurred. This can be used to pinpoint where your application code fails so that you can fix it immediately. It is achieved by integrating telemetry data into the testing process. <br>
-      The concept stems from the widely used production monitoring, but observability testing is now becoming increasingly relevant in automated testing, especially within distributed systems and CI/CD pipelines. It helps finding bugs earlier, pinpoint test flakiness, and even detect problems in test environments themselves. <br>
-      Observability testing has three main components. Metrics, Logs and Traces, all of which are combined to track system performance, resource utilization, but also capture detailed application events and add a visual real-time representation of testcases.
+      <strong>Observability</strong> refers to monitoring the internal state of your system by collecting and analyzing telemetry data—such as logs, metrics, and traces—during both testing and production. This provides deep insights into what happens during test execution or real-world usage. <br>
+      Rather than simply knowing that a test or deployment failed, observability enables you to determine why it failed and where in the system the issue occurred. This supports rapid diagnosis, root cause analysis, and validation of system behavior under real conditions. <br>
+      While observability has its roots in production monitoring, observability in testing is now becoming increasingly relevant in automated testing, especially within distributed systems and CI/CD pipelines. Integrating observabilitys early in the software lifecycle (e.g., in test or staging environments) helps teams prepare for full lifecycle observability. It lays the foundation for practices like <strong>Progressive Delivery</strong> and helps to uncover bugs earlier, pinpoint test flakiness, and even detect problems in the test environment itself.
+    </p>
+
+    <p>
+      Common open-source tools and frameworks are for example:
+      <ul>
+        <li><strong>Tracetest:</strong> Enables trace-based testing using OpenTelemetry, allowing assertions on spans and integration with tools like Jaeger and Grafana.</li>
+        <li><strong>Malabi:</strong> A trace-based testing library for Node.js applications that captures OpenTelemetry traces automatically during integration tests.</li>
+        <li><strong>Prometheus:</strong> A metrics collection and alerting toolkit widely used for monitoring performance.</li>
+        <li><strong>Grafana:</strong> A visualization platform often paired with Prometheus for real-time dashboarding.</li>
+        <li><strong>Jaeger/Grafana Tempo:</strong> Tools for distributed tracing and analyzing request paths across services.</li>
+        <li><strong>OpenSearch:</strong> A log and trace analysis engine built on Elasticsearch, often used with Kibana-style dashboards.</li>
+        <li><strong>SigNoz:</strong> A unified observability platform supporting metrics, traces, and logs in one UI.</li>
+      </ul>
     </p>
 
     <h4>Pros:</h4>
