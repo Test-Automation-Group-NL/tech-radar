@@ -1,5 +1,7 @@
 const { merge } = require('webpack-merge')
 const webpack = require('webpack')
+const fs = require('fs')
+const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
 const cssnano = require('cssnano')
@@ -70,5 +72,28 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env.ENVIRONMENT': JSON.stringify('production'),
     }),
+    {
+      // Custom plugin to copy CNAME file
+      apply: (compiler) => {
+        compiler.hooks.afterEmit.tapAsync('CopyCnamePlugin', (compilation, callback) => {
+          const source = path.resolve(__dirname, 'CNAME')
+          const destination = path.resolve(compiler.options.output.path, 'CNAME')
+
+          fs.access(source, fs.constants.F_OK, (accessErr) => {
+            if (accessErr) {
+              compilation.warnings.push(new Error(`CNAME file not found at ${source}.`))
+              return callback()
+            }
+
+            fs.copyFile(source, destination, (copyErr) => {
+              if (copyErr) {
+                compilation.errors.push(copyErr)
+              }
+              callback()
+            })
+          })
+        })
+      },
+    },
   ],
 })
