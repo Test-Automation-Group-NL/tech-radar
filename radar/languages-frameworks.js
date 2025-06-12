@@ -132,7 +132,7 @@ More on the pricing can be found here: <a href="https://www.cypress.io/pricing/"
     development.
   </li>
   <li>
-    <strong>LoadBalanced Parallelism:</strong> Cypress can loadbalance your tests over multiple CI runners (payed feature)
+    <strong>LoadBalanced Parallelism:</strong> Cypress can loadbalance your tests over multiple CI runners (paid feature)
   </li>
 </ul>
 <h4>Cons:</h4>
