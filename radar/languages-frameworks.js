@@ -132,7 +132,7 @@ More on the pricing can be found here: <a href="https://www.cypress.io/pricing/"
     development.
   </li>
   <li>
-    <strong>Potential bottleneck:</strong> Parallelism of tests inside a single CI/CD runner can make a testrun slower. This can be solved by parallelizing the tests over multiple runners.
+    <strong>LoadBalanced Parallelism:</strong> Cypress can loadbalance your tests over multiple CI runners (payed feature)
   </li>
 </ul>
 <h4>Cons:</h4>
