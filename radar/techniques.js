@@ -70,7 +70,7 @@ const content = [
     <p>
       <strong>Observability</strong> refers to monitoring the internal state of your system by collecting and analyzing telemetry data—such as logs, metrics, and traces—during both testing and production. This provides deep insights into what happens during test execution or real-world usage. <br>
       Rather than simply knowing that a test or deployment failed, Observability enables you to determine why it failed and where in the system the issue occurred. This supports rapid diagnosis, root cause analysis, and validation of system behavior under real conditions. <br>
-      While observability has its roots in production monitoring, its application in testing is now becoming increasingly relevant in automated testing, especially within distributed systems and CI/CD pipelines. Integrating observability early in the software lifecycle (e.g., in test or staging environments) helps teams prepare for full lifecycle observability. It lays the foundation for practices like <strong>Progressive Delivery</strong> and helps to uncover bugs earlier, pinpoint test flakiness, and even detect problems in the test environment itself.
+      While Observability has its roots in production monitoring, its application in testing is now becoming increasingly relevant in automated testing, especially within distributed systems and CI/CD pipelines. Integrating Observability early in the software lifecycle (e.g., in test or staging environments) helps teams prepare for full lifecycle observability. It lays the foundation for practices like <strong>Progressive Delivery</strong> and helps to uncover bugs earlier, pinpoint test flakiness, and even detect problems in the test environment itself.
     </p>
 
     <p>
