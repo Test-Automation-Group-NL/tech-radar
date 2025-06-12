@@ -104,7 +104,7 @@ const content = [
     <h4>Conclusion:</h4>
     <p>
       Observability is a great enabler for modern test strategies, especially in distributed, asynchronous, or event-driven systems. While often associated with production monitoring, its application during automated testing unlocks a deeper understanding of failure modes and test stability. <br>
-      We recommend adopting observability practices in any system where test reliability, fast debugging, or system-level visibility are important. However, teams should carefully consider the infrastructure and skills required to implement it effectively. When integrated properly, observability transforms test automation from a black-box signal into a rich, actionable feedback loop.
+      We recommend adopting Observability practices in any system where test reliability, fast debugging, or system-level visibility are important. However, teams should carefully consider the infrastructure and skills required to implement it effectively. When integrated properly, Observability transforms test automation from a black-box signal into a rich, actionable feedback loop.
     </p>
   `,
   },
