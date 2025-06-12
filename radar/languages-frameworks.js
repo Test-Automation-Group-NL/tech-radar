@@ -138,7 +138,7 @@ More on the pricing can be found here: <a href="https://www.cypress.io/pricing/"
 <h4>Cons:</h4>
 <ul>
   <li>
-    <strong>Expensive Cloud features</strong> make it less attractive to make use a payed tier on the Cypress Cloud. Features like Flake Detection, Flaky Test analytics are great, but because the pricing is based on the number of tests run, it can be very expensive for larger test suites.
+    <strong>Expensive Cloud features</strong> make it less attractive to make use a paid tier on the Cypress Cloud. Features like Flake Detection, Flaky Test analytics are great, but because the pricing is based on the number of tests run, it can be very expensive for larger test suites.
   </li>
 
   <li>
