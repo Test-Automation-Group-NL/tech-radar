@@ -112,7 +112,7 @@ const content = [
   which makes it easy to debug your code.</p>
 <p>A great feature of Cypress is its ability to create component tests. With this feature, you can test your components in isolation, which can have a positive impact on the
    number of E2E tests needed to cover the application under test.</p>
-<p>Another greet feature of Cypress is its ability to run tests in parallel, which can significantly speed up the test execution time because Cypress is able to loadbalance the testrun via the Cypress Cloud. This feature does not need a payed tier.</p>
+<p>Another greet feature of Cypress is its ability to run tests in parallel, which can significantly speed up the test execution time because Cypress is able to loadbalance the testrun via the Cypress Cloud. This feature does not need a paid tier.</p>
 <p>Cypress also has a couple of other features that are great for scaling your test suite, like extended reporting, est replay (because debugging in CI can be hard), UI coverage and more.
    Some of these featuers are only available in the paid version of Cypress, but the free tier of the Cypress Cloud is still very powerful.
 More on the pricing can be found here: <a href="https://www.cypress.io/pricing/">Cypress Pricing</a></p>
