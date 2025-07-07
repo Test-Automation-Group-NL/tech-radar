@@ -40,7 +40,7 @@ radar/
 
 1. **Clone the project**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Test-Automation-Group-NL/tech-radar.git
    cd tech-radar
    ```
 
