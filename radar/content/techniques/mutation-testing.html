@@ -1,0 +1,47 @@
+---
+name: "Mutation testing"
+ring: "Trial"
+isNew: "FALSE"
+status: "No Change"
+---
+
+<h4>Description</h4>
+<p>
+    Conceptually, mutation testing is straightforward. Using specialized tools, small changes (mutations) are made to
+    the source code of an application, creating a "mutant." When tests are executed against this mutant, the expectation
+    is that one or more tests will fail, indicating that the mutation introduced an incorrect system behavior. This
+    process is referred to as "killing the mutant." If no tests fail, it is a clear indication that the mutated part of
+    the application lacks sufficient test coverage. Mutation testing is often referred to as "testing the tests."
+</p>
+<p>
+    Here are a few examples of mutation testing tools (not an exhaustive list):
+<ul>
+    <li>PIT (pitest.org)</li>
+    <li>Arcmutate (arcmutate.com)</li>
+    <li>Stryker Mutator (stryker-mutator.io)</li>
+</ul>
+</p>
+<h4>Pros:</h4>
+<ul>
+    <li><strong>Ensures Test Quality:</strong> Mutation testing helps determine not just test coverage but also test
+        effectiveness, ensuring your tests can detect actual faults in the code.</li>
+    <li><strong>Identifies Weak Tests:</strong> It can highlight weak or redundant tests that might be passing but are
+        not effectively validating the application's behavior.</li>
+</ul>
+<h4>Cons:</h4>
+<ul>
+    <li>Mutation testing can be computationally expensive, especially in large projects, as it requires running the test
+        suite multiple times for each mutation.</li>
+    <li>It may require additional configuration or tuning to integrate seamlessly with your existing testing pipelines
+    </li>
+</ul>
+<h4>Conclusion:</h4>
+<p>
+    Mutation Testing is an amazing technique to validate if you can actually rely on your tests to inform you of changed
+    behavior. Traditional test coverage (i.e. line, statement, branch, etc.) measures only which code is executed by
+    your tests. It does not check that your tests are actually able to detect faults in the executed code. It is
+    therefore only able to identify code that is definitely not tested.
+    Mutation testing is much better, as it is actually able to detect whether each
+    statement is meaningfully tested. Therefore giving an accurate report on the quality of your tests.
+    <br />We would definitely recommend checking it out!
+</p>
