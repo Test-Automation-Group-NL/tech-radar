@@ -3,7 +3,7 @@
 
 @if $UIRefresh2022 {
   .hero-banner {
-    background-color: $wave;
+    background-color: $steel-blue;
     color: $white;
     display: flex;
     align-items: center;
@@ -49,6 +49,21 @@
       }
     }
 
+    &__logo {
+      margin-bottom: 2rem;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 75%;
+        height: 2px;
+        background-color: $white;
+      }
+    }
+
     &__title-text {
       width: 100%;
       text-align: left;
@@ -60,9 +75,10 @@
     }
 
     &__subtitle-text {
-      font-weight: 630;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 200;
+      color: $white;
       width: 100%;
-      text-align: left;
       text-transform: none;
       letter-spacing: 0;
       overflow: hidden;
@@ -71,8 +87,19 @@
       line-height: 1.75rem;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
-      text-align: center;
       margin-bottom: 2rem;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 100;
+        color: $white;
+      }
+
+      p {
+        font-size: 1.1rem;
+        font-weight: 100;
+        color: $white;
+      }
 
       @include media-query-medium {
         -webkit-line-clamp: 2;

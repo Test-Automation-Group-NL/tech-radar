@@ -3,20 +3,22 @@
 
 @if $UIRefresh2022 {
   .intro-overview {
-    background-color: $white;
     color: $black;
     display: flex;
     align-items: center;
     margin: 0 !important;
-    padding: 100px 0 ;
+    padding: 40px 0;
 
-    &__color {
-      background-color: rgb(241, 245, 249);
+    h1 {
+      text-transform: uppercase;
     }
 
     &__wrapper {
       margin: auto;
-      width: 90%;
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      flex-wrap: nowrap;
 
       @include layout-margin(1, $screen-small);
       @include layout-margin(1, $screen-medium);
@@ -24,6 +26,100 @@
       @include layout-margin(1, $screen-xlarge);
       @include layout-margin(1, $screen-xxlarge);
       @include layout-margin(1, $screen-xxxlarge);
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 0;
+
+        &__content,
+        &__images {
+          width: 100%;
+          flex: 0 0 100%;
+        }
+
+        &__images {
+          margin-top: 20px;
+        }
+      }
+
+      &__content {
+        padding: 20px;
+        background-color: $white;
+        flex: 1 1 70%;
+        min-width: 0;
+        max-width: 70%;
+      }
+
+      &__images {
+        flex: 0 0 30%;
+        min-width: 0;
+        max-width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // gap: 20px;
+        background-color: $steel-blue;
+        padding: 10px;
+
+        &__title {
+          color: $white;
+          font-size: 1.25rem;
+          font-weight: 600;
+        }
+
+        a {
+          text-decoration: none;
+          border: none;
+        }
+
+        img {
+          max-width: 100%;
+        }
+      }
+
+      &__overview {
+        background-color: $white;
+        padding: 20px;
+
+        ul, ol {
+          margin: 0 0 0 18px;
+          padding: 0;
+        }
+
+        li {
+          margin-bottom: 10px;
+          line-height: 1.4;
+        }
+
+        &__quadrants-rings {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 20px;
+
+          &__quadrants {
+            background-color: rgba($mist-lighter, 0.4);
+          }
+
+          &__rings {
+            background-color: rgba($mist-lighter, 0.4);
+          }
+
+          &__quadrants,
+          &__rings {
+            flex: 1 1 0;
+            margin: 20px 0;
+            padding: 30px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+          }
+
+          @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 20px;
+          }
+        }
+      }
     }
 
     &__title-text {

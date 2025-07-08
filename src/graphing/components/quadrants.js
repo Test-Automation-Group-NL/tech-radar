@@ -345,14 +345,14 @@ function renderRadarQuadrants(size, svg, quadrant, rings, ringCalculator, tip) {
     },
   }
 
-  quadrantGroup
-    .append('rect')
-    .attr('width', `${quadrantWidth}px`)
-    .attr('height', `${quadrantHeight}px`)
-    .attr('fill', '#edf1f3')
-    .attr('x', rectCoordMap[quadrant.order].x)
-    .attr('y', rectCoordMap[quadrant.order].y)
-    .style('pointer-events', 'none')
+  // quadrantGroup
+  //   .append('rect')
+  //   .attr('width', `${quadrantWidth * 0.9}px`)
+  //   .attr('height', `${quadrantHeight * 0.9}px`)
+  //   .attr('fill', '#ffffff')
+  //   .attr('x', rectCoordMap[quadrant.order].x)
+  //   .attr('y', rectCoordMap[quadrant.order].y)
+  //   .style('pointer-events', 'none')
 
   rings.forEach(function (ring, i) {
     const arc = d3
@@ -375,15 +375,15 @@ function renderRadarQuadrants(size, svg, quadrant, rings, ringCalculator, tip) {
   quadrantGroup
     .append('rect')
     .classed('quadrant-rect', true)
-    .attr('width', `${quadrantWidth}px`)
-    .attr('height', `${quadrantHeight}px`)
+    .attr('width', `${quadrantWidth * 0.9}px`)
+    .attr('height', `${quadrantHeight * 0.9}px`)
     .attr('fill', 'transparent')
     .attr('stroke', 'black')
     .attr('x', rectCoordMap[quadrant.order].x)
     .attr('y', rectCoordMap[quadrant.order].y)
     .attr('stroke-dasharray', rectCoordMap[quadrant.order].strokeDashArray)
     .attr('stroke-width', 2)
-    .attr('stroke', '#71777d')
+    .attr('stroke', 'rgba(255, 255, 255, 0)')
     .attr('tabindex', 0)
 
   renderRadarQuadrantName(quadrant, quadrantGroup, tip)

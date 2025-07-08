@@ -1,4 +1,5 @@
 #radar {
+  background-color: $mist-lighter;
   width: 80%;
   margin: 0 auto;
   position: relative;
@@ -129,8 +130,8 @@
         &.ring-arc-2,
         &.ring-arc-1,
         &.ring-arc-0 {
-          stroke: $mist-s30;
-          stroke-width: 1;
+          // stroke: $mist-s30;
+          // stroke-width: 1;
           fill: white;
         }
       }
@@ -138,7 +139,139 @@
       .quadrant-group {
         transition: opacity 0.5s ease-out;
         pointer-events: all;
+
+        text {
+          font-size: 1.125rem;
+          font-family: $baseFontFamily;
+          line-height: 1.4em;
+
+          @include media-query-xxlarge {
+            font-size: 1.25rem;
+          }
+        }
       }
+    }
+
+    .quadrant-group-first {
+      circle {
+        &.first {
+          fill: $technique-bullet;
+        }
+      }
+
+      path {
+        &.ring-arc-0 {
+          fill: $fern;
+        }
+
+        &.first {
+          fill: $technique-bullet;
+        }
+
+        &.ring-arc-1 {
+          fill: $celadon;
+        }
+
+        &.ring-arc-2 {
+          fill: $sage;
+        }
+
+        &.ring-arc-3 {
+          fill: $sage-light;
+        }
+      }
+    }
+
+    .quadrant-group-second {
+      circle {
+        &.second {
+          fill: $platform-bullet;
+        }
+      }
+
+      path {
+        &.ring-arc-0 {
+          fill: $terracotta;
+        }
+
+        &.second {
+          fill: $platform-bullet;
+        }
+
+        &.ring-arc-1 {
+          fill: $apricot;
+        }
+
+        &.ring-arc-2 {
+          fill: $peach;
+        }
+
+        &.ring-arc-3 {
+          fill: $sandstone;
+        }
+      }
+    }
+
+    .quadrant-group-third {
+      circle {
+        &.third {
+          fill: $tool-bullet;
+        }
+      }
+
+      path {
+        &.ring-arc-0 {
+          fill: $mauve;
+        }
+
+        &.third {
+          fill: $tool-bullet;
+        }
+
+        &.ring-arc-1 {
+          fill: $rosewood;
+        }
+
+        &.ring-arc-2 {
+          fill: $blush;
+        }
+
+        &.ring-arc-3 {
+          fill: $petal;
+        }
+      }
+
+    }
+
+    .quadrant-group-fourth {
+      circle {
+        &.fourth {
+          fill: $lf-bullet;
+        }
+      }
+
+      path {
+        &.ring-arc-0 {
+          fill: $slate;
+        }
+
+        &.fourth {
+          fill: $lf-bullet;
+        }
+
+        &.ring-arc-1 {
+          fill: $steel;
+        }
+
+        &.ring-arc-2 {
+          fill: $fog;
+        }
+
+        &.ring-arc-3 {
+          fill: $mist-lightest;
+        }
+      }
+
     }
 
     .blip-link {
@@ -177,7 +310,7 @@
     }
 
     line {
-      stroke: white;
+      // stroke: $haze;
     }
 
     text {
@@ -222,7 +355,7 @@
       }
 
       line {
-        stroke: white;
+        stroke: $mist-lighter;
       }
 
       text {

@@ -25,8 +25,8 @@ const content = [
         <li><strong>Over-Abstraction:</strong> Overusing the Page Object Model can lead to overly complex test code, making it harder to understand and maintain. Be cautious of creating unnecessary levels of abstraction.
       </ul>
       <h4>Conclusion:</h4>
-      <p>The Page Object Model (POM) can be an effective design pattern, especially for large and complex applications. However, it's important to be mindful of the potential drawbacks and strike a careful balance between principles like Don't Repeat Yourself (DRY) and Keep It Simple, Stupid (KISS). By considering these principles, 
-      POM can still be a valid and valuable choice for structuring your test code, as long as you apply it thoughtfully. Alternatively, if your application primarily consists of components, you could also apply the functional helper pattern</p> 
+      <p>The Page Object Model (POM) can be an effective design pattern, especially for large and complex applications. However, it's important to be mindful of the potential drawbacks and strike a careful balance between principles like Don't Repeat Yourself (DRY) and Keep It Simple, Stupid (KISS). By considering these principles,
+      POM can still be a valid and valuable choice for structuring your test code, as long as you apply it thoughtfully. Alternatively, if your application primarily consists of components, you could also apply the functional helper pattern</p>
       `,
   },
   {
@@ -56,6 +56,55 @@ const content = [
     <h4>Conclusion:</h4>
     <p>
       Functional helpers may be an appealing choice for applications that heavily rely om UI components, where their lightweight and flexible nature can improve readability and speed of development. In larger applications or where tests become more complex, the lack of clear structure and separation of concerns can lead to maintainability challenges. The coupling of test logic and interaction logic might make tests more difficult to read, especially when working with large teams or scaling the test suite. In these cases, more structured approaches Page Object Models (POM), combined with composition, may be a better fit to keep tests readable and maintainable in the long term. Both POM and Functional Helpers can be excellent choices for your automation framework.
+    </p>
+  `,
+  },
+  {
+    name: 'Observability Testing',
+    ring: 'Adopt',
+    quadrant: 'Techniques',
+    isNew: 'TRUE',
+    status: 'Moved In',
+    description: `
+    <h4>Description</h4>
+    <p>
+      <strong>Observability</strong> refers to monitoring the internal state of your system by collecting and analyzing telemetry data—such as logs, metrics, and traces—during both testing and production. This provides deep insights into what happens during test execution or real-world usage. <br>
+      Rather than simply knowing that a test or deployment failed, Observability enables you to determine why it failed and where in the system the issue occurred. This supports rapid diagnosis, root cause analysis, and validation of system behavior under real conditions. <br>
+      While Observability has its roots in production monitoring, its application in testing is now becoming increasingly relevant in automated testing, especially within distributed systems and CI/CD pipelines. Integrating Observability early in the software lifecycle (e.g., in test or staging environments) helps teams prepare for full lifecycle observability. It lays the foundation for practices like <strong>Progressive Delivery</strong> —a strategy for gradually rolling out features, often using mechanisms such as feature flags— and helps to uncover bugs earlier, pinpoint test flakiness, and even detect problems in the test environment itself.
+    </p>
+
+    <p>
+      Examples of common open-source tools and frameworks include:
+      <ul>
+        <li><strong>Tracetest:</strong> Enables trace-based testing using OpenTelemetry, allowing assertions on spans and integration with tools like Jaeger and Grafana.</li>
+        <li><strong>Malabi:</strong> A trace-based testing library for Node.js applications that captures OpenTelemetry traces automatically during integration tests.</li>
+        <li><strong>Prometheus:</strong> A metrics collection and alerting toolkit widely used for monitoring performance.</li>
+        <li><strong>Grafana:</strong> A visualization platform often paired with Prometheus for real-time dashboarding.</li>
+        <li><strong>Jaeger/Grafana Tempo:</strong> Tools for distributed tracing and analyzing request paths across services.</li>
+        <li><strong>OpenSearch:</strong> A log and trace analysis engine built on Elasticsearch, often used with Kibana-style dashboards.</li>
+        <li><strong>SigNoz:</strong> A unified observability platform supporting metrics, traces, and logs in one UI.</li>
+      </ul>
+    </p>
+
+    <h4>Pros:</h4>
+    <ul>
+      <li><strong>Faster Diagnosis of Failures:</strong> By capturing detailed logs and trace information during test execution, teams can quickly identify the root cause of issues without reproducing them manually.</li>
+      <li><strong>Improved Test Confidence:</strong> Helps differentiate between genuine application bugs and environment-related flakiness or instability in the test setup.</li>
+      <li><strong>Insight into Trends:</strong> Allows teams to monitor long-term trends in test behavior and system reliability, offering data-driven insights for test optimization.</li>
+      <li><strong>Enhanced Developer Feedback:</strong> Developers receive clearer signals from test failures, accelerating the development and debugging cycle.</li>
+    </ul>
+
+    <h4>Cons:</h4>
+    <ul>
+      <li><strong>Setup Complexity:</strong> Implementing Observability requires consistent logging and monitoring infrastructure, which may be difficult to implement into legacy systems.</li>
+      <li><strong>Tooling Overhead:</strong> Integrating Observability tools (e.g., tracing systems, log aggregators) may require additional resources and operational support.</li>
+      <li><strong>Data Volume:</strong> If you do not manage the volume of the data properly, it will become overwhelming and make analysis harder rather than easier.</li>
+    </ul>
+
+    <h4>Conclusion:</h4>
+    <p>
+      Observability is a great enabler for modern test strategies, especially in distributed, asynchronous, or event-driven systems. While often associated with production monitoring, its application during automated testing unlocks a deeper understanding of failure modes and test stability. <br>
+      We recommend adopting Observability practices in any system where test reliability, fast debugging, or system-level visibility are important. However, teams should carefully consider the infrastructure and skills required to implement it effectively. When integrated properly, Observability transforms test automation from a black-box signal into a rich, actionable feedback loop.
     </p>
   `,
   },
@@ -249,6 +298,40 @@ const content = [
       </ul>
       <h4>Conclusion:</h4>
       <p>Component testing is a proven practice that delivers significant value, especially in projects using modular architectures. However, it should complement, not replace, unit testing (UT). Each layer of testing has its own purpose, and overlapping coverage between unit and component tests should be avoided to prevent redundancy. Additionally, component testing can be effectively combined with visual testing to verify both behavior and UI consistency. We strongly recommend adopting component testing for immediate use wherever it fits project requirements, as part of a comprehensive and efficient testing strategy.</p>
+    `,
+  },
+  {
+    name: 'Vibe Coding',
+    ring: 'Trial',
+    quadrant: 'Techniques',
+    isNew: 'TRUE',
+    status: 'Moved In',
+    description: `
+      <h4>Description</h4>
+      <p>
+      Vibe Coding is an innovative approach that leverages artificial intelligence and natural language processing to write and generate code. Instead of manually coding, developers and QA engineers utilize AI-powered tools to translate written natural language instructions into functional code snippets, functions, or even entire applications.
+      This approach transforms the traditional coding process, making it more accessible, (possibly) faster, and aligned with human language, reducing the barriers for non-experts and increasing productivity for experienced developers.
+      </p>
+      <h4>Pros:</h4>
+      <ul>
+        <li><strong>Accelerated Development:</strong> Significantly reduces the time required to write boilerplate code or implement features.</li>
+        <li><strong>Fast(er) Refactoring:</strong> Refactor existing codebases more efficiently by using AI-generated suggestions.</li>
+        <li><strong>Lower Barrier to Entry:</strong> Empowers non-developers or less experienced team members to contribute through natural language prompts.</li>
+      </ul>
+      <h4>Cons:</h4>
+      <ul>
+        <li><strong>AI is not always accurate:</strong> Generated code may require review, multiple iterations and adjustment to be correct, especially in large(r) existing codebases.</li>
+        <li><strong>Potential for Over-Reliance:</strong> Developers may become overly dependent on AI tools, leading to a decline in traditional coding skills and problem-solving abilities.</li>
+        <li><strong>Potential for Technical Debt, security and code quality issues:</strong> code might work initially but can sometimes be inefficient, difficult to understand, or hard to maintain in the long run, especially for complex systems. Without careful human review and refinement, it can lead to "spaghetti code" and future headaches. It might also overlook critical security measures, such as proper input validation or error handling. Relying solely on AI without thorough security reviews can introduce vulnerabilities into applications, leading to potential hacks or data breaches. This all refers to often missing the correct context which is not provided.</li>
+        <li><strong>Potential for Ambiguity:</strong> Natural language instructions can sometimes be vague, leading to unintended code outputs.</li>
+      </ul>
+      <h4>Conclusion:</h4>
+      <p>
+      Vibe coding could potentially represent a paradigm shift in software development, enabling developers to focus more on high-level design and problem-solving rather than low-level coding tasks. 
+      However, it is important to approach this technique with caution, AI generated code is not always accurate and may require multiple iterations to get right. This is exactly where it gets difficult, less experienced developers may not be able to determine whether the generated code is correct or not, leading to potential issues in the codebase.
+      Simply put, Vibe coding can enhance productivity but a fool with a tool is still a fool. Vibe coding can be a powerful tool to create boilerplate code, refactor existing code, or even write entire applications. However, it should not be seen as a replacement for traditional coding practices, especially in complex systems where understanding the context and nuances of the code is crucial.
+      We recommend assessing the potential of vibe coding in your organization, especially if you have a large codebase or complex systems. It can be a valuable tool for experienced developers, but it should not replace traditional coding practices entirely.
+      </p>
     `,
   },
 ]

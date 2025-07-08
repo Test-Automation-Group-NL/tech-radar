@@ -32,6 +32,9 @@ module.exports = merge(common, {
   performance: {
     hints: false,
   },
+  output: {
+    publicPath: '.',
+  },
   module: {
     rules: [
       {
