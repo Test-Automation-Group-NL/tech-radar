@@ -1,0 +1,48 @@
+---
+name: "Page Object Model"
+ring: "Adopt"
+isNew: "TRUE"
+status: "Moved In"
+---
+
+<h4>Description</h4>
+<p>
+    The Page Object Model (POM) is a design pattern commonly used to structure test code, typically reflecting the
+    structure of the application under test. By encapsulating the logic for interacting with a page in a single
+    location, POM reduces code duplication and enhances test maintainability.
+    Typically, these page objects extend a base class that includes shared methods for interacting with common page
+    elements, such as clicking buttons or filling out forms. However, modern test frameworks like Playwright and Cypress
+    offer built-in functionality for interacting with page elements, rendering the need for base classes less critical.
+    As frameworks like React have popularized the use of UI components, test frameworks should adopt a similar approach.
+    Instead of relying on base pages, consider using Component Objects and applying composition to your Page Objects.
+    This approach ensures your framework closely mirrors the system under test
+</p>
+<h4>Pros:</h4>
+<ul>
+    <li><strong>Reduced Code Duplication:</strong> POM helps centralize the logic for interacting with page elements in
+        a single class. This minimizes code repetition, making it easier to maintain test scripts when the UI changes.
+    </li>
+    <li><strong>Improved Test Maintainability:</strong> Since the page logic is separated into different classes,
+        updating the UI (e.g., changing button names or locations) only requires changes to the corresponding page
+        object class, not throughout every test script.</li>
+    <li><strong>Separation of Concerns:</strong> POM separates the test logic (what you are testing) from the
+        interaction logic (how you interact with the page), making your tests cleaner, more organized, and easier to
+        read.</li>
+</ul>
+<h4>Cons:</h4>
+<ul>
+    <li><strong>Increased Complexity for Small Projects:</strong> For small projects, the overhead of creating and
+        maintaining page objects may outweigh the benefits. In these cases, a simpler approach may be more appropriate.
+    </li>
+    <li><strong>Dependency on UI Structure:</strong> If the UI changes frequently, maintaining page objects can become
+        time-consuming. In these cases, consider using more flexible selectors or alternative testing strategies.</li>
+    <li><strong>Over-Abstraction:</strong> Overusing the Page Object Model can lead to overly complex test code, making
+        it harder to understand and maintain. Be cautious of creating unnecessary levels of abstraction.
+</ul>
+<h4>Conclusion:</h4>
+<p>The Page Object Model (POM) can be an effective design pattern, especially for large and complex applications.
+    However, it's important to be mindful of the potential drawbacks and strike a careful balance between principles
+    like Don't Repeat Yourself (DRY) and Keep It Simple, Stupid (KISS). By considering these principles,
+    POM can still be a valid and valuable choice for structuring your test code, as long as you apply it thoughtfully.
+    Alternatively, if your application primarily consists of components, you could also apply the functional helper
+    pattern</p>

@@ -2,21 +2,25 @@ const fs = require('fs')
 const path = require('path')
 const { buildRadar } = require('./build.radar.json.js')
 
-const sourceFiles = [
-  path.resolve(__dirname, 'languages-frameworks.js'),
-  path.resolve(__dirname, 'platforms.js'),
-  path.resolve(__dirname, 'techniques.js'),
-  path.resolve(__dirname, 'tools.js'),
-]
+const contentDir = path.resolve(__dirname, 'content')
 
-sourceFiles.forEach((sourceFile) => {
-  fs.watch(sourceFile, (eventType) => {
-    if (eventType === 'change') {
-      console.log(`Detected change in "${sourceFile}"`)
-      buildRadar()
-    }
-  })
+const quadrantDirs = ['techniques', 'tools', 'platforms', 'languages-frameworks']
+
+quadrantDirs.forEach((quadrantDir) => {
+  const fullPath = path.join(contentDir, quadrantDir)
+
+  if (fs.existsSync(fullPath)) {
+    fs.watch(fullPath, { recursive: true }, (eventType, filename) => {
+      if (eventType === 'change' && filename && filename.endsWith('.html')) {
+        console.log(`Detected change in "${path.join(fullPath, filename)}"`)
+        buildRadar()
+      }
+    })
+    console.log(`Watching for changes in ${fullPath}`)
+  } else {
+    console.warn(`Directory ${fullPath} does not exist, skipping watch...`)
+  }
 })
 
-console.log('Watching for changes in radar files...')
+console.log('Watching for changes in radar HTML files...')
 buildRadar()
