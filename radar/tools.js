@@ -281,70 +281,90 @@ While it lacks a detailed and mature UI and built-in functional testing features
 `,
   },
   {
-    name: 'Shift Left & Shift Right',
-    ring: 'adopt',
-    quadrant: 'Techniques',
-    isNew: 'True',
-    status: 'TRUE',
+    name: "Shift Left",
+    ring: "adopt",
+    quadrant: "Techniques",
+    isNew: "True",
+    status: "TRUE",
     description: `
-  <H4>Description:</H4>
-  <p>Shift Left and Shift Right are two complementary approaches in test automation that determine <strong>when</strong> and <strong>how</strong> testing activities (such as requirements review, test planning, unit, integration, and e2e testing) are performed within the software development lifecycle.  These approaches apply to both test automation and manual testing, impacting the entire software development lifecycle.</p>
-  <H4>Shift Left</H4>
-  <p><strong>Description:</strong><br>
-  Shift Left involves moving testing activities earlier in the development process, often starting before any code is written. The goal is to detect and resolve bugs as early as possible, leveraging automation for rapid and repetitive testing during development and integration phases.
-  </p>
-
-  <H4>Pros</H4>
-  <ul>
-    <li><strong>Faster development cycles:</strong> Reduced time spent on bug fixes allows for "faster" releases.</li>
-    <li><strong>Enhanced Collaboration:</strong> Developers and testers work closely, improving communication and overall software quality.</li>
-    <li><strong>Greater Automation:</strong> Increased use of automated tests leads to higher test coverage and faster feedback cycles.</li>
-  </ul>
-
-  <H4>Cons</H4>
-  <ul>
-    <li><strong>Cultural Shift Required:</strong> Teams may need significant changes in mindset and workflow, which can be challenging to implement.</li>
-    <li><strong>Initial Setup Overhead:</strong> Requires investment in tools, training, and process changes upfront.</li>
-    <li><strong>Potential for Incomplete Real-World Coverage:</strong> Early tests might miss issues that only appear under real user conditions or in production-like environments.</li>
-  </ul>
-
-  <H4>Shift Right</H4>
+    <h4>Description:</h4>
   <p>
-    <strong>Description:</strong><br>
-    Shift Right focuses on testing and monitoring after release, especially in production environments, using real user feedback and performance data to ensure reliability. <br>
-    <strong>Observability testing</strong> is a key part of Shift Right: it uses logs, metrics, and traces to gain deep insights into system behavior and quickly detect issues.<br>
-    While Shift Right is often associated with post-release, you can start applying its strategies—like chaos testing or feature toggles—in staging or pre-production. However, true observability testing emphasizes monitoring real-world usage in production.
+    Shift Left involves moving testing activities earlier in the software development lifecycle (SDLC), sometimes even before code is written. The goal is to detect and resolve bugs as early as possible, which reduces cost, accelerates feedback, and improves software quality.
   </p>
 
-
-  <H4>Pros</H4>
+  <h4>Examples of Shift Left practices:</h4>
   <ul>
-    <li><strong>Real-World Validation:</strong> Catches issues that only arise under real user behavior and production loads.</li>
-    <li><strong>Continuous Improvement:</strong> Enables rapid iteration based on user feedback and live metrics.</li>
-    <li><strong>Improved User Experience:</strong> Directly addresses usability, stability, and performance in the environments users actually experience.</li>
+    <li><strong>Early testing during analysis/design:</strong> Define test scenarios or acceptance criteria (e.g., using BDD/Gherkin) as part of requirements gathering.</li>
+    <li><strong>Unit & integration testing:</strong> Developers write tests alongside code, catching bugs earlier and ensuring faster resolution.</li>
+    <li><strong>Test automation:</strong> Automate tests (that add business value) to run continuously in CI/CD pipelines.</li>
+    <li><strong>Static analysis & linting:</strong> Tools like ESLint, SonarQube, or TypeScript check code quality and catch errors during development.</li>
+    <li><strong>Security Shift Left (DevSecOps):</strong> Apply security checks (e.g., dependency scanning, static security analysis) at commit or build time.</li>
   </ul>
 
-  <H4>Cons</H4>
+  <h4>Pros:</h4>
   <ul>
-    <li><strong>Risk of User Impact:</strong> Bugs found in production can negatively affect real users before they are resolved.</li>
-    <li><strong>Requires Robust Monitoring:</strong> Needs advanced monitoring and alerting systems to detect and respond to issues quickly.</li>
-    <li><strong>Dependent on User Base:</strong> Effective shift right testing requires sufficient user activity to generate meaningful feedback and data.</li>
+    <li><strong>Faster development cycles:</strong> Early bug detection reduces rework and shortens delivery timelines.</li>
+    <li><strong>Enhanced collaboration:</strong> Developers, testers, and business stakeholders work closely from the start.</li>
+    <li><strong>Increased automation & coverage:</strong> Automated tests provide rapid feedback and higher confidence in changes.</li>
+  </ul>
+
+  <h4>Cons:</h4>
+  <ul>
+    <li><strong>Cultural shift required:</strong> Teams need to adopt new mindsets, tools, and workflows.</li>
+    <li><strong>Initial investment:</strong> Time, tooling, and training are needed upfront.</li>
+    <li><strong>Incomplete real-world coverage:</strong> Some issues may still only appear later in the process or in production.</li>
   </ul>
 
   <h4>Conclusion:</h4>
-  <ul>
-    <li>
-      <strong>Shift Left:</strong> Start testing early (e.g., requirements review, unit testing) to catch issues sooner, reduce late-stage defects, and accelerate development.
-    </li>
-    <li>
-      <strong>Shift Right:</strong> Focus on testing and monitoring in production (e.g., user feedback, A/B testing). While Shift Right covers testing after release, <strong>observability testing</strong> specifically means using logs, metrics, and traces to gain deep insights into system behavior and quickly resolve issues.
-    </li>
-  </ul>
   <p>
-    <strong>Recommendation:</strong> Combining both approaches is best practice—Shift Left prevents issues early, while Shift Right with observability ensures quality and rapid response in production.
+    Shift Left enables teams to catch defects early and deliver higher-quality software faster. It works best when combined with complementary approaches like Shift Right for complete lifecycle quality assurance.
   </p>
-  `
+    `
   },
+  {
+    name: "Shift Right",
+    ring: "adopt",
+    quadrant: "Techniques",
+    isNew: "True",
+    status: "TRUE",
+    description: `
+    <h4>Description:</h4>
+  <p>
+    Shift Right focuses on testing, validation, and monitoring after software has been released into production or near-production environments. It complements pre-release testing by using real-world feedback, usage patterns, and system behavior to ensure reliability and continuous improvement.
+  </p>
+
+  <p>
+    <strong>Observability testing</strong> (using logs, metrics, and traces) is one example of Shift Right, but Shift Right also includes techniques like:
+  </p>
+  <ul>
+    <li><strong>Canary releases:</strong> Gradually releasing features to a subset of users and monitoring their impact.</li>
+    <li><strong>Chaos testing:</strong> Introducing controlled failures to test system resilience (e.g., with tools like Chaos Monkey).</li>
+    <li><strong>Feature toggles & A/B testing:</strong> Controlling feature rollout and gathering user feedback before full deployment.</li>
+    <li><strong>Service monitoring & alerting:</strong> Using dashboards, logs, and tracing to detect and respond to issues in real time.</li>
+  </ul>
+
+  <h4>Pros:</h4>
+  <ul>
+    <li><strong>Real-world validation:</strong> Ensures the software works as expected in actual usage conditions.</li>
+    <li><strong>Continuous improvement:</strong> Live metrics and user feedback drive ongoing enhancements.</li>
+    <li><strong>Improved user experience:</strong> Allows rapid detection and resolution of issues affecting users.</li>
+  </ul>
+
+  <h4>Cons:</h4>
+  <ul>
+    <li><strong>Risk of user impact:</strong> Bugs in production may affect real users before they are fixed.</li>
+    <li><strong>Robust monitoring required:</strong> Success depends on effective observability and incident response.</li>
+    <li><strong>Dependent on usage data:</strong> Low user activity can limit the effectiveness of Shift Right strategies.</li>
+  </ul>
+
+  <h4>Conclusion:</h4>
+  <p>
+    Shift Right complements Shift Left by validating software in real-world conditions and enabling rapid issue detection and continuous delivery improvements. Combining both approaches delivers the most robust quality assurance strategy.
+  </p>
+    `
+  }
+
+
 ]
 
 exports.tools = {
