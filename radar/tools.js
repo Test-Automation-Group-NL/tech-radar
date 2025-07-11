@@ -313,6 +313,7 @@ While it lacks a detailed and mature UI and built-in functional testing features
     <li><strong>Cultural shift required:</strong> Teams need to adopt new mindsets, tools, and workflows.</li>
     <li><strong>Initial investment:</strong> Time, tooling, and training are needed upfront.</li>
     <li><strong>Incomplete real-world coverage:</strong> Some issues may still only appear later in the process or in production.</li>
+    <li><strong>Over-reliance on pre-release testing:</strong>  Focusing too much on early-stage checks may lead to thinking about and or missing issues that only surface in real-world usage or production environments.</li>
   </ul>
 
   <h4>Conclusion:</h4>
