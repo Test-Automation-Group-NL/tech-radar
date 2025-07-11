@@ -354,7 +354,7 @@ While it lacks a detailed and mature UI and built-in functional testing features
   <h4>Cons:</h4>
   <ul>
     <li><strong>Risk of user impact:</strong> Bugs in production may affect real users before they are fixed.</li>
-    <li><strong>Robust monitoring required:</strong> Success depends on effective observability and incident response.</li>
+    <li><strong>Requires operational maturity:</strong> Without mature CI/CD pipelines and alerting, the benefits of Shift Right can be limited or delayed.</li>
     <li><strong>Dependent on usage data:</strong> Low user activity can limit the effectiveness of Shift Right strategies.</li>
   </ul>
 
