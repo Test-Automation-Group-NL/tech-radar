@@ -318,7 +318,7 @@ While it lacks a detailed and mature UI and built-in functional testing features
 
   <h4>Conclusion:</h4>
   <p>
-    Shift Left enables teams to catch defects early and deliver higher-quality software faster. It works best when combined with complementary approaches like Shift Right for complete lifecycle quality assurance.
+    We recommend adopting Shift Left practices to detect defects earlier and improve overall software quality. In doing so, we often advise teams to re-evaluate the role of slower, UI-based E2E tests in favor of faster feedback layers like API and unit testing. In practice, we often see that this shift has a significant impact on the overall test (automation) strategy, requiring thoughtful integration, ideally in combination with Shift Right practices to ensure quality throughout the entire software lifecycle.
   </p>
     `
   },
