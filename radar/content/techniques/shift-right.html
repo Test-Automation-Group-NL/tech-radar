@@ -1,0 +1,50 @@
+---
+name: "Shift Right"
+ring: "Adopt"
+isNew: "TRUE"
+status: "No Change"
+---
+
+<h4>Description:</h4>
+<p>
+  Shift Right focuses on testing, validation, and monitoring after software has been released into production or
+  near-production environments. It complements pre-release testing by using real-world feedback, usage patterns, and
+  system behavior to ensure reliability and continuous improvement.
+</p>
+<p>
+  <strong>Observability testing</strong> (using logs, metrics, and traces) is one example of Shift Right, but Shift
+  Right also includes techniques like:
+</p>
+<ul>
+  <li><strong>Canary releases:</strong> Gradually releasing features to a subset of users and monitoring their impact.
+  </li>
+  <li><strong>Chaos testing:</strong> Introducing controlled failures to test system resilience (e.g., with tools like
+    Chaos Monkey).</li>
+  <li><strong>Feature toggles & A/B testing:</strong> Controlling feature rollout and gathering user feedback before
+    full deployment.</li>
+  <li><strong>Service monitoring & alerting:</strong> Using dashboards, logs, and tracing to detect and respond to
+    issues in real time.</li>
+</ul>
+<h4>Pros:</h4>
+<ul>
+  <li><strong>Real-world validation:</strong> Ensures the software works as expected in actual usage conditions.</li>
+  <li><strong>Continuous improvement:</strong> Live metrics and user feedback drive ongoing enhancements.</li>
+  <li><strong>Improved user experience:</strong> Allows rapid detection and resolution of issues affecting users.</li>
+</ul>
+<h4>Cons:</h4>
+<ul>
+  <li><strong>Risk of user impact:</strong> Bugs in production may affect real users before they are fixed.</li>
+  <li><strong>Requires operational maturity:</strong> Without mature CI/CD pipelines and alerting, the benefits of Shift
+    Right can be limited or delayed.</li>
+  <li><strong>Dependent on usage data:</strong> Low user activity can limit the effectiveness of Shift Right strategies.
+  </li>
+</ul>
+<h4>Conclusion:</h4>
+<p>
+  We recommend adopting Shift Right practices to validate software in real-world conditions and drive continuous
+  improvement after release. In our experience, teams that invest in observability, feature toggles, and experimentation
+  gain critical insights that traditional testing cannot provide. Failures in production, when properly monitored, offer
+  valuable input for improving both resilience and user experience. Shift Right requires a certain level of operational
+  maturity to be effective. We advise combining it with Shift Left practices to create a balanced quality strategy
+  across the full software lifecycle.
+</p>
