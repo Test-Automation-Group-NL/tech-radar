@@ -99,6 +99,14 @@
     }
   }
 
+  #radar-container {
+    background-color: transparent !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
   #radar {
     display: block !important;
     height: max-content !important;
@@ -236,9 +244,10 @@
   }
 
   .hero-banner,
-  main > *:not(#pdf-cover-page, #radar, .intro-overview),
+  main > *:not(#pdf-cover-page, #radar-container, #radar, .intro-overview),
   #radar > #radar-plot,
   .radar-legends,
+  .graph-search,
   .ui-helper-hidden-accessible,
   #onetrust-consent-sdk {
     display: none !important;
