@@ -1,0 +1,73 @@
+---
+name: "Observability Testing"
+ring: "Adopt"
+isNew: "TRUE"
+status: "Moved In"
+---
+
+<h4>Description</h4>
+<p>
+    <strong>Observability</strong> refers to monitoring the internal state of your system by collecting and analyzing
+    telemetry data—such as logs, metrics, and traces—during both testing and production. This provides deep insights
+    into what happens during test execution or real-world usage. <br>
+    Rather than simply knowing that a test or deployment failed, Observability enables you to determine why it failed
+    and where in the system the issue occurred. This supports rapid diagnosis, root cause analysis, and validation of
+    system behavior under real conditions. <br>
+    While Observability has its roots in production monitoring, its application in testing is now becoming increasingly
+    relevant in automated testing, especially within distributed systems and CI/CD pipelines. Integrating Observability
+    early in the software lifecycle (e.g., in test or staging environments) helps teams prepare for full lifecycle
+    observability. It lays the foundation for practices like <strong>Progressive Delivery</strong> —a strategy for
+    gradually rolling out features, often using mechanisms such as feature flags— and helps to uncover bugs earlier,
+    pinpoint test flakiness, and even detect problems in the test environment itself.
+</p>
+
+<p>
+    Examples of common open-source tools and frameworks include:
+<ul>
+    <li><strong>Tracetest:</strong> Enables trace-based testing using OpenTelemetry, allowing assertions on spans and
+        integration with tools like Jaeger and Grafana.</li>
+    <li><strong>Malabi:</strong> A trace-based testing library for Node.js applications that captures OpenTelemetry
+        traces automatically during integration tests.</li>
+    <li><strong>Prometheus:</strong> A metrics collection and alerting toolkit widely used for monitoring performance.
+    </li>
+    <li><strong>Grafana:</strong> A visualization platform often paired with Prometheus for real-time dashboarding.</li>
+    <li><strong>Jaeger/Grafana Tempo:</strong> Tools for distributed tracing and analyzing request paths across
+        services.</li>
+    <li><strong>OpenSearch:</strong> A log and trace analysis engine built on Elasticsearch, often used with
+        Kibana-style dashboards.</li>
+    <li><strong>SigNoz:</strong> A unified observability platform supporting metrics, traces, and logs in one UI.</li>
+</ul>
+</p>
+
+<h4>Pros:</h4>
+<ul>
+    <li><strong>Faster Diagnosis of Failures:</strong> By capturing detailed logs and trace information during test
+        execution, teams can quickly identify the root cause of issues without reproducing them manually.</li>
+    <li><strong>Improved Test Confidence:</strong> Helps differentiate between genuine application bugs and
+        environment-related flakiness or instability in the test setup.</li>
+    <li><strong>Insight into Trends:</strong> Allows teams to monitor long-term trends in test behavior and system
+        reliability, offering data-driven insights for test optimization.</li>
+    <li><strong>Enhanced Developer Feedback:</strong> Developers receive clearer signals from test failures,
+        accelerating the development and debugging cycle.</li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+    <li><strong>Setup Complexity:</strong> Implementing Observability requires consistent logging and monitoring
+        infrastructure, which may be difficult to implement into legacy systems.</li>
+    <li><strong>Tooling Overhead:</strong> Integrating Observability tools (e.g., tracing systems, log aggregators) may
+        require additional resources and operational support.</li>
+    <li><strong>Data Volume:</strong> If you do not manage the volume of the data properly, it will become overwhelming
+        and make analysis harder rather than easier.</li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+    Observability is a great enabler for modern test strategies, especially in distributed, asynchronous, or
+    event-driven systems. While often associated with production monitoring, its application during automated testing
+    unlocks a deeper understanding of failure modes and test stability. <br>
+    We recommend adopting Observability practices in any system where test reliability, fast debugging, or system-level
+    visibility are important. However, teams should carefully consider the infrastructure and skills required to
+    implement it effectively. When integrated properly, Observability transforms test automation from a black-box signal
+    into a rich, actionable feedback loop.
+</p>
