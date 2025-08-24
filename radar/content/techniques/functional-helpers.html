@@ -7,47 +7,47 @@ status: "Moved In"
 
 <h4>Description</h4>
 <p>
-    Functional helpers are a lightweight approach to interacting with web page elements in automated tests. Rather than
-    abstracting interactions through page object classes, functional helpers use standalone functions to perform actions
-    directly on the page (e.g., clicking buttons, filling out forms). This approach capitalizes on the composability of
-    modern testing frameworks like Playwright and Cypress, where you directly call functions that interact with
-    elements.
-    While this approach offers a simpler structure compared to Page Object Models (POM), it can quickly lead to tests
-    that lack clear structure and organization, especially in larger applications. Without careful management,
-    functional helpers can lead to a lack of separation of concerns, where the test logic becomes tightly coupled with
-    how the page is interacted with, making tests harder to read and maintain.
+  Functional helpers are a lightweight approach to interacting with web page elements in automated tests. Rather than
+  abstracting interactions through page object classes, functional helpers use standalone functions to perform actions
+  directly on the page (e.g., clicking buttons, filling out forms). This approach capitalizes on the composability of
+  modern testing frameworks like Playwright and Cypress, where you call functions that directly interact with
+  elements.<br />
+  While this approach offers a simpler structure compared to Page Object Models (POM), it can quickly lead to tests
+  that lack clear structure and organization, especially in larger applications. Without careful management,
+  functional helpers can lead to a lack of separation of concerns, where the test logic becomes tightly coupled with
+  how the page is interacted with, making tests harder to read and maintain.
 </p>
 <h4>Pros:</h4>
 <ul>
-    <li><strong>Simplicity:</strong> Functional helpers focus on straightforward, easy-to-understand functions that
-        interact directly with elements, reducing the need for complex abstractions like base page classes.</li>
-    <li><strong>Better Debugging:</strong> Since functional helpers are simple and typically self-contained, they are
-        easier to debug. Test failures can be traced directly to the helper function without needing to navigate through
-        multiple layers of abstraction.</li>
-    <li><strong>Flexibility and Reusability:</strong> Tests become more flexible because functional helpers allow for
-        easy composition and reuse of actions across different scenarios.</li>
+  <li><strong>Simplicity:</strong> Functional helpers focus on straightforward, easy-to-understand functions that
+    interact directly with elements, reducing the need for complex abstractions like base page classes.</li>
+  <li><strong>Better Debugging:</strong> Since functional helpers are simple and typically self-contained, they are
+    easier to debug. Test failures can be traced directly to the helper function, without needing to navigate through
+    multiple layers of abstraction.</li>
+  <li><strong>Flexibility and Reusability:</strong> Tests become more flexible because functional helpers allow easy
+    composition and reuse of actions across different scenarios.</li>
 </ul>
 <h4>Cons:</h4>
 <ul>
-    <li><strong>Harder to Read and Maintain:</strong> One of the key challenges with functional helpers is that they
-        often lack clear separation of concerns. In large tests, this can make it difficult to distinguish between what
-        you're testing (business logic) and how you're interacting with the page (UI logic). This overlap can make tests
-        harder to read, especially when tests grow in complexity.</li>
-    <li><strong>Lack of Structure and Organization:</strong> In larger applications, functional helpers might lead to
-        disorganized code. While functional helpers might be effective for small, isolated tests, when tests begin to
-        scale, the lack of a cohesive structure may lead to repetition, lack of context, and difficulty in understanding
-        test scenarios.</li>
-    <li><strong>Potential for Code Duplication:</strong> Without a clear abstraction layer like POM, it's easy for
-        helper functions to be duplicated across tests. Rewriting the same interactions for different tests can increase
-        maintenance overhead, as changes to these actions must be made across multiple places in the codebase.</li>
+  <li><strong>Harder to Read and Maintain:</strong> One of the key challenges with functional helpers is that they
+    often lack clear separation of concerns. In large tests, this can make it difficult to distinguish between what
+    you're testing (business logic) and how you're interacting with the page (UI logic). This overlap can make tests
+    harder to read, especially when tests grow in complexity.</li>
+  <li><strong>Lack of Structure and Organization:</strong> In larger applications, functional helpers might lead to
+    disorganized code. While functional helpers can be effective for small, isolated tests, they may become harder to
+    manage as tests scale. This can result in repetition, loss of context, and difficulty understanding test scenarios.
+  </li>
+  <li><strong>Potential for Code Duplication:</strong> Without a clear abstraction layer like POM, it's easy for
+    helper functions to be duplicated across tests. Rewriting the same interactions for different tests can increase
+    maintenance overhead, as changes to these actions must be made across multiple places in the codebase.</li>
 </ul>
 <h4>Conclusion:</h4>
 <p>
-    Functional helpers may be an appealing choice for applications that heavily rely om UI components, where their
-    lightweight and flexible nature can improve readability and speed of development. In larger applications or where
-    tests become more complex, the lack of clear structure and separation of concerns can lead to maintainability
-    challenges. The coupling of test logic and interaction logic might make tests more difficult to read, especially
-    when working with large teams or scaling the test suite. In these cases, more structured approaches Page Object
-    Models (POM), combined with composition, may be a better fit to keep tests readable and maintainable in the long
-    term. Both POM and Functional Helpers can be excellent choices for your automation framework.
+  Functional helpers may be an appealing choice for applications that heavily rely on UI components, where their
+  lightweight and flexible nature can improve readability and speed of development. In larger applications or where
+  tests become more complex, the lack of clear structure and separation of concerns can lead to maintainability
+  challenges. The coupling of test logic and interaction logic might make tests more difficult to read, especially
+  when working with large teams or scaling the test suite. In these cases, more structured approaches, like POM,
+  combined with composition, may be a better fit to keep tests readable and maintainable in the long term.<br />
+  Both POM and Functional Helpers can be excellent choices for your automation framework.
 </p>
