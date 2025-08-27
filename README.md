@@ -1,4 +1,4 @@
-# Tech Radar
+# TechRadar
 
 > [!NOTE]
 > You can find the live radar at [https://test-automation-group-nl.github.io/tech-radar/](https://test-automation-group-nl.github.io/tech-radar/)
@@ -7,7 +7,7 @@ An interactive technology radar for test automation tools, inspired by [thoughtw
 
 ## How It Works
 
-The tech radar consists of individual **blips** (technology assessments) organized into:
+The TechRadar consists of individual **blips** (technology assessments) organized into:
 
 - **4 Quadrants**: Different categories of technology
 - **4 Rings**: Maturity levels (Adopt, Trial, Assess, Hold)
