@@ -5,15 +5,17 @@ isNew: "FALSE"
 status: "Moved In"
 ---
 
-<H4>Description:</H4>
-<p>Playwright, released in January 2020, has quickly established itself as a strong alternative to tools like Cypress.
+<h4>Description:</h4>
+<p>
+  Playwright, released in January 2020, has quickly established itself as a strong alternative to tools like Cypress.
   It supports all major browser engines (Chromium, WebKit, and Firefox), operating systems, and programming languages.
   What sets Playwright apart are its automatic waiting features, actionability checks, and web-first assertions,
   making it a highly reliable tool for end-to-end (E2E) testing.<br />
   Playwright also supports testing on real, unmodified browsers, including Google Chrome and Microsoft Edge, though with
   some feature limitations.
 </p>
-<h4>Pros</h4>
+
+<h4>Pros:</h4>
 <ul>
   <li>
     <strong>Actionability checks:</strong> Playwright ensures elements are actionable (e.g., visible, attached to the
@@ -24,16 +26,17 @@ status: "Moved In"
     minimizing test failures due to timing issues.
   </li>
   <li>
-    <strong>Debugging and testing features:</strong> Playwright includes powerful tools like network interception,
+    <strong>Debugging and testing features:</strong> Includes powerful tools like network interception,
     mocking, and tracing, giving developers granular control over their tests.
   </li>
 </ul>
-<h4>Cons</h4>
+
+<h4>Cons:</h4>
 <ul>
   <li>
     <strong>Proprietary protocol:</strong> Playwright uses a proprietary protocol for its enhanced features, relying on
     modified browser engines. While it supports real browsers like Google Chrome and Microsoft Edge, features such as
-    network interception may not work fully with these unmodified browsers. Additionally, for Safari, Playwright relies
+    network interception may not fully work with these unmodified browsers. Additionally, for Safari, Playwright relies
     on the WebKit engine rather than testing the real, unmodified Safari browser, which may lead to minor
     inconsistencies in Safari-specific environments.
   </li>
@@ -43,16 +46,17 @@ status: "Moved In"
   </li>
   <li>
     <strong>Limited component testing control:</strong> Although open to contributions, Playwright is developed and
-    controlled by Microsoft, making its future subject to corporate decisions.
+    controlled by Microsoft, making its long-term future subject to corporate decisions.
   </li>
 </ul>
+
 <h4>Conclusion:</h4>
 <p>
   Playwright is an excellent contender for E2E-style tests with its automatic waiting capabilities, web-first
-  assertions, and network interception, mocking, and tracing capabilities. Its ability to support both real
-  browsers (e.g., Chrome and Edge) and modified engines provides flexibility for testing needs. However, its reliance
-  on a proprietary protocol, including the use of WebKit for Safari-like testing, introduces some limitations when
-  aiming for true browser fidelity. Additionally, while Playwright is open source, its development is controlled by
+  assertions, and powerful debugging features like network interception, mocking, and tracing. Its ability to support
+  both real browsers (e.g., Chrome and Edge) and modified engines provides flexibility for testing needs. However, its
+  reliance on a proprietary protocol, including the use of WebKit for Safari-like testing, introduces some limitations
+  when aiming for true browser fidelity. Additionally, while Playwright is open source, its development is controlled by
   Microsoft, meaning its long-term future is tied to corporate priorities.<br />
   Despite these trade-offs, Playwright's rich feature set, reliability, and active development make it a strong
   contender for modern cross-browser automation. We strongly recommend Playwright for teams looking for a versatile and
