@@ -1,0 +1,51 @@
+---
+name: "Playwright CLI"
+ring: "Trial"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  Playwright CLI (<code>@playwright/cli</code>) is a command-line tool built specifically for AI coding agents.
+  Instead of streaming browser state into the model's context window like MCP does, it saves snapshots to disk as
+  YAML files. Agents issue shell commands like <code>open</code>, <code>click</code>, and <code>snapshot</code>,
+  and read results from disk on demand. Browsing a flow produces reusable Playwright test code as output, making
+  it a natural companion to Claude Code and the agentic test writing approach.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>4x lower token usage than MCP:</strong> Browser state stays on disk, not in the context window. This
+    directly affects cost and how long an agent can work before hitting context limits.
+  </li>
+  <li>
+    <strong>Clean context throughout the session:</strong> Each snapshot overwrites the previous one. No stale page
+    data accumulates, so decision quality stays consistent from start to finish.
+  </li>
+  <li>
+    <strong>Generates Playwright test code automatically:</strong> Browsing a flow produces reusable Playwright code,
+    making it a natural fit for agentic test writing workflows.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Requires filesystem and shell access:</strong> Does not work in sandboxed environments. A natural fit
+    for Claude Code, but incompatible with some setups.
+  </li>
+  <li>
+    <strong>Not plug-and-play with chat clients:</strong> No direct integration with Claude Desktop or VS Code
+    Copilot. It requires a coding agent with filesystem access.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  If you are still using Playwright MCP, now is a good time to switch. Playwright CLI gives you the same browser
+  control with a fraction of the token cost and none of the context pollution. We recommend starting with
+  Playwright CLI over MCP for any new AI-driven test automation work, especially if you are moving towards
+  a more agentic testing approach.
+</p>
