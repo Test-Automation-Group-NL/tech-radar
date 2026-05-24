@@ -24,3 +24,6 @@ standalone/radar.json
 wp-plugin-radar/assets/dist/*.js
 wp-plugin-radar/assets/dist/*.css
 wp-plugin-radar/assets/dist/*.map
+wp-theme/assets/dist/*.js
+wp-theme/assets/dist/*.css
+wp-theme/assets/dist/*.map

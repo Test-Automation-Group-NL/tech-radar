@@ -34,7 +34,6 @@ function techradar_theme_enqueue_editor(): void {
 }
 
 function techradar_theme_enqueue(): void {
-    // Google Fonts: Plus Jakarta Sans
     wp_enqueue_style(
         'techradar-theme-fonts',
         'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap',
@@ -42,23 +41,18 @@ function techradar_theme_enqueue(): void {
         null
     );
 
+    // Bundled + minified CSS (palette + theme, built by esbuild)
     wp_enqueue_style(
-        'techradar-theme-palette',
-        TECHRADAR_THEME_URL . '/assets/css/palette.css',
+        'techradar-theme',
+        TECHRADAR_THEME_URL . '/assets/dist/theme.css',
         [ 'techradar-theme-fonts' ],
         TECHRADAR_THEME_VERSION
     );
 
-    wp_enqueue_style(
-        'techradar-theme',
-        TECHRADAR_THEME_URL . '/assets/css/theme.css',
-        [ 'techradar-theme-palette' ],
-        TECHRADAR_THEME_VERSION
-    );
-
+    // Bundled + minified JS (built by esbuild)
     wp_enqueue_script(
         'techradar-theme',
-        TECHRADAR_THEME_URL . '/assets/js/theme.js',
+        TECHRADAR_THEME_URL . '/assets/dist/theme.js',
         [],
         TECHRADAR_THEME_VERSION,
         true

@@ -42,6 +42,7 @@ jobs:
               - 'radar/build.radar.json.js'
             theme:
               - 'wp-theme/**'
+              - '!wp-theme/assets/dist/**'
             plugin:
               - 'src/**'
               - 'wp-plugin-radar/**'
@@ -49,7 +50,11 @@ jobs:
 
   build:
     needs: detect-changes
-    if: needs.detect-changes.outputs.plugin == 'true' || github.event.inputs.deploy-plugin == 'true'
+    if: |
+      needs.detect-changes.outputs.theme == 'true' ||
+      needs.detect-changes.outputs.plugin == 'true' ||
+      github.event.inputs.deploy-theme == 'true' ||
+      github.event.inputs.deploy-plugin == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -58,13 +63,19 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm ci
-      - name: Build plugin assets
+      - name: Build plugin and theme assets
         run: npm run build
-      - name: Upload dist artifacts
+      - name: Upload plugin dist
         uses: actions/upload-artifact@v4
         with:
           name: plugin-dist
           path: wp-plugin-radar/assets/dist/
+          retention-days: 1
+      - name: Upload theme dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: theme-dist
+          path: wp-theme/assets/dist/
           retention-days: 1
 
   deploy-radar-json:
@@ -88,24 +99,28 @@ jobs:
             -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}"
 
   deploy-theme:
-    needs: detect-changes
+    needs: [detect-changes, build]
     if: needs.detect-changes.outputs.theme == 'true' || github.event.inputs.deploy-theme == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy theme via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: Download theme dist
+        uses: actions/download-artifact@v4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: wp-theme/
-          server-dir: ${{ secrets.FTP_THEME_PATH }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/CLAUDE.md
-            **/.DS_Store
+          name: theme-dist
+          path: wp-theme/assets/dist/
+      - name: Deploy theme via FTP
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes;
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+            mirror --reverse --no-perms \
+              --exclude-glob CLAUDE.md \
+              --exclude-glob .DS_Store \
+              --exclude-glob .gitkeep \
+              wp-theme/ ${{ secrets.FTP_THEME_PATH }};
+            quit
+          "
 
   deploy-plugin:
     needs: [detect-changes, build]
@@ -113,22 +128,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download dist artifacts
+      - name: Download plugin dist
         uses: actions/download-artifact@v4
         with:
           name: plugin-dist
           path: wp-plugin-radar/assets/dist/
       - name: Deploy plugin via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: wp-plugin-radar/
-          server-dir: ${{ secrets.FTP_PLUGIN_PATH }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/CLAUDE.md
-            **/.DS_Store
-            **/assets/dist/.gitkeep
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes;
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+            mirror --reverse --no-perms \
+              --exclude-glob CLAUDE.md \
+              --exclude-glob .DS_Store \
+              --exclude-glob .gitkeep \
+              wp-plugin-radar/ ${{ secrets.FTP_PLUGIN_PATH }};
+            quit
+          "
