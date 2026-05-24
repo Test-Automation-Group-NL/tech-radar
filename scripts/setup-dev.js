@@ -12,8 +12,9 @@ const readline = require('readline');
 const CONFIG_FILE = path.join(__dirname, '..', '.dev-config.json');
 const REPO_ROOT   = path.join(__dirname, '..');
 
-const PLUGIN_SRC = path.join(REPO_ROOT, 'wp-plugin-radar');
-const THEME_SRC  = path.join(REPO_ROOT, 'wp-theme');
+const PLUGIN_SRC     = path.join(REPO_ROOT, 'wp-plugin-radar');
+const THEME_SRC      = path.join(REPO_ROOT, 'wp-theme');
+const RADAR_JSON_SRC = path.join(REPO_ROOT, 'standalone', 'radar.json');
 
 function question(rl, prompt) {
     return new Promise((resolve) => rl.question(prompt, resolve));
@@ -111,9 +112,21 @@ function applyConfig({ wpPath }) {
         }
     }
 
+    // Generate radar.json if it doesn't exist yet
+    if (!fs.existsSync(RADAR_JSON_SRC)) {
+        console.log('\nGenerating radar.json...');
+        const { execSync } = require('child_process');
+        try {
+            execSync('npm run radar:generate-json:prod', { cwd: REPO_ROOT, stdio: 'inherit' });
+        } catch {
+            console.error('  ✗ radar.json generation failed — run `npm run radar:generate-json:prod` manually.');
+        }
+    }
+
     console.log('\nCreating symlinks...');
-    createSymlink(PLUGIN_SRC, path.join(pluginsDir, 'techradar'), 'Plugin');
-    createSymlink(THEME_SRC,  path.join(themesDir,  'techradar'), 'Theme');
+    createSymlink(PLUGIN_SRC,     path.join(pluginsDir, 'techradar'), 'Plugin');
+    createSymlink(THEME_SRC,      path.join(themesDir,  'techradar'), 'Theme');
+    createSymlink(RADAR_JSON_SRC, path.join(wpPath, 'radar.json'),    'radar.json');
 
     console.log('\n✓ Done! Start developing with:\n');
     console.log('  npm run dev\n');
