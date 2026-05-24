@@ -99,8 +99,9 @@ function applyConfig({ wpPath }) {
     const themesDir  = path.join(wpPath, 'wp-content', 'themes');
 
     // Build dist assets if they're missing (dist/ is not committed to git)
-    const distJs = path.join(REPO_ROOT, 'wp-plugin-radar', 'assets', 'dist', 'radar.js');
-    if (!fs.existsSync(distJs)) {
+    const distJs    = path.join(REPO_ROOT, 'wp-plugin-radar', 'assets', 'dist', 'radar.js');
+    const themeJs   = path.join(REPO_ROOT, 'wp-theme', 'assets', 'dist', 'theme.js');
+    if (!fs.existsSync(distJs) || !fs.existsSync(themeJs)) {
         console.log('\nBuilding compiled assets (dist/ is not in git)...');
         const { execSync } = require('child_process');
         try {

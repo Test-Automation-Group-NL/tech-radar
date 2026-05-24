@@ -8,7 +8,7 @@ This repository is the single source of truth for both the **radar content** (bl
 
 ## Requirements
 
-- Node.js 18+
+- Node.js 24+
 - PHP 8.1+
 - A local WordPress install (e.g. [Local by Flywheel](https://localwp.com/))
 

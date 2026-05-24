@@ -20,6 +20,9 @@ coverage/
 # Generated on the fly — never committed
 standalone/radar.json
 
+# Local developer config — never committed
+.dev-config.json
+
 # Built by CI — never committed
 wp-plugin-radar/assets/dist/*.js
 wp-plugin-radar/assets/dist/*.css

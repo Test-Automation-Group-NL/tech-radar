@@ -93,6 +93,21 @@ const requestHandler = (req, res) => {
 };
 
 async function main() {
+  const radarJson = path.join(REPO_ROOT, 'standalone', 'radar.json');
+  if (!fs.existsSync(radarJson)) {
+    console.log('');
+    console.log('  ⚠  standalone/radar.json not found.');
+    console.log('');
+    console.log('  Generate it first by running:');
+    console.log('');
+    console.log('    npm run radar:generate-json:prod   (one-off)');
+    console.log('    npm run radar:watch                (watches for changes)');
+    console.log('');
+    console.log('  Then run npm run preview again.');
+    console.log('');
+    process.exit(1);
+  }
+
   const port = await findFreePort(PREFERRED_PORT);
 
   if (port !== PREFERRED_PORT) {
