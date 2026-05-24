@@ -114,7 +114,7 @@ jobs:
       - name: Deploy theme via FTP
         run: |
           lftp -c "
-            set ftp:ssl-allow yes;
+            set ftp:ssl-allow yes; set ssl:verify-certificate no;
             open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
             mirror --reverse --delete --no-perms \
               --exclude-glob CLAUDE.md \
@@ -140,7 +140,7 @@ jobs:
       - name: Deploy plugin via FTP
         run: |
           lftp -c "
-            set ftp:ssl-allow yes;
+            set ftp:ssl-allow yes; set ssl:verify-certificate no;
             open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
             mirror --reverse --delete --no-perms \
               --exclude-glob CLAUDE.md \
