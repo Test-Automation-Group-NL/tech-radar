@@ -1,195 +1,333 @@
-# TechRadar
+# Test Automation Tech Radar
 
-> [!NOTE]
-> You can find the live radar at [https://test-automation-group-nl.github.io/tech-radar/](https://test-automation-group-nl.github.io/tech-radar/)
+WordPress plugin + theme for the [Test Automation Technology Radar](https://www.testautomationtechradar.com/), built by **TAG** (Test Automation Group) — deTesters, TestCoders & TechChamps, part of [Sofius](https://www.sofius.com).
 
-An interactive technology radar for test automation tools, inspired by [thoughtworks.com/radar](http://thoughtworks.com/radar). This radar helps teams assess and adopt testing technologies across four quadrants: **Techniques**, **Tools**, **Platforms**, and **Languages & Frameworks**.
+This repository is the single source of truth for both the **radar content** (blip files) and the **WordPress plugin + theme** that powers the website.
 
-## How It Works
+---
 
-The TechRadar consists of individual **blips** (technology assessments) organized into:
+## Requirements
 
-- **4 Quadrants**: Different categories of technology
-- **4 Rings**: Maturity levels (Adopt, Trial, Assess, Hold)
-- **Content Structure**: Each blip is stored as an HTML file with YAML frontmatter
+- Node.js 24+
+- PHP 8.1+
+- A local WordPress install (e.g. [Local by Flywheel](https://localwp.com/))
 
-The radar is built from individual HTML files in `radar/content/` and compiled into a single `radar.json` that powers the interactive visualization.
+---
 
-## Project Structure
-
-```
-radar/
-├── content/                   # Individual blip content
-│   ├── techniques/            # Testing techniques & methodologies
-│   ├── tools/                 # Testing tools & utilities
-│   ├── platforms/             # Testing platforms & services
-│   └── languages-frameworks/  # Programming languages & frameworks
-├── build.radar.json.js        # Build script (HTML → JSON)
-├── radar.watch.js             # Development watcher
-└── dist/
-    └── radar.json             # Generated radar data
-```
-
-## Development Setup
-
-### Prerequisites
-- Node.js (v16+)
-- npm
-
-### Getting Started
-
-1. **Clone the project**
-   ```bash
-   git clone https://github.com/Test-Automation-Group-NL/tech-radar.git
-   cd tech-radar
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run local:dev
-   ```
-
-   This will:
-   - Build the radar from HTML files
-   - Watch for changes in `radar/content/`
-   - Start a local server at `http://localhost:8080`
-   - Auto-reload on file changes
-
-### Manual Build
-
-To build the radar JSON-ile manually:
+## First-time setup
 
 ```bash
-cd radar
-node -e "const { buildRadar } = require('./build.radar.json.js'); buildRadar()"
+# 1. Install dependencies
+npm install
+
+# 2. Link the plugin and theme into your local WP install
+npm run setup
 ```
 
-## Adding a New Blip
+`npm run setup` is interactive — it will ask for the path to your local WordPress install and creates symlinks so changes to the source are immediately reflected in WP. You only need to run this once per machine.
 
-### 1. Create the HTML File
+After setup, activate the **Tech Radar** plugin and the **Test Automation Tech Radar** theme in your WP Admin.
 
-Create a new `.html` file in the appropriate quadrant directory:
+---
+
+## Daily development
+
+### Option A — Preview without WordPress
+
+The fastest way to see the radar. No WP install needed.
+
+```bash
+# Generate radar.json from blip content, then build assets
+npm run radar:generate-json:prod
+npm run build
+
+# Start the preview server
+npm run preview
+```
+
+The server starts on **http://localhost:3000** by default. If that port is already in use it automatically picks the next available one.
+
+> **Note:** Do not open `standalone/index.html` directly via `file://` — browsers block `fetch()` on local files. Always use `npm run preview`.
+
+### Option B — Live development inside WordPress
+
+```bash
+npm run local:dev
+```
+
+This runs two processes concurrently:
+- Watches `radar/content/` and rebuilds `standalone/radar.json` on every blip change
+- Watches `src/` for TypeScript/CSS changes, compiles to `wp-plugin-radar/assets/dist/` and `wp-theme/assets/dist/`, and starts a BrowserSync proxy that auto-reloads your local WP site
+
+Set the `WP_URL` environment variable if your local site URL differs from the default:
+
+```bash
+WP_URL=http://techradar.local npm run local:dev
+```
+
+---
+
+## Build for production
+
+```bash
+npm run build
+```
+
+Outputs minified assets to:
+- `wp-plugin-radar/assets/dist/radar.js` + `radar.css` (compiled from `src/`)
+- `wp-theme/assets/dist/theme.js` + `theme.css` (bundled from `wp-theme/assets/css/` + `wp-theme/assets/js/`)
+
+These files are **not committed** — they are built by CI and deployed directly to the server.
+
+---
+
+## Type checking
+
+```bash
+npm run typecheck
+```
+
+Runs `tsc --noEmit` — checks all TypeScript source files without producing output.
+
+---
+
+## Project structure
 
 ```
-radar/content/[quadrant]/[blip-name].html
+radar/                    Blip content + JSON build
+  content/
+    techniques/           Testing techniques & methodologies
+    tools/                Testing tools & utilities
+    platforms/            Testing platforms & services
+    languages-frameworks/ Programming languages & frameworks
+  build.radar.json.js     Build script: HTML → radar.json
+  radar.watch.js          Development watcher
+
+src/                      TypeScript + CSS source (plugin)
+  styles/                 CSS (variables, nav, radar SVG, panel, listing)
+  types/radar.ts          All shared TypeScript types
+  data-loader.ts          Fetches and normalises radar.json
+  renderer.ts             SVG radar chart (plain JS, no D3)
+  positioner.ts           Blip placement (seeded PRNG + collision avoidance)
+  interaction.ts          State machine: FULL → FOCUSED → BLIP_DETAIL
+  search.ts               Live search
+  listing.ts              Blip list below radar
+  index.ts                Entry point
+  theme-entry.js          Entry point for theme CSS/JS bundle
+
+wp-plugin-radar/          WordPress plugin — use [techradar] shortcode
+  assets/dist/            Compiled output (built by CI, not committed)
+  admin/                  WP Admin settings page (Settings → Tech Radar)
+  includes/               Shortcode registration + asset enqueue
+
+wp-theme/                 WordPress theme
+  assets/dist/            Compiled output (built by CI, not committed)
+  assets/css/             Source CSS (palette, theme, editor)
+  assets/js/              Source JS
+  page-templates/         Landing, Radar, Contact, Customer Cases, Privacy
+  content/homepage.html   Homepage block markup (git source of truth)
+  template-parts/         Header, Footer, Cookie banner, PDF popup
+  inc/                    Setup, enqueue, CPT, GDPR helpers
+
+standalone/               No-WP browser preview
+  index.html              Loads theme CSS + plugin JS (relative paths to dist/)
+  radar.json              Generated on the fly — not committed
+
+scripts/
+  setup-dev.js                  Interactive symlink setup (run once per machine)
+  serve-standalone.js           Local HTTP server for standalone preview
+  refactor-homepage-html.py     Strip Kadence inline styles; apply hp-* on homepage.html
 ```
 
-**Quadrant directories:**
-- `techniques/` → Testing techniques & methodologies
-- `tools/` → Testing tools & utilities
-- `platforms/` → Testing platforms & services
-- `languages-frameworks/` → Programming languages & frameworks
+---
 
-### 2. Use the Template
+## How radar.json is generated
 
-Each blip file uses YAML frontmatter + HTML content:
+The interactive radar is powered by a single `radar.json` file. It is never committed — it is always generated from the blip HTML files in `radar/content/`.
+
+### The pipeline
+
+```
+radar/content/[quadrant]/*.html
+        ↓  (build.radar.json.js)
+standalone/radar.json
+        ↓  (CI: FTP upload on merge to master)
+https://testautomationtechradar.com/radar.json
+        ↓  (WordPress plugin fetches live)
+Interactive radar on the website
+```
+
+### How the build script works
+
+`radar/build.radar.json.js` reads every `.html` file from the four quadrant directories, parses the YAML front matter, and writes a minified JSON array to `standalone/radar.json`.
+
+Each blip becomes one object in the array:
+
+```json
+{
+  "name": "Playwright",
+  "ring": "Adopt",
+  "quadrant": "languages-and-frameworks",
+  "isNew": "FALSE",
+  "status": "No Change",
+  "description": "<h4>Description</h4><p>…</p>"
+}
+```
+
+The WordPress plugin fetches this file at runtime — no server restart is needed after a content update.
+
+### Generating radar.json manually
+
+```bash
+npm run radar:generate-json:prod
+```
+
+### Watching for changes during development
+
+```bash
+npm run radar:watch
+```
+
+This watches all files in `radar/content/` and rebuilds `standalone/radar.json` automatically whenever a blip file is added or changed. Run alongside `npm run dev` (or use `npm run local:dev` to start both together).
+
+---
+
+## Adding or editing a blip
+
+Blip content lives in `radar/content/[quadrant]/[blip-name].html`. Each file uses YAML frontmatter + HTML:
 
 ```html
 ---
 name: "Your Technology Name"
 ring: "Adopt|Trial|Assess|Hold"
 isNew: "TRUE|FALSE"
-status: "Moved In|Moved Out|No Change"
+status: "New|Moved In|Moved Out|No Change"
 ---
 
 <h4>Description</h4>
-<p>
-  Brief description of the technology and its purpose.
-</p>
+<p>Brief description of the technology and its purpose.</p>
 
 <h4>Pros:</h4>
 <ul>
-  <li><strong>Advantage 1:</strong> Description of the benefit</li>
-  <li><strong>Advantage 2:</strong> Another benefit</li>
+  <li><strong>Advantage 1:</strong> Description</li>
 </ul>
 
 <h4>Cons:</h4>
 <ul>
-  <li><strong>Limitation 1:</strong> Description of the drawback</li>
-  <li><strong>Limitation 2:</strong> Another limitation</li>
+  <li><strong>Limitation 1:</strong> Description</li>
 </ul>
 
 <h4>Conclusion:</h4>
-<p>
-  Summary recommendation and guidance for teams.
-</p>
+<p>Summary recommendation for teams.</p>
 ```
 
-### 3. Frontmatter Fields
-
 | Field | Values | Description |
-|-------|--------|-------------|
+|---|---|---|
 | `name` | String | Display name of the technology |
 | `ring` | `Adopt`, `Trial`, `Assess`, `Hold` | Recommendation level |
 | `isNew` | `TRUE`, `FALSE` | Whether this is a new addition |
-| `status` | `Moved In`, `Moved Out`, `No Change` | Movement since last radar |
+| `status` | `New`, `Moved In`, `Moved Out`, `No Change` | Movement since last radar |
 
-### 4. Content Guidelines
+Use kebab-case filenames: `page-object-model.html`, `ai-assistants.html`.
 
-- **Keep it concise**: Aim for 2-3 paragraphs max
-- **Be specific**: Include concrete examples and use cases
-- **Stay current**: Reflect the current state of the technology
-- **Be balanced**: Include both pros and cons
-- **End with guidance**: Clear recommendation for teams
+To add a blip via Claude Code, run `/add-blip` in the project.
 
-### 5. File Naming
+---
 
-Use kebab-case for filenames:
-- "Page Object Model" → `page-object-model.html`
-- "AI Assistants" → `ai-assistants.html`
+## Deploying
 
-## Publishing
+Deployment is fully automated via GitHub Actions on every merge to `master`.
 
-The radar is automatically published via GitHub Actions when changes are merged to the main branch:
+| What changed | What gets deployed |
+|---|---|
+| `radar/content/**` or `radar/build.radar.json.js` | `radar.json` → FTP to site root |
+| `wp-theme/**` | Theme (built + minified) → FTP to `wp-content/themes/techradar/` |
+| `src/**` or `wp-plugin-radar/**` | Plugin (built + minified) → FTP to `wp-content/plugins/techradar/` |
 
-1. **Automatic Build**: GitHub Actions runs the build process
-2. **Generate radar.json**: The build script processes all HTML files
-3. **Deploy to GitHub Pages**: The compiled radar is published to the live URL
+You can also trigger a manual deploy from the **Actions** tab in GitHub using the `Deploy to WordPress` workflow, with per-component force-deploy checkboxes.
 
-### Manual Publishing
+Required GitHub secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_RADAR_PATH`, `FTP_THEME_PATH`, `FTP_PLUGIN_PATH`.
 
-For manual deployment:
+---
 
-1. Build the radar locally:
-   ```bash
-   npm run build
-   ```
+## Building pages in WordPress
 
-2. The generated files in `dist/` can be deployed to any static hosting service
+Most marketing pages use **Gutenberg + Kadence Blocks** and CSS classes defined in `wp-theme/assets/css/theme.css`. Colours come from design tokens in `wp-theme/assets/css/palette.css` (kept in sync with `src/styles/variables.css`).
 
-## Development
+### Page templates
 
-### Hot Reload Development
+Create a page in **Pages → Add New**, then choose a template under **Page attributes → Template**:
 
-When running `npm run local:dev`, the watcher will automatically rebuild the radar when you:
-- Add new `.html` files
-- Modify existing blip content
-- Update frontmatter metadata
+| Template | Use for | Content |
+|---|---|---|
+| **Landing Page** | Homepage and similar long-form marketing pages | Full block editor (Kadence). Reference markup: `wp-theme/content/homepage.html` |
+| **Tech Radar** | Interactive radar only | Leave the editor empty — template outputs `[techradar]` only |
+| **Contact** | Contact page | Optional intro in editor; form + partner cards are in the template (CF7) |
+| **Customer Cases** | Cases overview | Page title + optional lead text in editor; case cards come from the **Customer Cases** CPT |
+| **Privacy** | Privacy policy | Standard block editor content |
 
-### Validation
+**Customer case detail pages** are not a page template — add posts under **Customer Cases** in the admin menu (`customer_case` post type). URL pattern: `/customer-cases/{slug}/`.
 
-The build script will warn you about:
-- Missing frontmatter in HTML files
-- Invalid YAML syntax
-- Missing required fields
+### Editor workflow (important)
 
-### File Organization
+1. Prefer **Advanced → Additional CSS class(es)** on blocks for styling.
+2. **Do not** use the block **Styles** panel for colours, typography, or spacing on class-based components — Kadence saves those as inline CSS and overrides the theme.
+3. The block editor loads the same `hp-*` styles as the front end (see `wp-theme/assets/css/editor.css` and `inc/enqueue.php`), so you get a live preview while editing.
+4. For large homepage changes, edit `wp-theme/content/homepage.html` in git and paste into **Pages → Homepage → ⋮ → Code editor**, or duplicate an existing section in the visual editor and swap classes/content.
 
-- Keep related blips in the correct quadrant directory
-- Use descriptive filenames that match the technology name
-- Maintain consistent formatting across all blips
+### Cleaning up Kadence inline styles (re-runnable)
 
-## Contributing
+If the homepage picks up inline `style=""` or block **Styles** JSON again (common after visual editing), normalize it in git and re-paste into WordPress:
 
-1. Create a new branch for your changes
-2. Add or modify blip files in `radar/content/`
-3. Test locally with `npm run local:dev`
-4. Submit a pull request with your changes
+```bash
+# Optional: paste Code editor export into wp-theme/content/homepage.html first
+python3 scripts/refactor-homepage-html.py
+```
 
-The radar will be automatically updated when your PR is merged!
+The script **overwrites** `wp-theme/content/homepage.html`: removes inline styles, trims Kadence `style` objects where safe, and restores `hp-*` / `hp-section--*` classes.
 
+### Section backgrounds (Kadence row)
+
+Add **one** class on the **Row layout** block:
+
+| Class | Background | Typical use |
+|---|---|---|
+| `hp-section--brand` | Brand blue (`--color-nav`) | Hero |
+| `hp-section--page` | Page blue (`--color-page-bg`) | Why / Who / Team sections |
+| `hp-section--panel` | Panel green (`--color-panel-bg`) | How it works / Customer case / CTA |
+
+### Typography and components
+
+| Class | Element | Purpose |
+|---|---|---|
+| `hp-eyebrow` | Heading (h5) | Blue uppercase label |
+| `hp-display` | h1 | Hero headline (white, on brand section) |
+| `hp-lead` | p | Hero intro paragraph |
+| `hp-title` | h2 | Section title |
+| `hp-card` | Group | White bordered card |
+| `hp-btn` | Button | Primary CTA (`--color-accent`) |
+
+More classes and layout helpers: `wp-theme/CLAUDE.md`.
+
+### Plugin shortcodes
+
+Requires the **Tech Radar** plugin. Use in a **Shortcode** block or Classic shortcode block.
+
+| Shortcode | Example | Output |
+|---|---|---|
+| `[techradar]` | On **Tech Radar** template page only (auto) | Full interactive radar |
+| `[techradar_blip_count]` | `Explore all [techradar_blip_count] blips →` | Current number of blips from `radar.json` |
+| `[techradar_case_blips]` | See below | Card listing blips with quadrant colour + ring badge |
+
+**Customer case blips card:**
+
+```
+[techradar_case_blips company="Port of Rotterdam" blips="Playwright, Storybook, Component Testing"]
+```
+
+---
+
+## Made by
+
+**TAG — Test Automation Group**
+deTesters · TestCoders · TechChamps · part of [Sofius](https://www.sofius.com)

@@ -1,6 +1,5 @@
 node_modules
 bower_components
-dist
 *.swa
 *.swp
 *.swo
@@ -10,10 +9,6 @@ coverage/
 .idea/
 .DS_Store
 
-spec/end_to_end_tests/reports/
-src/stylesheets/_featuretoggles.scss
-cypress/
-
 .nyc_output
 
 .private.notes
@@ -21,3 +16,17 @@ cypress/
 .talismanrc
 
 .vscode
+
+# Generated on the fly — never committed
+standalone/radar.json
+
+# Local developer config — never committed
+.dev-config.json
+
+# Built by CI — never committed
+wp-plugin-radar/assets/dist/*.js
+wp-plugin-radar/assets/dist/*.css
+wp-plugin-radar/assets/dist/*.map
+wp-theme/assets/dist/*.js
+wp-theme/assets/dist/*.css
+wp-theme/assets/dist/*.map

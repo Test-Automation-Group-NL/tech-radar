@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Automation Tech Radar — Standalone Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../wp-theme/assets/dist/theme.css">
+    <link rel="stylesheet" href="../wp-plugin-radar/assets/dist/radar.css">
+</head>
+
+<body>
+    <div class="site-header__backdrop" hidden aria-hidden="true"></div>
+
+    <header class="site-header" role="banner">
+        <div class="site-header__inner">
+            <a class="site-header__brand" href="#" aria-label="TechRadar: Home">
+                <img class="site-header__wordmark" src="../wp-theme/assets/images/branding/techradar-wordmark.png"
+                    width="678" height="331" alt="Test Automation TechRadar" decoding="async">
+                <span class="site-header__logo-tagline">Choose wiser, test smarter</span>
+            </a>
+
+            <nav id="primary-nav" class="site-header__nav" role="navigation" aria-label="Primary">
+                <ul class="site-header__menu">
+                    <li class="menu-item"><a href="#">Home</a></li>
+                    <li class="menu-item is-active"><a href="#" aria-current="page">TechRadar</a></li>
+                    <li class="menu-item"><a href="#">Customer Cases</a></li>
+                    <li class="menu-item"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a class="pdf-popup__trigger pdf-popup__trigger--header" href="#">
+                <span class="pdf-popup__trigger-icon" aria-hidden="true">&#128196;</span>
+                <span class="pdf-popup__trigger-label">Get a copy</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div id="techradar-root" class="techradar-root" aria-label="Technology Radar" role="main">
+            <div class="techradar-loading">Loading radar data…</div>
+        </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__inner">
+            <div class="site-footer__grid">
+                <div class="site-footer__col site-footer__col--brand">
+                    <a class="site-footer__brand-mark" href="#">
+                        <img class="site-footer__wordmark"
+                            src="../wp-theme/assets/images/branding/techradar-wordmark.png" width="678" height="331"
+                            alt="Test Automation TechRadar" decoding="async">
+                    </a>
+                    <p class="site-footer__intro">Choose wiser, test smarter.<br>
+                        Built by 60+ test automation experts.</p>
+                </div>
+                <div class="site-footer__col site-footer__col--nav">
+                    <p class="site-footer__heading">Navigate</p>
+                    <nav class="site-footer__nav" aria-label="Footer navigation">
+                        <ul class="site-footer__menu">
+                            <li class="menu-item"><a href="#">Home</a></li>
+                            <li class="menu-item"><a href="#" aria-current="page">TechRadar</a></li>
+                            <li class="menu-item"><a href="#">Customer Cases</a></li>
+                            <li class="menu-item"><a href="#">Contact</a></li>
+                            <li class="menu-item"><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="site-footer__col site-footer__col--tag">
+                    <p class="site-footer__heading">Made by TAG</p>
+                    <div class="site-footer__partner-logos">
+                        <a class="site-footer__partner-link" href="https://www.detesters.nl/" target="_blank"
+                            rel="noopener noreferrer">
+                            <img class="site-footer__partner-logo"
+                                src="../wp-theme/assets/images/branding/partner-detesters@2x.png" width="1826"
+                                height="778" alt="deTesters" decoding="async">
+                        </a>
+                        <a class="site-footer__partner-link" href="https://www.testcoders.nl/" target="_blank"
+                            rel="noopener noreferrer">
+                            <img class="site-footer__partner-logo"
+                                src="../wp-theme/assets/images/branding/partner-testcoders@2x.png" width="1800"
+                                height="722" alt="TestCoders" decoding="async">
+                        </a>
+                        <a class="site-footer__partner-link" href="https://www.techchamps.io/" target="_blank"
+                            rel="noopener noreferrer">
+                            <img class="site-footer__partner-logo site-footer__partner-logo--tall"
+                                src="../wp-theme/assets/images/branding/partner-techchamps@2x.png" width="1800"
+                                height="1090" alt="TechChamps" decoding="async">
+                        </a>
+                    </div>
+                    <a class="site-footer__sofius-link" href="https://www.sofius.com" target="_blank"
+                        rel="noopener noreferrer" aria-label="Part of Sofius">
+                        <span class="site-footer__sofius-text">Part of</span>
+                        <img class="site-footer__sofius-logo"
+                            src="../wp-theme/assets/images/branding/sofius-logo-white.svg" width="528" height="156"
+                            alt="" aria-hidden="true" decoding="async">
+                    </a>
+                </div>
+            </div>
+            <div class="site-footer__divider" role="presentation"></div>
+            <p class="site-footer__legal">© <span data-dynamic-year></span> TAG: Test Automation Group. All rights
+                reserved.</p>
+        </div>
+    </footer>
+
+    <div class="pdf-popup">
+        <a class="pdf-popup__trigger pdf-popup__trigger--float" href="#">
+            <span class="pdf-popup__trigger-icon" aria-hidden="true">&#128196;</span>
+            <span class="pdf-popup__trigger-label">Get a copy</span>
+        </a>
+    </div>
+
+    <nav class="site-bottom-nav" aria-label="Mobile navigation">
+        <a class="site-bottom-nav__item" href="#">
+            <svg class="site-bottom-nav__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9.5z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                <path d="M9 21v-7h6v7" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            </svg>
+            <span>Home</span>
+        </a>
+        <a class="site-bottom-nav__item is-active" href="#" aria-current="page">
+            <svg class="site-bottom-nav__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.75"/>
+                <line x1="12" y1="3" x2="12" y2="6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                <line x1="12" y1="18" x2="12" y2="21" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                <line x1="3" y1="12" x2="6" y2="12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                <line x1="18" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <span>Radar</span>
+        </a>
+        <a class="site-bottom-nav__item" href="#">
+            <svg class="site-bottom-nav__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <rect x="2" y="8" width="20" height="13" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                <line x1="2" y1="14" x2="22" y2="14" stroke="currentColor" stroke-width="1.75"/>
+            </svg>
+            <span>Cases</span>
+        </a>
+        <a class="site-bottom-nav__item" href="#">
+            <svg class="site-bottom-nav__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M2 8l10 7 10-7" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+            </svg>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <script>
+        window.TechRadarConfig = {
+            jsonUrl: './radar.json',
+            contactUrl: '#contact',
+            heroTitle: 'Test Automation TechRadar',
+            allBlipsSectionLabel: 'All blips',
+            quadrants: [
+                { id: 'techniques', title: 'Techniques', description: 'Testing methodologies and approaches used in modern test automation.' },
+                { id: 'platforms', title: 'Platforms', description: 'Cloud services and infrastructure platforms supporting test automation.' },
+                { id: 'tools', title: 'Tools', description: 'Software utilities and platforms that support test automation workflows.' },
+                { id: 'languages-and-frameworks', title: 'Languages & Frameworks', description: 'Programming languages and test frameworks used to build automation solutions.' },
+            ],
+            rings: [
+                { id: 'adopt', label: 'Adopt' },
+                { id: 'trial', label: 'Trial' },
+                { id: 'assess', label: 'Assess' },
+                { id: 'hold', label: 'Hold' },
+            ],
+        };
+    </script>
+    <script src="../wp-plugin-radar/assets/dist/radar.js"></script>
+    <script src="../wp-theme/assets/dist/theme.js"></script>
+
+</body>
+
+</html>

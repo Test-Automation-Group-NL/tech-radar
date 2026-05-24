@@ -1,0 +1,45 @@
+---
+name: "Playwright MCP"
+ring: "Hold"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  Playwright MCP is Microsoft's Model Context Protocol server for browser automation. It exposes Playwright's browser
+  control as callable functions for AI models, streaming full context back into the conversation on every interaction:
+  accessibility trees, console output, and screenshots. It integrates directly with MCP-compatible clients like
+  Claude Desktop and VS Code Copilot with no filesystem setup required.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Zero friction to get started:</strong> No filesystem dependency. If your tool supports MCP, you can
+    connect it to a browser in minutes.
+  </li>
+  <li>
+    <strong>Works in sandboxed environments:</strong> No shell or filesystem access needed, making it the right
+    choice when agent isolation is a hard requirement.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>High token consumption:</strong> Full accessibility trees stream into the context window on every
+    interaction. A single page snapshot can cost 800 or more tokens, and it adds up fast.
+  </li>
+  <li>
+    <strong>Context pollution over time:</strong> Stale page state accumulates in the conversation. Agents start
+    reasoning from earlier states rather than the current one, leading to fabricated selectors and incorrect actions.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  We put Playwright MCP on Hold. If you are already using it, it is not broken, but we recommend moving to
+  Playwright CLI. The token savings, cleaner context, and better fit with coding agent workflows make it the
+  stronger choice for any serious test automation work.
+</p>

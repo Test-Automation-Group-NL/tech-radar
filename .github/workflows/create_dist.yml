@@ -1,55 +1,147 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy to WordPress
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ['master']
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      deploy-radar:
+        description: 'Force deploy radar.json'
+        type: boolean
+        default: false
+      deploy-theme:
+        description: 'Force deploy WordPress theme'
+        type: boolean
+        default: false
+      deploy-plugin:
+        description: 'Force deploy WordPress plugin'
+        type: boolean
+        default: false
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: 'pages'
+  group: deploy
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      radar: ${{ steps.filter.outputs.radar }}
+      theme: ${{ steps.filter.outputs.theme }}
+      plugin: ${{ steps.filter.outputs.plugin }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            radar:
+              - 'radar/content/**'
+              - 'radar/build.radar.json.js'
+            theme:
+              - 'wp-theme/**'
+              - '!wp-theme/assets/dist/**'
+            plugin:
+              - 'src/**'
+              - 'wp-plugin-radar/**'
+              - '!wp-plugin-radar/assets/dist/**'
+
+  build:
+    needs: detect-changes
+    if: |
+      needs.detect-changes.outputs.theme == 'true' ||
+      needs.detect-changes.outputs.plugin == 'true' ||
+      github.event.inputs.deploy-theme == 'true' ||
+      github.event.inputs.deploy-plugin == 'true'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18' # You can adjust this version as needed
+          node-version: '20'
       - name: Install dependencies
         run: npm ci
-      - name: Build project
-        run: npm run build:prod
-      - name: Generate JSON
-        run: npm run radar:generate-json:prod
-      - name: Show output
-        run: ls -l dist
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Build plugin and theme assets
+        run: npm run build
+      - name: Upload plugin dist
+        uses: actions/upload-artifact@v4
         with:
-          # Upload entire repository
-          path: 'dist/'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: plugin-dist
+          path: wp-plugin-radar/assets/dist/
+          retention-days: 1
+      - name: Upload theme dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: theme-dist
+          path: wp-theme/assets/dist/
+          retention-days: 1
+
+  deploy-radar-json:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.radar == 'true' || github.event.inputs.deploy-radar == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Generate radar.json
+        run: npm run radar:generate-json:prod
+      - name: Upload radar.json via FTP
+        run: |
+          curl --silent --show-error --ftp-create-dirs \
+            -T standalone/radar.json \
+            "ftp://${{ secrets.FTP_SERVER }}/${{ secrets.FTP_RADAR_PATH }}" \
+            -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}"
+
+  deploy-theme:
+    needs: [detect-changes, build]
+    if: needs.detect-changes.outputs.theme == 'true' || github.event.inputs.deploy-theme == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download theme dist
+        uses: actions/download-artifact@v4
+        with:
+          name: theme-dist
+          path: wp-theme/assets/dist/
+      - name: Deploy theme via FTP
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes;
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+            mirror --reverse --delete --no-perms \
+              --exclude-glob CLAUDE.md \
+              --exclude-glob .DS_Store \
+              --exclude-glob .gitkeep \
+              wp-theme/ ${{ secrets.FTP_THEME_PATH }};
+            quit
+          "
+
+  deploy-plugin:
+    needs: [detect-changes, build]
+    if: needs.detect-changes.outputs.plugin == 'true' || github.event.inputs.deploy-plugin == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download plugin dist
+        uses: actions/download-artifact@v4
+        with:
+          name: plugin-dist
+          path: wp-plugin-radar/assets/dist/
+      - name: Deploy plugin via FTP
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes;
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+            mirror --reverse --delete --no-perms \
+              --exclude-glob CLAUDE.md \
+              --exclude-glob .DS_Store \
+              --exclude-glob .gitkeep \
+              wp-plugin-radar/ ${{ secrets.FTP_PLUGIN_PATH }};
+            quit
+          "
