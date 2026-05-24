@@ -51,6 +51,12 @@ function techradar_register_settings(): void {
 
     techradar_field( 'sofius_url', 'Sofius URL', 'techradar_branding', '', 'url' );
 
+    // ── Database Backup ───────────────────────────────────────────────────────
+    add_settings_section( 'techradar_backup', 'Database Backup', '__return_false', 'techradar' );
+
+    techradar_field( 'backup_enabled', 'Enable weekly backup', 'techradar_backup',
+        'Emails a database backup to ' . TECHRADAR_BACKUP_EMAIL . ' every Monday at midnight (UTC). Save settings to apply changes.', 'checkbox' );
+
     // ── Contact Forms ─────────────────────────────────────────────────────────
     add_settings_section( 'techradar_contact_forms', 'Contact Forms (CF7 form IDs)', '__return_false', 'techradar' );
 
@@ -102,7 +108,7 @@ function techradar_sanitize_settings( mixed $input ): array {
 
         if ( str_ends_with( $key, '_url' ) ) {
             $sanitized[ $key ] = esc_url_raw( $raw );
-        } elseif ( $key === 'sofius_show' ) {
+        } elseif ( in_array( $key, [ 'sofius_show', 'backup_enabled' ], true ) ) {
             $sanitized[ $key ] = (bool) $raw;
         } elseif ( str_ends_with( $key, '_description' ) ) {
             $sanitized[ $key ] = sanitize_textarea_field( $raw );

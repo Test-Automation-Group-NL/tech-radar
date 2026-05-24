@@ -17,6 +17,7 @@ define( 'TECHRADAR_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TECHRADAR_URL', plugin_dir_url( __FILE__ ) );
 
 require_once TECHRADAR_DIR . 'includes/shortcode.php';
+require_once TECHRADAR_DIR . 'includes/db-backup.php';
 require_once TECHRADAR_DIR . 'admin/settings-page.php';
 require_once TECHRADAR_DIR . 'admin/settings-fields.php';
 
@@ -24,14 +25,14 @@ register_activation_hook( __FILE__, 'techradar_activate' );
 register_deactivation_hook( __FILE__, 'techradar_deactivate' );
 
 function techradar_activate(): void {
-    // Set default options on first activation
     if ( ! get_option( 'techradar_settings' ) ) {
         update_option( 'techradar_settings', techradar_default_settings() );
     }
+    techradar_schedule_backup();
 }
 
 function techradar_deactivate(): void {
-    // Nothing to clean up, options persist for re-activation
+    techradar_unschedule_backup();
 }
 
 function techradar_default_settings(): array {
@@ -59,6 +60,7 @@ function techradar_default_settings(): array {
             [ 'name' => 'TechChamps',  'attachment_id' => 0 ],
         ] ),
         'sofius_show'                 => true,
+        'backup_enabled'              => false,
         'sofius_url'                  => 'https://www.sofius.com',
         'contact_form_id_pdf'         => '',
         'contact_form_id_help'        => '',
