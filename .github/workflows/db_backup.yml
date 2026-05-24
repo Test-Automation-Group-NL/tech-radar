@@ -19,7 +19,7 @@ jobs:
             set -e
 
             WP_PATH="${{ secrets.WP_PATH }}"
-            BACKUP_FILE="/tmp/techradar-db-$(date +%Y%m%d).sql.gz"
+            BACKUP_FILE="/tmp/techradar-db-$(/bin/date +%Y%m%d).sql.gz"
 
             # Export and compress the database
             wp --path="$WP_PATH" db export - | gzip > "$BACKUP_FILE"
