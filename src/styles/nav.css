@@ -1,0 +1,100 @@
+/* ── Radar navigation bar ──────────────────────────────────────── */
+
+.techradar-nav {
+  display: flex;
+  align-items: stretch;
+  background: var(--color-nav);
+  min-height: var(--nav-height);
+  position: sticky;
+  /* Sit below the theme site header when present (--site-header-offset set in theme / standalone) */
+  top: var(--site-header-offset, 0px);
+  z-index: var(--z-panel);
+  border-top: 1px solid color-mix(in srgb, var(--color-white) 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-brand-blue-line) 35%, transparent);
+}
+
+/* Inner container aligns nav content with the site-header__inner grid */
+.techradar-nav__inner {
+  max-width: var(--site-container-max, var(--container-max));
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 32px);
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+}
+
+.techradar-nav__drawer {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+  gap: var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.techradar-nav__drawer::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Nav tabs ──────────────────────────────────────────────────── */
+
+.techradar-nav__tab {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  padding: 0 var(--space-4);
+  min-height: var(--nav-height);
+  cursor: pointer;
+  opacity: 0.75;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.techradar-nav__tab:hover {
+  opacity: 1;
+}
+
+.techradar-nav__tab--active {
+  opacity: 1;
+  border-bottom-color: var(--color-white);
+  font-weight: 700;
+}
+
+/* Active tab tinted by quadrant colour */
+.techradar-nav__tab--active[data-nav-quadrant="techniques"]               { border-bottom-color: var(--color-techniques-light); }
+.techradar-nav__tab--active[data-nav-quadrant="platforms"]                { border-bottom-color: var(--color-platforms-light); }
+.techradar-nav__tab--active[data-nav-quadrant="tools"]                    { border-bottom-color: var(--color-tools-light); }
+.techradar-nav__tab--active[data-nav-quadrant="languages-and-frameworks"] { border-bottom-color: var(--color-lf-light); }
+
+
+/* ── Loading / error states ────────────────────────────────────── */
+
+.techradar-loading,
+.techradar-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  font-size: var(--font-size-md);
+  color: var(--color-dark-60);
+}
+
+.techradar-error { color: var(--color-accent); }
+
+/* ── ≤900px: no quadrant nav bar — quadrants are not zoomable without a blip tap */
+
+@media (max-width: 900px) {
+  .techradar-nav {
+    display: none;
+  }
+}
