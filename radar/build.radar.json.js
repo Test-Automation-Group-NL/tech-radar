@@ -54,11 +54,7 @@ const buildRadar = () => {
       })
     })
 
-    if (!fs.existsSync('dist')) {
-      fs.mkdirSync('dist')
-    }
-
-    fs.writeFileSync('./dist/radar.json', JSON.stringify(radarJson).replace(/(\r\n|\n|\r|\s{2,})/gm, ''))
+    fs.writeFileSync('./standalone/radar.json', JSON.stringify(radarJson).replace(/(\r\n|\n|\r|\s{2,})/gm, ''))
 
     console.log(`Radar JSON updated successfully with ${radarJson.length} blips.`)
   } catch (err) {

@@ -1,6 +1,5 @@
 node_modules
 bower_components
-dist
 *.swa
 *.swp
 *.swo
@@ -10,10 +9,6 @@ coverage/
 .idea/
 .DS_Store
 
-spec/end_to_end_tests/reports/
-src/stylesheets/_featuretoggles.scss
-cypress/
-
 .nyc_output
 
 .private.notes
@@ -21,3 +16,6 @@ cypress/
 .talismanrc
 
 .vscode
+
+# Generated on the fly — never committed
+standalone/radar.json

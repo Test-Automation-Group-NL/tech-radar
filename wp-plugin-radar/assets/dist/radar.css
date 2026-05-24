@@ -1,0 +1,1626 @@
+/* src/styles/variables.css */
+:root {
+  --color-page-bg: #d8e7ee;
+  --color-panel-bg: #e7eeea;
+  --color-white: #ffffff;
+  --color-ink: #111617;
+  --color-heading: #231f20;
+  --color-logo-dark: #15173d;
+  --color-brand-blue: #5ca1b6;
+  --color-brand-blue-muted: #a9c9d1;
+  --color-brand-blue-line: #62a2b6;
+  --color-techniques: #5b907e;
+  --color-techniques-light-1: #ccdcd6;
+  --color-techniques-light-2: #abc6bc;
+  --color-techniques-light-3: #8db1a5;
+  --color-techniques-light-4: #709e8e;
+  --color-platforms: #dc7f6a;
+  --color-platforms-light-1: #f6dace;
+  --color-platforms-light-2: #efc0b0;
+  --color-platforms-light-3: #e8a794;
+  --color-platforms-light-4: #e1907a;
+  --color-tools: #9e5b7b;
+  --color-tools-light-1: #e3ccd7;
+  --color-tools-light-2: #d0aabc;
+  --color-tools-light-3: #bd8ba3;
+  --color-tools-light-4: #ab6f8c;
+  --color-languages: #638ca3;
+  --color-languages-light-1: #cdd8e2;
+  --color-languages-light-2: #aec0ce;
+  --color-languages-light-3: #91abbd;
+  --color-languages-light-4: #7699ae;
+  --color-illustration-blue: #0d72b2;
+  --color-illustration-blue-dark: #05619a;
+  --color-illustration-grey: #638ca3;
+  --color-illustration-sand: #b5afa0;
+  --color-nav: var(--color-brand-blue);
+  --color-nav-dark: var(--color-illustration-blue-dark);
+  --color-dark: var(--color-ink);
+  --color-dark-60: rgba(17, 22, 23, 0.6);
+  --color-dark-20: rgba(17, 22, 23, 0.12);
+  --color-accent: var(--color-illustration-blue);
+  --color-lf: var(--color-languages);
+  --color-techniques-light: var(--color-techniques-light-2);
+  --color-platforms-light: var(--color-platforms-light-2);
+  --color-tools-light: var(--color-tools-light-2);
+  --color-lf-light: var(--color-languages-light-2);
+  --font-family:
+    "Plus Jakarta Sans",
+    system-ui,
+    sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1.125rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.375rem;
+  --font-size-xl: 1.625rem;
+  --font-size-2xl: 2.25rem;
+  --nav-height: 52px;
+  --panel-width: 380px;
+  --radar-max-size: 1344px;
+  --container-max: calc(var(--radar-max-size) + 2 * var(--page-padding));
+  --page-padding: 24px;
+  --radar-viewport-inset: calc(var(--wpadminbar-height, 0px) + var(--site-header-offset, 0px) + var(--nav-height) + var(--space-8) * 2 + var(--space-6));
+  --radar-available-height: calc(100dvh - var(--radar-viewport-inset));
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-15: 60px;
+  --space-16: 64px;
+  --font-size-2xs: 0.625rem;
+  --font-size-ui-sm: 0.8125rem;
+  --font-size-ui: 0.9375rem;
+  --letter-spacing-display: -0.03em;
+  --letter-spacing-heading: -0.02em;
+  --letter-spacing-eyebrow: 0.12em;
+  --letter-spacing-eyebrow-wide: 0.14em;
+  --letter-spacing-label: 0.1em;
+  --border-width-default: 1px;
+  --border-width-accent: 4px;
+  --site-container-max: 1400px;
+  --site-header-height: 82px;
+  --color-partner-detesters: #e16a7c;
+  --color-partner-testcoders: #5a7282;
+  --color-partner-techchamps: #b86b52;
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 180ms;
+  --duration-base: 300ms;
+  --duration-slow: 480ms;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-2xl: 16px;
+  --radius-button: 10px;
+  --radius-card-md: 14px;
+  --radius-full: 9999px;
+  --z-panel: 10;
+  --z-overlay: 100;
+  --z-modal: 200;
+}
+@media (max-width: 900px) {
+  :root {
+    --radar-viewport-inset: calc(var(--site-header-offset, 0px) + var(--space-8) * 2 + var(--space-6));
+  }
+}
+.techradar-root *,
+.techradar-root *::before,
+.techradar-root *::after {
+  box-sizing: border-box;
+}
+.techradar-root {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark);
+  background: var(--color-page-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+html.techradar-html-lock {
+  overflow: hidden;
+}
+html.techradar-html-lock body {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow-y: scroll;
+}
+@media (max-width: 900px) {
+  html.techradar-html-lock .site-header {
+    z-index: 0;
+  }
+}
+
+/* src/styles/nav.css */
+.techradar-nav {
+  display: flex;
+  align-items: stretch;
+  background: var(--color-nav);
+  min-height: var(--nav-height);
+  position: sticky;
+  top: var(--site-header-offset, 0px);
+  z-index: var(--z-panel);
+  border-top: 1px solid color-mix(in srgb, var(--color-white) 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-brand-blue-line) 35%, transparent);
+}
+.techradar-nav__inner {
+  max-width: var(--site-container-max, var(--container-max));
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 32px);
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+}
+.techradar-nav__drawer {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+  gap: var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.techradar-nav__drawer::-webkit-scrollbar {
+  display: none;
+}
+.techradar-nav__tab {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  padding: 0 var(--space-4);
+  min-height: var(--nav-height);
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.techradar-nav__tab:hover {
+  opacity: 1;
+}
+.techradar-nav__tab--active {
+  opacity: 1;
+  border-bottom-color: var(--color-white);
+  font-weight: 700;
+}
+.techradar-nav__tab--active[data-nav-quadrant=techniques] {
+  border-bottom-color: var(--color-techniques-light);
+}
+.techradar-nav__tab--active[data-nav-quadrant=platforms] {
+  border-bottom-color: var(--color-platforms-light);
+}
+.techradar-nav__tab--active[data-nav-quadrant=tools] {
+  border-bottom-color: var(--color-tools-light);
+}
+.techradar-nav__tab--active[data-nav-quadrant=languages-and-frameworks] {
+  border-bottom-color: var(--color-lf-light);
+}
+.techradar-loading,
+.techradar-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  font-size: var(--font-size-md);
+  color: var(--color-dark-60);
+}
+.techradar-error {
+  color: var(--color-accent);
+}
+@media (max-width: 900px) {
+  .techradar-nav {
+    display: none;
+  }
+}
+
+/* src/styles/radar.css */
+.techradar-main {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--page-padding);
+}
+.techradar-page-header {
+  padding: var(--space-5) 0 var(--space-4);
+  border-bottom: 1px solid var(--color-dark-20);
+  margin-bottom: var(--space-2);
+}
+.techradar-page-header__title {
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-family);
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  line-height: 1.15;
+}
+.techradar-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-8) 0;
+  gap: 0;
+  min-height: calc(100vh - var(--wpadminbar-height, 0px) - var(--site-header-offset, 0px) - var(--nav-height));
+  position: relative;
+  transition: padding var(--duration-slow) var(--ease-out);
+}
+.techradar-focused-header {
+  flex: 0 0 100%;
+  width: 100%;
+  padding: 0 0 var(--space-4);
+}
+.techradar-focused-header[hidden] {
+  display: none;
+}
+.techradar-focused-header__title {
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+.techradar-chart-shell {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: min(var(--radar-max-size), 100%);
+  align-self: center;
+  position: relative;
+  transition: max-width var(--duration-slow) var(--ease-out);
+}
+.techradar-chart-wrap {
+  width: min(var(--radar-max-size), 100%, var(--radar-available-height));
+  max-width: min(var(--radar-max-size), 100%, var(--radar-available-height));
+  margin-inline: auto;
+  position: relative;
+  transition: width var(--duration-slow) var(--ease-out), max-width var(--duration-slow) var(--ease-out);
+}
+.techradar-chart {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.radar-labels-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: 0 var(--space-2);
+  pointer-events: none;
+}
+.radar-labels-row .radar-corner-label {
+  pointer-events: auto;
+}
+.radar-labels-row--top {
+  top: var(--space-2);
+}
+.radar-labels-row--bottom {
+  bottom: var(--space-2);
+  align-items: flex-end;
+}
+.techradar-body--focused {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--space-6) 0;
+}
+.techradar-body--focused .techradar-panel {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 280px;
+  max-width: 50%;
+}
+.techradar-body--panel-left .techradar-chart-shell {
+  order: 2;
+}
+.techradar-body--panel-left .techradar-panel {
+  order: 1;
+}
+.techradar-body--panel-right .techradar-chart-shell {
+  order: 1;
+}
+.techradar-body--panel-right .techradar-panel {
+  order: 2;
+}
+.techradar-focused-header {
+  order: 0;
+}
+.techradar-body--panel-left .techradar-chart-shell,
+.techradar-body--panel-right .techradar-chart-shell {
+  flex: 0 0 50%;
+  max-width: 50%;
+  align-self: flex-start;
+}
+.techradar-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.techradar-body--focused .techradar-svg {
+  overflow: hidden;
+}
+.radar-bg {
+  fill: var(--color-page-bg);
+}
+.radar-quadrant-group {
+  pointer-events: all;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+.techradar-body--focused .radar-axis {
+  opacity: 0;
+}
+.techradar-body--focused .radar-quadrant-group {
+  opacity: 0;
+  pointer-events: none;
+}
+.techradar-body--focused-techniques .radar-quadrant-group--techniques {
+  opacity: 1;
+  pointer-events: none;
+}
+.techradar-body--focused-tools .radar-quadrant-group--tools {
+  opacity: 1;
+  pointer-events: none;
+}
+.techradar-body--focused-languages-and-frameworks .radar-quadrant-group--languages-and-frameworks {
+  opacity: 1;
+  pointer-events: none;
+}
+.techradar-body--focused-platforms .radar-quadrant-group--platforms {
+  opacity: 1;
+  pointer-events: none;
+}
+.techradar-body:not(.techradar-body--focused)[data-blip-hover] .radar-quadrant-group {
+  opacity: 0.25;
+}
+.techradar-body:not(.techradar-body--focused)[data-blip-hover=techniques] .radar-quadrant-group--techniques {
+  opacity: 1;
+}
+.techradar-body:not(.techradar-body--focused)[data-blip-hover=tools] .radar-quadrant-group--tools {
+  opacity: 1;
+}
+.techradar-body:not(.techradar-body--focused)[data-blip-hover=languages-and-frameworks] .radar-quadrant-group--languages-and-frameworks {
+  opacity: 1;
+}
+.techradar-body:not(.techradar-body--focused)[data-blip-hover=platforms] .radar-quadrant-group--platforms {
+  opacity: 1;
+}
+.techradar-body:not(.techradar-body--focused)[data-blip-hover=techniques] .radar-corner-label--techniques,
+.techradar-body:not(.techradar-body--focused)[data-blip-hover=tools] .radar-corner-label--tools,
+.techradar-body:not(.techradar-body--focused)[data-blip-hover=languages-and-frameworks] .radar-corner-label--languages-and-frameworks,
+.techradar-body:not(.techradar-body--focused)[data-blip-hover=platforms] .radar-corner-label--platforms {
+  background: rgba(17, 22, 23, 0.07);
+}
+.radar-ring-border {
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 1;
+}
+.radar-ring-border--adopt {
+  stroke-width: 1.5;
+}
+.radar-axis {
+  stroke: var(--color-page-bg);
+  stroke-width: 24;
+  stroke-linecap: butt;
+}
+.radar-ring-label {
+  fill: var(--color-dark);
+  font-family: var(--font-family);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  opacity: 0.65;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+.radar-ring-label:hover,
+.radar-ring-label:focus,
+.radar-ring-label:focus-visible,
+.radar-ring-label:active {
+  opacity: 0.95;
+  outline: none;
+}
+.techradar-body--focused-techniques .radar-ring-label,
+.techradar-body--focused-tools .radar-ring-label {
+  transform: translateY(var(--space-4));
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.techradar-body--focused-platforms .radar-ring-label,
+.techradar-body--focused-languages-and-frameworks .radar-ring-label {
+  transform: translateY(calc(-1 * var(--space-4)));
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.techradar-body--focused .radar-corner-label {
+  display: none;
+}
+.radar-corner-label {
+  position: relative;
+  z-index: 1;
+  cursor: default;
+  padding: var(--space-2);
+  max-width: 30%;
+  line-height: 1.3;
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+@media (max-width: 1024px) and (min-width: 901px) {
+  .radar-corner-label {
+    max-width: 25%;
+  }
+  .radar-blip__circle--default {
+    r: 8px;
+  }
+  .radar-blip__tri {
+    transform: scale(0.67);
+  }
+  .radar-blip--selected .radar-blip__circle {
+    r: 10px;
+  }
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(0.82);
+  }
+}
+@media (min-width: 901px) and (max-height: 1100px) {
+  .radar-blip__circle--default {
+    r: 10px;
+  }
+  .radar-blip__tri {
+    transform: scale(0.84);
+  }
+  .radar-blip--selected .radar-blip__circle {
+    r: 12px;
+  }
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(1.02);
+  }
+}
+@media (min-width: 901px) and (max-height: 860px) {
+  .radar-blip__circle--default {
+    r: 8px;
+  }
+  .radar-blip__tri {
+    transform: scale(0.67);
+  }
+  .radar-blip--selected .radar-blip__circle {
+    r: 10px;
+  }
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(0.82);
+  }
+}
+@media (min-width: 901px) and (max-height: 620px) {
+  .radar-blip__circle--default {
+    r: 6px;
+  }
+  .radar-blip__tri {
+    transform: scale(0.5);
+  }
+  .radar-blip--selected .radar-blip__circle {
+    r: 8px;
+  }
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(0.61);
+  }
+}
+.radar-corner-label--tools,
+.radar-corner-label--languages-and-frameworks {
+  text-align: right;
+}
+.radar-corner-label--techniques,
+.radar-corner-label--platforms {
+  text-align: left;
+}
+.radar-corner-label__title {
+  color: var(--color-heading);
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.radar-corner-label__heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.radar-corner-label__heading--trail-dot {
+  justify-content: flex-end;
+}
+.radar-corner-label__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 7px;
+}
+.radar-corner-label--techniques .radar-corner-label__dot {
+  background: var(--color-techniques);
+}
+.radar-corner-label--platforms .radar-corner-label__dot {
+  background: var(--color-platforms);
+}
+.radar-corner-label--tools .radar-corner-label__dot {
+  background: var(--color-tools);
+}
+.radar-corner-label--languages-and-frameworks .radar-corner-label__dot {
+  background: var(--color-languages);
+}
+.radar-corner-label__desc {
+  display: block;
+  color: var(--color-dark-60);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+.radar-blip {
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+.radar-blip:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.techradar-body--focused .radar-blip:focus,
+.techradar-body--focused .radar-blip:focus-visible,
+.radar-blip--selected:focus,
+.radar-blip--selected:focus-visible {
+  outline: none;
+}
+.radar-blip__circle {
+  stroke-width: 2;
+  transition: r var(--duration-fast) var(--ease-spring), opacity var(--duration-fast) var(--ease-out);
+  pointer-events: all;
+}
+.radar-blip__tri {
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transition: transform var(--duration-fast) var(--ease-spring), opacity var(--duration-fast) var(--ease-out);
+  pointer-events: all;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.radar-blip--techniques .radar-blip__circle--default {
+  fill: #456d62;
+  stroke: #456d62;
+}
+.radar-blip--platforms .radar-blip__circle--default {
+  fill: #c86952;
+  stroke: #c86952;
+}
+.radar-blip--tools .radar-blip__circle--default {
+  fill: #7c4861;
+  stroke: #7c4861;
+}
+.radar-blip--languages-and-frameworks .radar-blip__circle--default {
+  fill: #4d7090;
+  stroke: #4d7090;
+}
+.radar-blip--techniques .radar-blip__tri--new {
+  fill: none;
+  stroke: #456d62;
+}
+.radar-blip--platforms .radar-blip__tri--new {
+  fill: none;
+  stroke: #c86952;
+}
+.radar-blip--tools .radar-blip__tri--new {
+  fill: none;
+  stroke: #7c4861;
+}
+.radar-blip--languages-and-frameworks .radar-blip__tri--new {
+  fill: none;
+  stroke: #4d7090;
+}
+.radar-blip--techniques .radar-blip__tri--moved {
+  fill: rgba(69, 109, 98, 0.55);
+  stroke: #456d62;
+}
+.radar-blip--platforms .radar-blip__tri--moved {
+  fill: rgba(200, 105, 82, 0.55);
+  stroke: #c86952;
+}
+.radar-blip--tools .radar-blip__tri--moved {
+  fill: rgba(124, 72, 97, 0.55);
+  stroke: #7c4861;
+}
+.radar-blip--languages-and-frameworks .radar-blip__tri--moved {
+  fill: rgba(77, 112, 144, 0.55);
+  stroke: #4d7090;
+}
+.radar-blip--dimmed {
+  opacity: 0.15;
+  pointer-events: none;
+}
+.techradar-body--focused .radar-blip--dimmed {
+  opacity: 0;
+}
+.radar-blip--selected .radar-blip__circle {
+  r: 15;
+}
+.radar-blip--selected .radar-blip__tri {
+  transform: scale(1.22);
+}
+.radar-blip--panel-hover .radar-blip__circle {
+  r: 15;
+}
+.radar-blip--panel-hover .radar-blip__tri {
+  transform: scale(1.22);
+}
+.radar-blip-tooltip {
+  background: var(--color-dark);
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  z-index: var(--z-modal);
+  animation: tooltip-in var(--duration-fast) var(--ease-out);
+}
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(calc(-100% - 2px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(calc(-100% - 6px));
+  }
+}
+.radar-corner-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(17, 22, 23, 0.65);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--page-padding);
+  animation: modal-bg-in var(--duration-base) var(--ease-out);
+}
+.radar-corner-modal__content {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  animation: modal-in var(--duration-base) var(--ease-spring);
+}
+.radar-corner-modal__title {
+  font-family: var(--font-family);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0 0 var(--space-3);
+  padding-right: var(--space-8);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.radar-corner-modal__desc {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-60);
+  margin: 0;
+  line-height: 1.6;
+}
+.radar-corner-modal__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: var(--color-dark-20);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  line-height: 1;
+}
+@keyframes modal-bg-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@media (min-width: 901px) {
+  .techradar-body--focused .techradar-svg {
+    overflow: visible;
+  }
+  .techradar-body--focused .radar-axis {
+    opacity: 1;
+  }
+  .techradar-body--focused .radar-quadrant-group {
+    opacity: 0.15;
+  }
+  .techradar-body--focused-techniques .radar-quadrant-group--techniques,
+  .techradar-body--focused-tools .radar-quadrant-group--tools,
+  .techradar-body--focused-languages-and-frameworks .radar-quadrant-group--languages-and-frameworks,
+  .techradar-body--focused-platforms .radar-quadrant-group--platforms {
+    opacity: 1;
+  }
+  .techradar-body--focused .radar-blip--dimmed {
+    opacity: 0.07;
+  }
+  .techradar-body {
+    flex-wrap: nowrap;
+    padding: 0;
+    min-height: 0;
+  }
+  .techradar-chart-shell {
+    flex: 0 0 100%;
+    transition: flex-basis var(--duration-slow) var(--ease-out);
+  }
+  .techradar-body--panel-left .techradar-chart-shell,
+  .techradar-body--panel-right .techradar-chart-shell {
+    flex: 0 0 66.67%;
+    max-width: none;
+  }
+  .techradar-body--closing .techradar-chart-shell {
+    flex: 0 0 100%;
+  }
+  .techradar-body--focused .techradar-panel {
+    flex: 0 0 33.33%;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+  .techradar-body--focused .radar-corner-label {
+    display: block;
+  }
+  .radar-corner-label {
+    cursor: pointer;
+  }
+  .radar-corner-label:hover,
+  .radar-corner-label:focus-visible {
+    background: rgba(17, 22, 23, 0.07);
+    outline: none;
+  }
+  .techradar-body--focused-techniques .radar-ring-label,
+  .techradar-body--focused-tools .radar-ring-label,
+  .techradar-body--focused-platforms .radar-ring-label,
+  .techradar-body--focused-languages-and-frameworks .radar-ring-label {
+    transform: none;
+  }
+}
+@media (max-width: 900px) {
+  :root {
+    --panel-width: 300px;
+  }
+  .techradar-main {
+    padding: 0 var(--space-2);
+  }
+  .techradar-body {
+    padding: var(--space-4) 0;
+  }
+  .techradar-chart-shell {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+  }
+  .techradar-chart-wrap {
+    width: 100%;
+    max-width: none;
+  }
+  .radar-labels-row {
+    position: static;
+    padding: 0;
+    pointer-events: auto;
+    gap: var(--space-3);
+  }
+  .radar-labels-row--bottom {
+    align-items: flex-start;
+  }
+  .radar-corner-label {
+    max-width: none;
+    flex: 1 1 0;
+    min-width: 0;
+    cursor: pointer;
+  }
+  .radar-corner-label:hover,
+  .radar-corner-label:focus-visible {
+    background: rgba(17, 22, 23, 0.07);
+    outline: none;
+  }
+  .radar-corner-label__title {
+    font-size: var(--font-size-sm);
+  }
+  .radar-corner-label__desc {
+    display: none;
+  }
+  .radar-ring-label {
+    letter-spacing: 0.04em;
+  }
+  .techradar-blip-legend {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+    gap: var(--space-3) var(--space-6);
+  }
+  .techradar-blip-legend__text {
+    font-size: var(--font-size-xs);
+  }
+  .techradar-section-rule {
+    margin-top: var(--space-2);
+  }
+  .radar-blip__circle--default {
+    r: 6px;
+  }
+  .radar-blip__tri {
+    transform: scale(0.5);
+  }
+  .radar-blip--selected .radar-blip__circle {
+    r: 8px;
+  }
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(0.61);
+  }
+  .radar-axis {
+    stroke-width: 18;
+  }
+}
+@media (max-width: 768px) {
+  .techradar-main {
+    padding: 0 var(--space-4);
+  }
+  .techradar-body {
+    flex-direction: column;
+    padding: var(--space-4) 0;
+    min-height: auto;
+    align-items: center;
+  }
+  .techradar-chart-shell {
+    width: 100%;
+  }
+  .techradar-chart {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  .techradar-body--focused .techradar-chart-shell,
+  .techradar-body--panel-left .techradar-chart-shell,
+  .techradar-body--panel-right .techradar-chart-shell {
+    width: 100%;
+    order: 1;
+  }
+  .radar-blip__circle--default {
+    r: 6px;
+  }
+  .radar-blip--selected .radar-blip__circle {
+    r: 6px;
+  }
+}
+.techradar-blip-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4) var(--space-10);
+  padding: var(--space-2) var(--page-padding) var(--space-4);
+  color: var(--color-dark);
+}
+.techradar-blip-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.techradar-blip-legend__icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--color-dark);
+}
+.techradar-blip-legend__text {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-dark);
+}
+.techradar-section-rule {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-3) 0 var(--space-3);
+}
+.techradar-section-rule__line {
+  height: 1px;
+  background: var(--color-dark-20);
+  flex: 1 1 0;
+}
+.techradar-section-rule__label {
+  margin: 0;
+  color: var(--color-dark-60);
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.techradar-ring-guide__modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--page-padding);
+  background: rgba(17, 22, 23, 0.6);
+}
+.techradar-ring-guide__modal[hidden] {
+  display: none;
+}
+.techradar-ring-guide__content {
+  width: min(720px, 100%);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: relative;
+}
+.techradar-ring-guide__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-dark-20);
+  color: var(--color-dark);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+}
+.techradar-ring-guide__title {
+  margin: 0 0 var(--space-4);
+  padding-right: var(--space-8);
+  font-family: var(--font-family);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--color-heading);
+}
+.techradar-ring-guide__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-4);
+}
+.techradar-ring-guide__item {
+  margin: 0;
+}
+.techradar-ring-guide__item-title {
+  margin: 0 0 2px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.techradar-ring-guide__item-copy {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-60);
+  line-height: 1.5;
+}
+.techradar-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  min-height: calc(100vh - var(--wpadminbar-height, 0px) - var(--site-header-offset, 0px) - 120px);
+  padding: var(--space-8);
+  font-family: var(--font-family);
+}
+.techradar-loader[hidden] {
+  display: none;
+}
+.techradar-loader__spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--color-dark-20);
+  border-top-color: var(--color-nav);
+  border-radius: 50%;
+  animation: techradar-spin 0.75s linear infinite;
+}
+@keyframes techradar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.techradar-loader__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-60);
+}
+.techradar-root {
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+.techradar-root--ready {
+  opacity: 1;
+}
+.techradar-root--no-anim,
+.techradar-root--no-anim * {
+  transition-duration: 0s !important;
+  animation-duration: 0s !important;
+}
+
+/* src/styles/panel.css */
+.techradar-panel {
+  flex: 0 0 var(--panel-width);
+  width: var(--panel-width);
+  background: var(--color-panel-bg);
+  border-radius: var(--radius-lg);
+  position: relative;
+  align-self: flex-start;
+  max-height: calc(100vh - var(--nav-height) - var(--space-8) * 2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: panel-slide-in var(--duration-slow) var(--ease-out) both;
+}
+.techradar-panel[hidden] {
+  display: none;
+}
+.techradar-panel__layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  max-height: inherit;
+}
+.techradar-panel__head {
+  position: relative;
+  flex-shrink: 0;
+  padding: var(--space-6) var(--space-6) var(--space-2);
+}
+.techradar-panel__header[hidden] {
+  display: none;
+}
+.techradar-panel__quadrant {
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-dark-60);
+}
+.techradar-panel__blip-heading {
+  margin: 0;
+  padding-right: var(--space-10);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--color-heading);
+  line-height: 1.25;
+}
+.techradar-panel__meta {
+  flex-shrink: 0;
+  padding: var(--space-3) var(--space-6) 5px;
+  border-bottom: 1px solid var(--color-dark-20);
+}
+.techradar-panel__meta[hidden] {
+  display: none;
+}
+.techradar-panel__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 5px var(--space-6) var(--space-6);
+}
+.techradar-panel__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: var(--color-dark-20);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  transition: background var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+  z-index: 1;
+}
+.techradar-panel__close:hover {
+  background: var(--color-dark-20);
+  opacity: 0.75;
+}
+.techradar-panel__content {
+  padding-top: var(--space-2);
+}
+.techradar-panel__list {
+  display: grid;
+  gap: var(--space-5);
+}
+.techradar-panel__list-ring-title {
+  display: inline-block;
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+}
+.techradar-panel__list-ring-title--adopt {
+  background: var(--color-techniques);
+}
+.techradar-panel__list-ring-title--trial {
+  background: var(--color-lf);
+}
+.techradar-panel__list-ring-title--assess {
+  background: var(--color-platforms);
+}
+.techradar-panel__list-ring-title--hold {
+  background: var(--color-tools);
+}
+.techradar-panel__list-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+.techradar-panel__list-btn {
+  width: 100%;
+  border: none;
+  background: rgba(17, 22, 23, 0.04);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-dark);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+.techradar-panel__list-btn:hover,
+.techradar-panel__list-btn:focus-visible {
+  background: rgba(17, 22, 23, 0.1);
+  outline: none;
+}
+.techradar-panel__list-badge {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-accent);
+}
+.techradar-panel__empty {
+  margin: 0;
+  color: var(--color-dark-60);
+  font-size: var(--font-size-sm);
+}
+.techradar-panel__ring {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  margin-right: var(--space-2);
+  color: var(--color-white);
+}
+.techradar-panel__ring--adopt {
+  background: var(--color-techniques);
+}
+.techradar-panel__ring--trial {
+  background: var(--color-lf);
+}
+.techradar-panel__ring--assess {
+  background: var(--color-platforms);
+}
+.techradar-panel__ring--hold {
+  background: var(--color-tools);
+}
+.techradar-panel__badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+.techradar-panel__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-dark);
+  line-height: 1.65;
+}
+.techradar-panel__description h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-dark-60);
+  margin: var(--space-5) 0 var(--space-2);
+}
+.techradar-panel__description h4:first-child {
+  margin-top: 0;
+}
+.techradar-panel__description p {
+  margin: 0 0 var(--space-3);
+}
+.techradar-panel__description ul {
+  margin: 0 0 var(--space-3);
+  padding-left: var(--space-5);
+}
+.techradar-panel__description li {
+  margin-bottom: var(--space-1);
+}
+.techradar-panel__description strong {
+  font-weight: 700;
+}
+.techradar-panel__description a {
+  color: var(--color-nav-dark);
+  text-decoration: underline;
+}
+.techradar-panel__back {
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  border-top: 1px solid var(--color-dark-20);
+  background: none;
+  text-align: left;
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-nav-dark);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.techradar-panel__back[hidden] {
+  display: none;
+}
+.techradar-panel__back:hover {
+  color: var(--color-dark);
+}
+@media (min-width: 901px) {
+  .techradar-panel {
+    position: sticky;
+    top: calc(var(--site-header-offset, 0px) + var(--nav-height, 0px));
+    height: var(--radar-available-height);
+    max-height: var(--radar-available-height);
+    animation: none;
+    transition: flex-basis var(--duration-slow) var(--ease-out), opacity var(--duration-base) var(--ease-out);
+  }
+  .techradar-panel[hidden] {
+    display: flex;
+    flex: 0 0 0%;
+    height: 0;
+    min-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: flex-basis var(--duration-slow) var(--ease-out), opacity var(--duration-base) var(--ease-out);
+  }
+  .techradar-panel__layout {
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+  .techradar-panel:not([hidden]) .techradar-panel__layout {
+    opacity: 1;
+    transition-delay: var(--duration-slow);
+  }
+}
+@keyframes panel-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--panel-slide-from, 24px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.techradar-body--panel-left .techradar-panel {
+  --panel-slide-from: -24px;
+}
+.techradar-body--panel-right .techradar-panel {
+  --panel-slide-from: 24px;
+}
+@media (max-width: 900px) {
+  .techradar-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: var(--z-overlay);
+    padding: 0;
+    flex: none;
+    animation: panel-mobile-in var(--duration-base) var(--ease-out) both;
+  }
+  .techradar-panel.techradar-panel--closing {
+    animation: panel-mobile-out var(--duration-base) var(--ease-out) forwards;
+  }
+  .techradar-body--focused .techradar-panel {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .techradar-panel__head {
+    padding: var(--space-5) var(--space-4) var(--space-3);
+  }
+  .techradar-panel__scroll {
+    padding: var(--space-4);
+  }
+  .techradar-panel__blip-heading {
+    font-size: var(--font-size-xl);
+    padding-right: var(--space-12);
+  }
+  .techradar-panel__back {
+    display: none;
+  }
+}
+@keyframes panel-mobile-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes panel-mobile-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* src/styles/listing.css */
+.techradar-search-bar {
+  padding: var(--space-8) 0 var(--space-8);
+  display: flex;
+  justify-content: center;
+}
+.techradar-search__input {
+  background: var(--color-white);
+  border: 2px solid var(--color-dark-20);
+  border-radius: var(--radius-full);
+  color: var(--color-dark);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  padding: var(--space-3) var(--space-8);
+  width: 100%;
+  max-width: 640px;
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+.techradar-search__input::placeholder {
+  color: var(--color-dark-60);
+}
+.techradar-search__input:focus {
+  border-color: var(--color-nav);
+}
+.techradar-listing {
+  padding: 0 0 var(--space-12);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+.techradar-listing-quadrant {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-white);
+}
+.techradar-listing-quadrant__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+}
+.techradar-listing-quadrant--techniques .techradar-listing-quadrant__header {
+  background: var(--color-techniques);
+}
+.techradar-listing-quadrant--platforms .techradar-listing-quadrant__header {
+  background: var(--color-platforms);
+}
+.techradar-listing-quadrant--tools .techradar-listing-quadrant__header {
+  background: var(--color-tools);
+}
+.techradar-listing-quadrant--languages-and-frameworks .techradar-listing-quadrant__header {
+  background: var(--color-lf);
+}
+.techradar-listing-quadrant__title {
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-white);
+  margin: 0;
+}
+.techradar-listing-quadrant__zoom {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.85;
+  padding: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.techradar-listing-quadrant__zoom:hover {
+  opacity: 1;
+}
+.techradar-listing-quadrant__rings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-4);
+}
+.techradar-listing-ring {
+  flex: 1 1 140px;
+  min-width: 0;
+}
+.techradar-listing-ring__title {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-3);
+  color: var(--color-white);
+}
+.techradar-listing-ring__title--adopt {
+  background: var(--color-techniques);
+}
+.techradar-listing-ring__title--trial {
+  background: var(--color-lf);
+}
+.techradar-listing-ring__title--assess {
+  background: var(--color-platforms);
+}
+.techradar-listing-ring__title--hold {
+  background: var(--color-tools);
+}
+.techradar-listing-ring__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.techradar-list-item {
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.techradar-list-item--hidden {
+  display: none;
+}
+.techradar-list-item__btn {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-dark-20);
+  text-align: left;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark);
+  padding: var(--space-2) 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color var(--duration-fast) var(--ease-out);
+  line-height: 1.4;
+}
+.techradar-list-item:last-child .techradar-list-item__btn {
+  border-bottom: none;
+}
+.techradar-list-item__btn:hover {
+  color: var(--color-nav-dark);
+}
+.techradar-list-item__badge {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+@media (max-width: 900px) {
+  .techradar-listing {
+    grid-template-columns: 1fr;
+  }
+  .techradar-listing-quadrant__zoom {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .techradar-search-bar {
+    padding: var(--space-6) 0 var(--space-6);
+  }
+  .techradar-search__input {
+    max-width: 100%;
+  }
+  .techradar-listing {
+    padding: 0 0 var(--space-8);
+    gap: var(--space-4);
+  }
+}
+/*# sourceMappingURL=radar.css.map */
