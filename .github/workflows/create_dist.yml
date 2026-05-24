@@ -91,12 +91,16 @@ jobs:
         run: npm ci
       - name: Generate radar.json
         run: npm run radar:generate-json:prod
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
       - name: Upload radar.json via FTP
         run: |
-          curl --silent --show-error --ftp-create-dirs \
-            -T standalone/radar.json \
-            "ftp://${{ secrets.FTP_SERVER }}/${{ secrets.FTP_RADAR_PATH }}" \
-            -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}"
+          lftp -c "
+            set ftp:ssl-allow yes; set ssl:verify-certificate no;
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+            put standalone/radar.json -o ${{ secrets.FTP_RADAR_PATH }};
+            quit
+          "
 
   deploy-theme:
     needs: [detect-changes, build]
