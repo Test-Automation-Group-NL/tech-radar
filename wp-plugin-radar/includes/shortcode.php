@@ -86,6 +86,17 @@ function techradar_case_blips_shortcode( array $atts ): string {
         }
     }
 
+    $radar_url = function_exists( 'techradar_theme_get_radar_page_url' )
+        ? techradar_theme_get_radar_page_url()
+        : home_url( '/' );
+
+    $quad_color_map = [
+        'techniques'               => 'var(--color-techniques)',
+        'platforms'                => 'var(--color-platforms)',
+        'tools'                    => 'var(--color-tools)',
+        'languages-and-frameworks' => 'var(--color-languages)',
+    ];
+
     $names = array_filter( array_map( 'trim', explode( ',', $atts['blips'] ) ) );
     $items = '';
 
@@ -102,12 +113,25 @@ function techradar_case_blips_shortcode( array $atts ): string {
         $label    = esc_html( (string) ( $blip['name'] ?? $name ) );
         $badge    = esc_html( ucfirst( $ring ) );
 
+        $blip_slug = trim( preg_replace( '/[^a-z0-9]+/', '-', strtolower( (string) ( $blip['name'] ?? $name ) ) ), '-' );
+        $focus_url = $quadrant
+            ? add_query_arg( 'focus', rawurlencode( $quadrant ), $radar_url )
+            : $radar_url;
+        if ( $blip_slug ) {
+            $focus_url .= '#' . $blip_slug;
+        }
+        $blip_color = esc_attr( $quad_color_map[ $quadrant ] ?? 'var(--color-brand-blue)' );
+
         $items .= sprintf(
             '<li class="case-radar-card__item">' .
-                '<span class="case-radar-card__dot case-radar-card__dot--%s" aria-hidden="true"></span>' .
-                '<span class="case-radar-card__name">%s</span>' .
-                '<span class="case-radar-card__badge case-radar-card__badge--%s">%s</span>' .
+                '<a href="%s" class="case-radar-card__link" style="--blip-color:%s">' .
+                    '<span class="case-radar-card__dot case-radar-card__dot--%s" aria-hidden="true"></span>' .
+                    '<span class="case-radar-card__name">%s</span>' .
+                    '<span class="case-radar-card__badge case-radar-card__badge--%s">%s</span>' .
+                '</a>' .
             '</li>',
+            esc_url( $focus_url ),
+            $blip_color,
             $quadrant,
             $label,
             $ring,
