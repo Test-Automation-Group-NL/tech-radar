@@ -183,14 +183,26 @@
         10
     );
 
+    const visible = new Set();
+
     const observer = new IntersectionObserver(
         entries => {
             entries.forEach(e => {
-                if (e.isIntersecting) {
-                    links.forEach(l => l.classList.remove('is-active'));
-                    map.get(e.target)?.classList.add('is-active');
-                }
+                if (e.isIntersecting) visible.add(e.target);
+                else visible.delete(e.target);
             });
+
+            if (!visible.size) return;
+
+            // Multiple sections can enter the zone simultaneously (e.g. on a
+            // click-jump). Always activate the first visible one in DOM order.
+            let active = null;
+            map.forEach((_, target) => {
+                if (!active && visible.has(target)) active = target;
+            });
+
+            links.forEach(l => l.classList.remove('is-active'));
+            map.get(active)?.classList.add('is-active');
         },
         {
             rootMargin: `-${headerOffset + 24}px 0px -65% 0px`,
