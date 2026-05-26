@@ -67,21 +67,18 @@ $partners_data = [
         'name'  => 'deTesters',
         'email' => 'info@detesters.nl',
         'site'  => 'https://www.detesters.nl',
-        'blurb' => __( 'Compact senior team. Test automation specialists.', 'techradar-theme' ),
         'img'   => 'logo-detesters-color.png',
     ],
     'testcoders' => [
         'name'  => 'TestCoders',
         'email' => 'info@testcoders.nl',
         'site'  => 'https://www.testcoders.nl',
-        'blurb' => __( '35 Test Automation Engineers, Utrecht &amp; Groningen.', 'techradar-theme' ),
         'img'   => 'logo-testcoders-color.png',
     ],
     'techchamps' => [
         'name'  => 'TechChamps',
         'email' => 'info@techchamps.io',
         'site'  => 'https://www.techchamps.io',
-        'blurb' => __( 'Strategic test automation with personal attention.', 'techradar-theme' ),
         'img'   => 'logo-techchamps-color.png',
     ],
 ];
@@ -242,8 +239,7 @@ $privacy_url = get_privacy_policy_url();
                                 </div>
                                 <div class="contact-partner-card__dot" aria-hidden="true"></div>
                             </div>
-                            <p class="contact-partner-card__blurb"><?php echo esc_html( $partner['blurb'] ); ?></p>
-                            <div class="contact-partner-card__links">
+<div class="contact-partner-card__links">
                                 <a href="mailto:<?php echo esc_attr( $partner['email'] ); ?>" class="contact-partner-card__email">
                                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
                                         <rect x="1" y="2.5" width="11" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
