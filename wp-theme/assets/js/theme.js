@@ -136,6 +136,9 @@
 
     function dismiss(value) {
         localStorage.setItem(CONSENT_KEY, value);
+        window.gtag?.('consent', 'update', {
+            analytics_storage: value === 'accepted' ? 'granted' : 'denied',
+        });
         banner.classList.remove('cookie-banner--visible');
         document.body.classList.remove('cookie-banner--open');
         window.setTimeout(() => banner.setAttribute('hidden', ''), 320);
