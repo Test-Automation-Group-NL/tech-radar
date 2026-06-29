@@ -21,5 +21,3 @@ $svg = preg_replace( '/<\?xml[^?]*\?\>\s*/', '', $svg );
     echo $svg;
     ?>
 </div>
-<div class="hero-block__gradient hero-block__gradient--right" aria-hidden="true"></div>
-<div class="hero-block__gradient hero-block__gradient--left" aria-hidden="true"></div>

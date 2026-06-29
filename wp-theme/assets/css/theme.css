@@ -523,28 +523,29 @@ blockquote,
 
 
 @media (max-width: 767px) {
-  .site-main--landing .hp-section--brand.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .hp-section--page.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .hp-section--panel.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .hero-block.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .why-we-built-this.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .who-is-it-for.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .the-team.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .how-it-works.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .homepage-case.kb-row-layout-wrap > .kt-row-column-wrap,
-  .site-main--landing .cta.kb-row-layout-wrap > .kt-row-column-wrap {
+
+  .site-main--landing .hp-section--brand.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .hp-section--page.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .hp-section--panel.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .hero-block.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .why-we-built-this.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .who-is-it-for.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .the-team.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .how-it-works.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .homepage-case.kb-row-layout-wrap>.kt-row-column-wrap,
+  .site-main--landing .cta.kb-row-layout-wrap>.kt-row-column-wrap {
     padding: 56px 16px !important;
   }
 
   /* Adjacent same-class pairs: zero the touching sides so the gap stays 56px, not 112px.
      Specificity matches the general rule above (4 classes) so these win by source order. */
-  .site-main--landing .why-we-built-this:has(+ .why-we-built-this) > .kt-row-column-wrap,
-  .site-main--landing .homepage-case:has(+ .homepage-case) > .kt-row-column-wrap {
+  .site-main--landing .why-we-built-this:has(+ .why-we-built-this)>.kt-row-column-wrap,
+  .site-main--landing .homepage-case:has(+ .homepage-case)>.kt-row-column-wrap {
     padding-bottom: 0 !important;
   }
 
-  .site-main--landing .why-we-built-this + .why-we-built-this > .kt-row-column-wrap,
-  .site-main--landing .homepage-case + .homepage-case > .kt-row-column-wrap {
+  .site-main--landing .why-we-built-this+.why-we-built-this>.kt-row-column-wrap,
+  .site-main--landing .homepage-case+.homepage-case>.kt-row-column-wrap {
     padding-top: 0 !important;
   }
 
@@ -552,15 +553,18 @@ blockquote,
   .why-we-built-this-four-points .kt-inside-inner-col {
     gap: var(--space-3) !important;
   }
-  .why-we-built-this-four-points .kb-row-layout-wrap > .kt-row-column-wrap,
-  .why-we-built-this-four-points .kb-row-layout-wrap > .kb-row-layout-inner {
+
+  .why-we-built-this-four-points .kb-row-layout-wrap>.kt-row-column-wrap,
+  .why-we-built-this-four-points .kb-row-layout-wrap>.kb-row-layout-inner {
     gap: var(--space-3) !important;
   }
-  .who-four-columns.kb-row-layout-wrap > .kt-row-column-wrap,
-  .who-four-columns.kb-row-layout-wrap > .kb-row-layout-inner {
+
+  .who-four-columns.kb-row-layout-wrap>.kt-row-column-wrap,
+  .who-four-columns.kb-row-layout-wrap>.kb-row-layout-inner {
     gap: var(--space-3) !important;
   }
-  .tag-3-columns.kb-row-layout-wrap > .kt-row-column-wrap {
+
+  .tag-3-columns.kb-row-layout-wrap>.kt-row-column-wrap {
     gap: var(--space-3) !important;
   }
 }
@@ -844,21 +848,6 @@ blockquote,
   position: relative;
 }
 
-/* Decorative radar + readability gradients (prototype HomePage hero) */
-.hero-block::after {
-  content: '';
-  position: absolute;
-  top: -30%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(circle,
-      color-mix(in srgb, var(--color-platforms) 14%, transparent) 0%,
-      transparent 70%);
-}
-
 .hero-block__radar-wrap {
   position: absolute;
   top: 50%;
@@ -878,25 +867,6 @@ blockquote,
   height: 100%;
 }
 
-.hero-block__gradient {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero-block__gradient--right {
-  right: 0;
-  width: 32%;
-  background: linear-gradient(to left, transparent, var(--color-nav) 80%);
-}
-
-.hero-block__gradient--left {
-  left: 0;
-  width: 60%;
-  background: linear-gradient(to right, var(--color-nav) 45%, transparent);
-}
 
 .hero-block>.wp-block-html {
   margin: 0;
@@ -916,10 +886,6 @@ blockquote,
 :is(.site-main--landing, .editor-styles-wrapper) .hero-block__content>.kt-inside-inner-col>.tag-logo-white img {
   width: auto;
   height: 100px;
-}
-
-.tag-logo-white img {
-  filter: brightness(0) invert(1);
 }
 
 .tag-logo-ink img {
@@ -979,14 +945,6 @@ blockquote,
     opacity: 0.85;
   }
 
-  .hero-block__gradient--left {
-    width: 100%;
-    background: linear-gradient(to right, var(--color-nav) 38%, transparent);
-  }
-
-  .hero-block__gradient--right {
-    width: 48%;
-  }
 
   .kb-row-layout-idhp_who_grid>.kb-row-layout-inner {
     flex-wrap: wrap;
@@ -2380,9 +2338,11 @@ p:empty {
     padding-right: 16px;
     scrollbar-width: none;
   }
+
   .contact-picker::-webkit-scrollbar {
     display: none;
   }
+
   .contact-picker__card {
     flex: 0 0 calc(100vw - 64px);
     scroll-snap-align: start;
