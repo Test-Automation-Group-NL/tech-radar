@@ -49,6 +49,16 @@ The server starts on **http://localhost:3000** by default. If that port is alrea
 
 > **Note:** Do not open `standalone/index.html` directly via `file://` — browsers block `fetch()` on local files. Always use `npm run preview`.
 
+#### Watching blips
+
+To have `standalone/radar.json` rebuilt automatically as you edit blip content, and have the preview browser tab refresh itself, use:
+
+```bash
+npm run preview:watch
+```
+
+This runs `radar:watch` (rebuilds `standalone/radar.json` on every blip change) and the preview server together, and reloads the browser whenever `radar.json` changes.
+
 ### Option B — Live development inside WordPress
 
 ```bash

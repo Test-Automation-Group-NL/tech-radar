@@ -6,6 +6,7 @@
     "dev": "node esbuild.config.js --dev",
     "build": "node esbuild.config.js --prod",
     "preview": "node scripts/serve-standalone.js",
+    "preview:watch": "concurrently \"npm run radar:watch\" \"node scripts/serve-standalone.js --watch\"",
     "setup": "node scripts/setup-dev.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
