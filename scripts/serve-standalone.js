@@ -7,7 +7,9 @@
  * Usage:
  *   node scripts/serve-standalone.js          → http://localhost:3000
  *   node scripts/serve-standalone.js 8080     → http://localhost:8080 (or next free)
+ *   node scripts/serve-standalone.js --watch  → live-reloads the browser when standalone/radar.json changes
  *   npm run preview
+ *   npm run preview:watch
  */
 
 const http  = require('http');
@@ -16,8 +18,12 @@ const path  = require('path');
 const net   = require('net');
 const { exec } = require('child_process');
 
-const PREFERRED_PORT = parseInt(process.argv[2] ?? '3000', 10);
+const args          = process.argv.slice(2).filter((arg) => arg !== '--watch');
+const WATCH          = process.argv.includes('--watch');
+const PREFERRED_PORT = parseInt(args[0] ?? '3000', 10);
 const REPO_ROOT      = path.join(__dirname, '..');
+const RADAR_JSON     = path.join(REPO_ROOT, 'standalone', 'radar.json');
+const LIVE_RELOAD_PATH = '/__techradar-live-reload';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -33,6 +39,19 @@ const MIME = {
   '.woff': 'font/woff',
 };
 
+// Injected into HTML pages in watch mode. Opens an SSE connection and reloads
+// the page whenever the server tells us standalone/radar.json changed.
+const LIVE_RELOAD_SNIPPET = `
+<script>
+(function () {
+  var source = new EventSource('${LIVE_RELOAD_PATH}');
+  source.onmessage = function (event) {
+    if (event.data === 'reload') location.reload();
+  };
+})();
+</script>
+`;
+
 /** Returns the first free port >= start */
 function findFreePort(start) {
   return new Promise((resolve) => {
@@ -45,8 +64,19 @@ function findFreePort(start) {
   });
 }
 
-const requestHandler = (req, res) => {
-  // Strip query strings and decode URI
+/** Waits (up to timeoutMs) for a file to exist — covers the startup race with `radar:watch`. */
+function waitForFile(filePath, timeoutMs = 10000, intervalMs = 200) {
+  return new Promise((resolve, reject) => {
+    const deadline = Date.now() + timeoutMs;
+    (function poll() {
+      if (fs.existsSync(filePath)) return resolve();
+      if (Date.now() >= deadline) return reject(new Error(`Timed out waiting for ${filePath}`));
+      setTimeout(poll, intervalMs);
+    })();
+  });
+}
+
+function resolveUrlPath(req) {
   let urlPath;
   try {
     urlPath = decodeURIComponent(req.url.split('?')[0]);
@@ -65,36 +95,102 @@ const requestHandler = (req, res) => {
     urlPath = '/standalone/radar.json';
   }
 
-  // Resolve against repo root and normalise
-  const resolved = path.normalize(path.join(REPO_ROOT, urlPath));
+  return urlPath;
+}
 
-  // Security: never escape the repo root
-  if (!resolved.startsWith(REPO_ROOT)) {
-    res.writeHead(403, { 'Content-Type': 'text/plain' });
-    res.end('403 Forbidden');
-    return;
-  }
+function createRequestHandler(sseClients) {
+  return (req, res) => {
+    const urlPath = resolveUrlPath(req);
 
-  // Must be an existing file
-  if (!fs.existsSync(resolved) || !fs.statSync(resolved).isFile()) {
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end(`404 Not found: ${urlPath}`);
-    return;
-  }
+    if (WATCH && urlPath === LIVE_RELOAD_PATH) {
+      res.writeHead(200, {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        Connection: 'keep-alive',
+      });
+      res.write('\n');
+      sseClients.add(res);
+      req.on('close', () => sseClients.delete(res));
+      return;
+    }
 
-  const ext  = path.extname(resolved).toLowerCase();
-  const mime = MIME[ext] ?? 'application/octet-stream';
+    // Resolve against repo root and normalise
+    const resolved = path.normalize(path.join(REPO_ROOT, urlPath));
 
-  res.writeHead(200, {
-    'Content-Type':  mime,
-    'Cache-Control': 'no-cache',
+    // Security: never escape the repo root
+    if (!resolved.startsWith(REPO_ROOT)) {
+      res.writeHead(403, { 'Content-Type': 'text/plain' });
+      res.end('403 Forbidden');
+      return;
+    }
+
+    // Must be an existing file
+    if (!fs.existsSync(resolved) || !fs.statSync(resolved).isFile()) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end(`404 Not found: ${urlPath}`);
+      return;
+    }
+
+    const ext  = path.extname(resolved).toLowerCase();
+    const mime = MIME[ext] ?? 'application/octet-stream';
+
+    res.writeHead(200, {
+      'Content-Type':  mime,
+      'Cache-Control': 'no-cache',
+    });
+
+    if (WATCH && ext === '.html') {
+      const html = fs.readFileSync(resolved, 'utf8');
+      const withSnippet = html.includes('</body>')
+        ? html.replace('</body>', `${LIVE_RELOAD_SNIPPET}</body>`)
+        : html + LIVE_RELOAD_SNIPPET;
+      res.end(withSnippet);
+      return;
+    }
+
+    fs.createReadStream(resolved).pipe(res);
+  };
+}
+
+/** Watches standalone/ for radar.json rewrites and pushes a reload event to connected clients. */
+function watchRadarJson(sseClients) {
+  const standaloneDir = path.dirname(RADAR_JSON);
+  let debounceTimer = null;
+
+  fs.watch(standaloneDir, (eventType, filename) => {
+    if (filename !== 'radar.json') return;
+
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      console.log('  ↻ standalone/radar.json changed — reloading browser');
+      sseClients.forEach((res) => res.write('data: reload\n\n'));
+    }, 150);
   });
-  fs.createReadStream(resolved).pipe(res);
-};
+}
+
+function openBrowser(url) {
+  const cmd = process.platform === 'win32' ? `start "" "${url}"`
+            : process.platform === 'darwin' ? `open "${url}"`
+            : `xdg-open "${url}"`;
+
+  exec(cmd, (err) => {
+    if (err) console.log('  (Could not open browser automatically — open the URL above manually.)');
+  });
+}
 
 async function main() {
-  const radarJson = path.join(REPO_ROOT, 'standalone', 'radar.json');
-  if (!fs.existsSync(radarJson)) {
+  if (WATCH) {
+    try {
+      await waitForFile(RADAR_JSON);
+    } catch {
+      console.log('');
+      console.log('  ⚠  standalone/radar.json was not generated in time.');
+      console.log('  Make sure `npm run radar:watch` is running alongside this preview');
+      console.log('  (or just use `npm run preview:watch`, which starts both together).');
+      console.log('');
+      process.exit(1);
+    }
+  } else if (!fs.existsSync(RADAR_JSON)) {
     console.log('');
     console.log('  ⚠  standalone/radar.json not found.');
     console.log('');
@@ -114,27 +210,33 @@ async function main() {
     console.log(`  Port ${PREFERRED_PORT} in use — using ${port} instead.`);
   }
 
-  const server = http.createServer(requestHandler);
+  const sseClients = new Set();
+  const server = http.createServer(createRequestHandler(sseClients));
+
+  if (WATCH) {
+    watchRadarJson(sseClients);
+  }
 
   server.listen(port, () => {
     const url = `http://localhost:${port}`;
 
     console.log('');
-    console.log('  Test Automation Tech Radar — Standalone Preview');
+    console.log(`  Test Automation Tech Radar — Standalone Preview${WATCH ? ' (watch mode)' : ''}`);
     console.log('');
     console.log(`  → ${url}`);
     console.log('');
+
+    if (WATCH) {
+      console.log('  Watching standalone/radar.json — the browser refreshes automatically');
+      console.log('  whenever a blip changes (run alongside `npm run radar:watch`, or use');
+      console.log('  `npm run preview:watch` to start both together).');
+      console.log('');
+    }
+
     console.log('  Press Ctrl+C to stop.');
     console.log('');
 
-    // Open the default browser (cross-platform)
-    const cmd = process.platform === 'win32' ? `start "" "${url}"`
-              : process.platform === 'darwin' ? `open "${url}"`
-              : `xdg-open "${url}"`;
-
-    exec(cmd, (err) => {
-      if (err) console.log('  (Could not open browser automatically — open the URL above manually.)');
-    });
+    openBrowser(url);
   });
 }
 

@@ -15,7 +15,7 @@ Open `standalone/index.html` in any browser to preview the radar without a WordP
 ## Usage during development
 1. Run `npm run build` (or `npm run dev` and let it compile once)
 2. Open `standalone/index.html` in a browser
-3. No BrowserSync needed — just refresh manually after rebuilds
+3. Refresh manually after rebuilds — or run `npm run preview:watch` instead of `npm run preview`, which rebuilds `radar.json` on every blip change and auto-reloads the browser (via a small built-in SSE live-reload, no BrowserSync)
 
 ## Note
 The standalone preview does not include the WP theme (no fixed nav, no footer, no cookie banner). It only renders the radar plugin output. This is intentional — it is a plugin preview tool, not a full site preview.
