@@ -1,0 +1,65 @@
+---
+name: "Agentic Harnesses (such as Claude Code and Copilot CLI)"
+ring: "Adopt"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  Agentic harnesses are tools that run a coding agent against your project, usually from the terminal. Claude Code and
+  GitHub Copilot CLI are the leading examples. Unlike inline IDE assistants that suggest code as you type, an agentic
+  harness works autonomously: it reads your codebase, plans a solution, writes code, runs commands, and validates its
+  own output. It operates on full project context rather than just the file you have open.<br />
+  The biggest difference from an IDE assistant is not autonomy alone, since IDE assistants now have agent modes too. It
+  is that a harness is environment-native rather than editor-anchored: it owns the shell and filesystem directly and can
+  be scripted, composed, and dropped into CI or pre-commit hooks. You can still keep a human in the loop, approving
+  steps as it works, or let it run unattended as an automated step. That flexibility is the point.<br />
+  In test automation, an agentic harness can research your application, identify locators, learn your testing
+  conventions, and write complete test suites with minimal back and forth. They support project-specific instructions
+  through context files (such as CLAUDE.md or copilot-instructions), reusable workflows through skills, and specialised
+  agents for focused tasks.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Truly autonomous:</strong> An agentic harness does not just suggest code. It plans, researches, implements,
+    and validates, which makes it genuinely useful for multi-step tasks like writing a full E2E test from scratch.
+  </li>
+  <li>
+    <strong>Full codebase context:</strong> The agent reads actual files in your project, so it can find existing
+    patterns, reuse helpers, and align with your conventions rather than making things up.
+  </li>
+  <li>
+    <strong>Customizable with instructions, skills, and agents:</strong> Context files give the harness
+    project-specific knowledge. Skills let you define repeatable workflows, and specialised agents let you scope focused
+    tasks, for example a structured process for writing and validating Playwright tests.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Token cost:</strong> Agentic harnesses work with large context windows and run multiple steps per task. On
+    larger codebases or complex tasks, this can add up quickly.
+  </li>
+  <li>
+    <strong>Requires good setup to work well:</strong> Without clear instructions and project context, an agentic
+    harness can make the same mistakes as unstructured vibe coding. The quality of your instructions, skills, and agents
+    determines the quality of the output.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  Agentic harnesses are not a better autocomplete. They are a different way of working entirely. For test automation,
+  they can take care of the heavy lifting: researching the application, identifying the right locators, setting up test
+  state, and running the tests to verify they actually work.<br />
+  That said, giving them clear instructions and guardrails is not optional. A well-structured skill with a proper
+  validation phase produces reliable tests; leaving the agent to figure things out on its own will not.<br />
+  Both Claude Code and Copilot CLI have proven themselves widely across the industry. We recommend adopting an agentic
+  harness, especially for teams already working with Playwright or other modern test frameworks where the context is
+  well-defined. To get the most out of it, invest in skills, specialised agents, and proper project instructions.
+  Without those, you are leaving most of the value on the table.
+</p>

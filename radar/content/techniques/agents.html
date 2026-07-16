@@ -1,0 +1,56 @@
+---
+name: "Agents"
+ring: "Adopt"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  Agents are focused, specialised configurations of a coding agent, scoped to a particular task. Inside an agentic
+  harness such as Claude Code or Copilot CLI, or the agent mode of a modern IDE assistant, you can define a dedicated
+  agent with its own instructions, its own set of allowed tools, and its own area of responsibility, then delegate work
+  to it. Rather than one general-purpose assistant trying to do everything, you get purpose-built agents that each do one
+  job well.<br />
+  In test automation, this could mean a locator-research agent, a test-writing agent, and a review agent, each
+  with instructions tuned to that step. The main agent coordinates and hands off work, keeping context clean and each
+  task predictable.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Separation of concerns:</strong> Scoping an agent to a single responsibility keeps its instructions short
+    and its behaviour predictable. A review agent reviews; it does not wander off and rewrite your test suite.
+  </li>
+  <li>
+    <strong>Cleaner context:</strong> Delegating a subtask to a dedicated agent keeps the exploration and noise out of
+    the main conversation, so the coordinating agent reasons from a focused, uncluttered context.
+  </li>
+  <li>
+    <strong>Reusable and shareable:</strong> A well-defined agent can be committed to the repository and reused across
+    the team, encoding how your project wants a given task handled rather than relying on ad-hoc prompting.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Upfront design effort:</strong> Splitting work into the right agents takes thought. Poorly scoped agents
+    with overlapping responsibilities add coordination overhead instead of removing it.
+  </li>
+  <li>
+    <strong>Only as good as their instructions:</strong> An agent inherits the same failure modes as any coding agent.
+    Vague instructions produce vague results, no matter how neatly the work is divided.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  Agents turn a single coding assistant into a coordinated team of specialists. For test automation, defining focused
+  agents for research, writing, and review makes the whole workflow more reliable and easier to reason about than
+  asking one general agent to juggle everything at once.<br />
+  We recommend adopting agents once you are already working with an agentic harness or an IDE assistant's agent mode and
+  have a repeatable workflow worth splitting up. Start by carving out one clearly bounded task, get that agent working
+  well, and expand from there.
+</p>

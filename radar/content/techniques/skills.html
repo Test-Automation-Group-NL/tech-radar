@@ -1,0 +1,55 @@
+---
+name: "Skills"
+ring: "Adopt"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  Skills are reusable, structured instructions that teach a coding agent how to perform a specific workflow the way your
+  team wants it done. Instead of re-explaining a process in every session, you capture it once as a skill that the agent
+  loads when relevant. A skill typically defines the phases of a task, what to check at each step, and the conventions
+  to follow.<br />
+  In test automation, a skill might describe exactly how to write a Playwright test: research the component and its
+  locators, plan the scenario, implement it, then run and validate it against your linting rules. The agent follows the
+  same disciplined process every time, which is what turns ad-hoc AI output into reliable, repeatable results.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Encodes your process once:</strong> A skill captures your locator strategy, state setup, and conventions in
+    one place, so every run follows the same steps without you repeating yourself.
+  </li>
+  <li>
+    <strong>Improves over time:</strong> When the agent makes the same mistake twice, you fix it in the skill. The next
+    run will not repeat it. The setup gets smarter the more you use it.
+  </li>
+  <li>
+    <strong>Portable and shareable:</strong> Skills can be committed to the repository and reused across the team, and
+    community skills are available as a starting point before you tune them to your codebase.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Requires investment to pay off:</strong> A generic skill is only a starting point. The real gains come from
+    tuning it to your project, which takes time and iteration.
+  </li>
+  <li>
+    <strong>Works best in a well-structured project:</strong> Clear conventions, strict linting, and consistent naming
+    make skills reliable. The more ambiguous the codebase, the harder it is to write a skill that produces good results.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  Skills are what separate disciplined agentic test writing from vibe coding. A well-defined skill with a proper
+  validation phase produces tests that already work by the time you see them, while skipping that structure leaves you
+  reviewing unreliable output.<br />
+  We recommend adopting skills if you are working with an agentic harness like Claude Code or Copilot CLI, or an IDE
+  assistant whose agent mode supports them. Start by writing one solid skill for a single type of test, get it working
+  reliably against your project, then scale from there.
+</p>
