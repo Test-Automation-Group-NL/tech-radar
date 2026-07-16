@@ -1,0 +1,198 @@
+:root {
+  /* ── PDF document palette (source of truth) ────────────────── */
+  --color-page-bg: #d8e7ee;
+  --color-panel-bg: #e7eeea;
+  --color-white: #ffffff;
+  --color-ink: #111617;
+  --color-heading: #231f20;
+  --color-logo-dark: #15173d;
+
+  --color-brand-blue: #5ca1b6;
+  --color-brand-blue-muted: #a9c9d1;
+  --color-brand-blue-line: #62a2b6;
+
+  --color-techniques: #5b907e;
+  --color-techniques-light-1: #ccdcd6;
+  --color-techniques-light-2: #abc6bc;
+  --color-techniques-light-3: #8db1a5;
+  --color-techniques-light-4: #709e8e;
+
+  --color-platforms: #dc7f6a;
+  --color-platforms-light-1: #f6dace;
+  --color-platforms-light-2: #efc0b0;
+  --color-platforms-light-3: #e8a794;
+  --color-platforms-light-4: #e1907a;
+
+  --color-tools: #9e5b7b;
+  --color-tools-light-1: #e3ccd7;
+  --color-tools-light-2: #d0aabc;
+  --color-tools-light-3: #bd8ba3;
+  --color-tools-light-4: #ab6f8c;
+
+  --color-languages: #638ca3;
+  --color-languages-light-1: #cdd8e2;
+  --color-languages-light-2: #aec0ce;
+  --color-languages-light-3: #91abbd;
+  --color-languages-light-4: #7699ae;
+
+  --color-illustration-blue: #0d72b2;
+  --color-illustration-blue-dark: #05619a;
+  --color-illustration-grey: #638ca3;
+  --color-illustration-sand: #b5afa0;
+
+  /* ── Plugin semantic aliases (existing prop names) ─────────── */
+  --color-nav: var(--color-brand-blue);
+  --color-nav-dark: var(--color-illustration-blue-dark);
+  --color-dark: var(--color-ink);
+  --color-dark-60: rgba(17, 22, 23, 0.6);
+  --color-dark-20: rgba(17, 22, 23, 0.12);
+  --color-accent: var(--color-illustration-blue);
+  --color-lf: var(--color-languages);
+
+  /* Nav active underline: tints readable on brand-blue bar */
+  --color-techniques-light: var(--color-techniques-light-2);
+  --color-platforms-light: var(--color-platforms-light-2);
+  --color-tools-light: var(--color-tools-light-2);
+  --color-lf-light: var(--color-languages-light-2);
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-size-xs: 0.75rem;
+  /* 12px at 16px root */
+  --font-size-sm: 0.875rem;
+  /* 14px */
+  --font-size-base: 1.125rem;
+  /* 18px */
+  --font-size-md: 1.25rem;
+  /* 20px */
+  --font-size-lg: 1.375rem;
+  /* 22px */
+  --font-size-xl: 1.625rem;
+  /* 26px */
+  --font-size-2xl: 2.25rem;
+  /* 36px */
+
+  /* ── Layout ────────────────────────────────────────────────── */
+  --nav-height: 52px;
+  --panel-width: 380px;
+  /* Radar square cap + main column — comfortable on ~1400px-wide viewports */
+  --radar-max-size: 1344px;
+  --container-max: calc(var(--radar-max-size) + 2 * var(--page-padding));
+  --page-padding: 24px;
+  /* CSS-only fallback; JS overrides --radar-available-height directly via getBoundingClientRect.
+     --wpadminbar-height set by JS. --site-header-offset from WP theme (0 fallback for standalone). */
+  --radar-viewport-inset: calc(var(--wpadminbar-height, 0px) + var(--site-header-offset, 0px) + var(--nav-height) + var(--space-8) * 2 + var(--space-6));
+  --radar-available-height: calc(100dvh - var(--radar-viewport-inset));
+
+  /* ── Spacing ───────────────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-15: 60px;
+  --space-16: 64px;
+
+  /* ── Typography (extra scale) ───────────────────────────────── */
+  --font-size-2xs: 0.625rem;
+  /* 10px */
+  --font-size-ui-sm: 0.8125rem;
+  /* 13px */
+  --font-size-ui: 0.9375rem;
+  /* 15px */
+
+  /* ── Letter-spacing ────────────────────────────────────────── */
+  --letter-spacing-display: -0.03em;
+  --letter-spacing-heading: -0.02em;
+  --letter-spacing-eyebrow: 0.12em;
+  --letter-spacing-eyebrow-wide: 0.14em;
+  --letter-spacing-label: 0.1em;
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --border-width-default: 1px;
+  --border-width-accent: 4px;
+
+  /* ── WP theme layout (also in palette.css) ─────────────────── */
+  --site-container-max: 1400px;
+  --site-header-height: 82px;
+
+  /* ── Partner accents (contact cards) ───────────────────────── */
+  --color-partner-detesters: #e16a7c;
+  --color-partner-testcoders: #5a7282;
+  --color-partner-techchamps: #b86b52;
+
+  /* ── Transitions ───────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 180ms;
+  --duration-base: 300ms;
+  --duration-slow: 480ms;
+
+  /* ── Radii ─────────────────────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-2xl: 16px;
+  --radius-button: 10px;
+  --radius-card-md: 14px;
+  --radius-full: 9999px;
+
+  /* ── Z-index ───────────────────────────────────────────────── */
+  --z-panel: 10;
+  --z-overlay: 100;
+  --z-modal: 200;
+}
+
+/* Plugin quadrant nav is hidden ≤900px — do not reserve its height for radar sizing.
+   JS overrides --radar-available-height directly, so this is a CSS-only fallback. */
+@media (max-width: 900px) {
+  :root {
+    --radar-viewport-inset: calc(var(--site-header-offset, 0px) + var(--space-8) * 2 + var(--space-6));
+  }
+}
+
+/* ── Base reset (scoped to techradar) ─────────────────────────── */
+.techradar-root *,
+.techradar-root *::before,
+.techradar-root *::after {
+  box-sizing: border-box;
+}
+
+.techradar-root {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark);
+  background: var(--color-page-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* When the blip panel is open on narrow viewports, only the panel scrolls — not the page.
+   position:fixed + top:-scrollY keeps the visual position unchanged; JS restores scrollY on unlock.
+   overflow:hidden on <html> is the belt-and-suspenders layer: on iOS Safari, body position:fixed
+   alone can let momentum/rubber-band scroll bleed through before the first painted frame. */
+html.techradar-html-lock {
+  overflow: hidden;
+}
+
+html.techradar-html-lock body {
+  position: fixed;
+  top: 0; /* overridden inline by JS */
+  width: 100%;
+  overflow-y: scroll; /* keeps scrollbar gutter so layout doesn't shift */
+}
+
+/* Drop the WP site header below .site-main's stacking context (z-index 1) so the
+   position:fixed panel — which is inside .site-main — overlays the sticky header.
+   Only on mobile; only when the panel is open. */
+@media (max-width: 900px) {
+  html.techradar-html-lock .site-header {
+    z-index: 0;
+  }
+}

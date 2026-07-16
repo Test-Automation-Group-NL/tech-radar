@@ -1,0 +1,430 @@
+/* ── Blip detail panel — desktop slide-in + mobile full overlay ─── */
+
+.techradar-panel {
+  flex: 0 0 var(--panel-width);
+  width: var(--panel-width);
+  background: var(--color-panel-bg);
+  border-radius: var(--radius-lg);
+  position: relative;
+  align-self: flex-start;
+  max-height: calc(100vh - var(--nav-height) - var(--space-8) * 2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: panel-slide-in var(--duration-slow) var(--ease-out) both;
+}
+
+.techradar-panel[hidden] {
+  display: none;
+}
+
+.techradar-panel__layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  max-height: inherit;
+}
+
+.techradar-panel__head {
+  position: relative;
+  flex-shrink: 0;
+  padding: var(--space-6) var(--space-6) var(--space-2);
+}
+
+.techradar-panel__header[hidden] {
+  display: none;
+}
+
+.techradar-panel__quadrant {
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-dark-60);
+}
+
+.techradar-panel__blip-heading {
+  margin: 0;
+  padding-right: var(--space-10);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--color-heading);
+  line-height: 1.25;
+}
+
+/* ── Pinned meta bar: ring + badge — sits between head and scroll ── */
+
+.techradar-panel__meta {
+  flex-shrink: 0;
+  padding: var(--space-3) var(--space-6) 5px;
+  border-bottom: 1px solid var(--color-dark-20);
+}
+
+.techradar-panel__meta[hidden] {
+  display: none;
+}
+
+.techradar-panel__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 5px var(--space-6) var(--space-6);
+}
+
+/* ── Close button ──────────────────────────────────────────────── */
+
+.techradar-panel__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: var(--color-dark-20);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  transition: background var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.techradar-panel__close:hover {
+  background: var(--color-dark-20);
+  opacity: 0.75;
+}
+
+/* ── Content (meta + description) ────────────────────────────── */
+
+.techradar-panel__content {
+  padding-top: var(--space-2);
+}
+
+/* Focused quadrant state: panel lists all blips in the selected quadrant */
+.techradar-panel__list {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.techradar-panel__list-ring-title {
+  display: inline-block;
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  color: var(--color-white);
+}
+
+.techradar-panel__list-ring-title--adopt {
+  background: var(--color-techniques);
+}
+
+.techradar-panel__list-ring-title--trial {
+  background: var(--color-lf);
+}
+
+.techradar-panel__list-ring-title--assess {
+  background: var(--color-platforms);
+}
+
+.techradar-panel__list-ring-title--hold {
+  background: var(--color-tools);
+}
+
+.techradar-panel__list-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.techradar-panel__list-btn {
+  width: 100%;
+  border: none;
+  background: rgba(17, 22, 23, 0.04);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-dark);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.techradar-panel__list-btn:hover,
+.techradar-panel__list-btn:focus-visible {
+  background: rgba(17, 22, 23, 0.1);
+  outline: none;
+}
+
+.techradar-panel__list-badge {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: var(--color-accent);
+}
+
+.techradar-panel__empty {
+  margin: 0;
+  color: var(--color-dark-60);
+  font-size: var(--font-size-sm);
+}
+
+/* Ring badge */
+.techradar-panel__ring {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  margin-right: var(--space-2);
+  color: var(--color-white);
+}
+
+.techradar-panel__ring--adopt {
+  background: var(--color-techniques);
+}
+
+.techradar-panel__ring--trial {
+  background: var(--color-lf);
+}
+
+.techradar-panel__ring--assess {
+  background: var(--color-platforms);
+}
+
+.techradar-panel__ring--hold {
+  background: var(--color-tools);
+}
+
+/* "New" badge */
+.techradar-panel__badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Blip description — HTML content from radar.json */
+.techradar-panel__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-dark);
+  line-height: 1.65;
+}
+
+.techradar-panel__description h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-dark-60);
+  margin: var(--space-5) 0 var(--space-2);
+}
+
+.techradar-panel__description h4:first-child {
+  margin-top: 0;
+}
+
+.techradar-panel__description p {
+  margin: 0 0 var(--space-3);
+}
+
+.techradar-panel__description ul {
+  margin: 0 0 var(--space-3);
+  padding-left: var(--space-5);
+}
+
+.techradar-panel__description li {
+  margin-bottom: var(--space-1);
+}
+
+.techradar-panel__description strong {
+  font-weight: 700;
+}
+
+.techradar-panel__description a {
+  color: var(--color-nav-dark);
+  text-decoration: underline;
+}
+
+/* ── Back to quadrant button ───────────────────────────────────── */
+
+.techradar-panel__back {
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  border-top: 1px solid var(--color-dark-20);
+  background: none;
+  text-align: left;
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-nav-dark);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.techradar-panel__back[hidden] {
+  display: none;
+}
+
+.techradar-panel__back:hover {
+  color: var(--color-dark);
+}
+
+/* ── Desktop: sticky panel + open/close animation (≥ 901px) ──────── */
+
+@media (min-width: 901px) {
+  .techradar-panel {
+    position: sticky;
+    top: calc(var(--site-header-offset, 0px) + var(--nav-height, 0px));
+    /* Match chart height exactly so the body never overflows the viewport */
+    height: var(--radar-available-height);
+    max-height: var(--radar-available-height);
+    /* Replace slide-in with a flex-basis grow + fade */
+    animation: none;
+    transition:
+      flex-basis var(--duration-slow) var(--ease-out),
+      opacity var(--duration-base) var(--ease-out);
+  }
+
+  /* Panel stays in the flex flow at 0 width when hidden — enables layout animation.
+     height: 0 prevents the hidden panel from stretching the body beyond the viewport.
+     Must be in panel.css (loads after radar.css) to win the same-specificity cascade. */
+  .techradar-panel[hidden] {
+    display: flex;
+    flex: 0 0 0%;
+    height: 0;
+    min-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      flex-basis var(--duration-slow) var(--ease-out),
+      opacity var(--duration-base) var(--ease-out);
+  }
+
+  /* Hide content while the panel is animating open so text doesn't reflow/crawl
+     as flex-basis grows. Fade the layout in only once the panel is fully expanded. */
+  .techradar-panel__layout {
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .techradar-panel:not([hidden]) .techradar-panel__layout {
+    opacity: 1;
+    transition-delay: var(--duration-slow);
+  }
+}
+
+/* ── Slide-in animation ────────────────────────────────────────── */
+
+@keyframes panel-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--panel-slide-from, 24px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.techradar-body--panel-left .techradar-panel {
+  --panel-slide-from: -24px;
+}
+
+.techradar-body--panel-right .techradar-panel {
+  --panel-slide-from: 24px;
+}
+
+/* ── Mobile: full-viewport overlay (scroll only inside panel) ─── */
+
+@media (max-width: 900px) {
+  .techradar-panel {
+    position: fixed;
+    inset: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    border-radius: 0;
+    z-index: var(--z-overlay);
+    padding: 0;
+    flex: none;
+    animation: panel-mobile-in var(--duration-base) var(--ease-out) both;
+  }
+
+  .techradar-panel.techradar-panel--closing {
+    animation: panel-mobile-out var(--duration-base) var(--ease-out) forwards;
+  }
+
+  /* Focused + split layout can constrain panel width — keep overlay edge-to-edge */
+  .techradar-body--focused .techradar-panel {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .techradar-panel__head {
+    padding: var(--space-5) var(--space-4) var(--space-3);
+  }
+
+  .techradar-panel__scroll {
+    padding: var(--space-4);
+  }
+
+  .techradar-panel__blip-heading {
+    font-size: var(--font-size-xl);
+    padding-right: var(--space-12);
+  }
+
+  .techradar-panel__back {
+    display: none;
+  }
+}
+
+/* Mobile panel fades in/out rather than sliding from translateY(100%).
+   A translateY-based slide kept the page visible above the rising panel edge
+   for the full animation duration — on iOS Safari any scroll during those frames
+   would reveal the radar beneath the listing position. A fade covers the viewport
+   immediately from the first frame regardless of what the underlying page does. */
+@keyframes panel-mobile-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes panel-mobile-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}

@@ -1,0 +1,142 @@
+/*
+ * Canonical palette lives in src/styles/variables.css — this file mirrors :root only
+ * so the WP theme (and standalone) have tokens without loading the plugin bundle.
+ * When changing colours, update variables.css first, then sync this block.
+ */
+:root {
+  /* ── PDF document palette (source of truth) ────────────────── */
+  --color-page-bg: #d8e7ee;
+  --color-panel-bg: #e7eeea;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-ink: #111617;
+  --color-heading: #231f20;
+  --color-logo-dark: #15173d;
+
+  --color-brand-blue: #5ca1b6;
+  --color-brand-blue-muted: #a9c9d1;
+  --color-brand-blue-line: #62a2b6;
+
+  --color-techniques: #5b907e;
+  --color-techniques-light-1: #ccdcd6;
+  --color-techniques-light-2: #abc6bc;
+  --color-techniques-light-3: #8db1a5;
+  --color-techniques-light-4: #709e8e;
+
+  --color-platforms: #dc7f6a;
+  --color-platforms-light-1: #f6dace;
+  --color-platforms-light-2: #efc0b0;
+  --color-platforms-light-3: #e8a794;
+  --color-platforms-light-4: #e1907a;
+
+  --color-tools: #9e5b7b;
+  --color-tools-light-1: #e3ccd7;
+  --color-tools-light-2: #d0aabc;
+  --color-tools-light-3: #bd8ba3;
+  --color-tools-light-4: #ab6f8c;
+
+  --color-languages: #638ca3;
+  --color-languages-light-1: #cdd8e2;
+  --color-languages-light-2: #aec0ce;
+  --color-languages-light-3: #91abbd;
+  --color-languages-light-4: #7699ae;
+
+  --color-illustration-blue: #0d72b2;
+  --color-illustration-blue-dark: #05619a;
+  --color-illustration-grey: #638ca3;
+  --color-illustration-sand: #b5afa0;
+
+  /* ── Semantic aliases ───────────────────────────────────────── */
+  --color-nav: var(--color-brand-blue);
+  --color-nav-dark: var(--color-illustration-blue-dark);
+  --color-dark: var(--color-ink);
+  --color-dark-60: rgba(17, 22, 23, 0.6);
+  --color-dark-20: rgba(17, 22, 23, 0.12);
+  --color-accent: var(--color-illustration-blue);
+  --color-lf: var(--color-languages);
+
+  --color-techniques-light: var(--color-techniques-light-2);
+  --color-platforms-light: var(--color-platforms-light-2);
+  --color-tools-light: var(--color-tools-light-2);
+  --color-lf-light: var(--color-languages-light-2);
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1.125rem;
+  --font-size-md: 1.25rem;
+  --font-size-lg: 1.375rem;
+  --font-size-xl: 1.625rem;
+  --font-size-2xl: 2.25rem;
+
+  /* ── Layout ────────────────────────────────────────────────── */
+  --nav-height: 52px;
+  --panel-width: 380px;
+  --radar-max-size: 1344px;
+  --container-max: calc(var(--radar-max-size) + 2 * var(--page-padding));
+  --page-padding: 24px;
+  --radar-viewport-inset: calc(var(--nav-height) + var(--space-8) * 2 + var(--space-6));
+  --radar-available-height: calc(100dvh - var(--radar-viewport-inset));
+
+  /* ── Spacing ───────────────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-15: 60px;
+  --space-16: 64px;
+
+  --font-size-2xs: 0.625rem;
+  --font-size-ui-sm: 0.8125rem;
+  --font-size-ui: 0.9375rem;
+
+  --letter-spacing-display: -0.03em;
+  --letter-spacing-heading: -0.02em;
+  --letter-spacing-eyebrow: 0.12em;
+  --letter-spacing-eyebrow-wide: 0.14em;
+  --letter-spacing-label: 0.1em;
+
+  --border-width-default: 1px;
+  --border-width-accent: 4px;
+
+  --site-container-max: 1400px;
+  --site-header-height: 82px;
+
+  --color-partner-detesters: #e16a7c;
+  --color-partner-testcoders: #5a7282;
+  --color-partner-techchamps: #b86b52;
+
+  /* ── Transitions ───────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 180ms;
+  --duration-base: 300ms;
+  --duration-slow: 480ms;
+
+  /* ── Shadows ───────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 3px rgba(17, 22, 23, 0.12);
+  --shadow-md: 0 4px 16px rgba(17, 22, 23, 0.16);
+  --shadow-lg: 0 8px 32px rgba(17, 22, 23, 0.2);
+
+  /* ── Radii ─────────────────────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-2xl: 16px;
+  --radius-button: 10px;
+  --radius-card-md: 14px;
+  --radius-full: 9999px;
+
+  /* ── Z-index ───────────────────────────────────────────────── */
+  --z-panel: 10;
+  --z-overlay: 100;
+  --z-modal: 200;
+}

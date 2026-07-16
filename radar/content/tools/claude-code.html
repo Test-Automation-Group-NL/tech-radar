@@ -1,0 +1,61 @@
+---
+name: "Claude Code"
+ring: "Adopt"
+isNew: "False"
+status: "FALSE"
+---
+
+<h4>Description:</h4>
+<p>
+  Claude Code is Anthropic's agentic coding tool that runs directly in your terminal. Unlike AI assistants that suggest
+  code inline, Claude Code works autonomously: it reads your codebase, plans a solution, writes code, runs commands, and
+  validates its own output. It operates on full context, not just the file you have open.<br />
+  In test automation, Claude Code can research your application, identify locators, understand your testing conventions,
+  and write complete test suites with minimal back and forth. It supports project-specific instructions through
+  CLAUDE.md files and reusable workflows through agent skills.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Truly autonomous:</strong> Claude Code does not just suggest code. It plans, researches, implements, and
+    validates. This makes it genuinely useful for multi-step tasks like writing a full E2E test from scratch.
+  </li>
+  <li>
+    <strong>Full codebase context:</strong> Claude Code reads actual files in your project, which means it can find
+    existing patterns, reuse helpers, and align with your conventions rather than making things up.
+  </li>
+  <li>
+    <strong>Customizable with instructions and skills:</strong> CLAUDE.md files give the agent project-specific
+    knowledge. Agent skills let you define repeatable workflows, for example a structured process for writing and
+    validating Playwright tests.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Token cost:</strong> Claude Code works with large context windows and runs multiple steps per task. On
+    larger codebases or complex tasks, this can add up quickly.
+  </li>
+  <li>
+    <strong>Requires good setup to work well:</strong> Without clear agent instructions and project context, Claude Code
+    can still make the same mistakes as unstructured vibe coding. The quality of your instructions determines the
+    quality of the output.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  Claude Code is not a better autocomplete. It is a different way of working entirely. For test automation, it can
+  take care of the heavy lifting: researching the application, identifying the right locators, setting up test state,
+  and running the tests to verify they actually work.<br />
+  That said, giving it clear instructions and guardrails is not optional. A well-structured skill with a proper
+  validation phase will produce reliable tests. Leaving it to figure things out on its own will not.<br />
+  Claude Code has proven itself widely across the industry. We recommend adopting it, especially for teams already
+  working with Playwright or other modern test frameworks where the context is well-defined.<br />
+  To get the most out of it, invest in agent skills and proper project instructions. Without those, you are leaving
+  most of the value on the table. If you are new to working with Claude Code and want to learn how to set it up
+  effectively, Anthropic offers learning resources at <a target="_blank"
+    href="https://www.anthropic.com/learn">anthropic.com/learn</a>.
+</p>

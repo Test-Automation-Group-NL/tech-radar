@@ -1,0 +1,62 @@
+---
+name: "Agentic Test Writing"
+ring: "Trial"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  Agentic test writing is an approach to generating automated tests by guiding an AI agent through defined phases:
+  understand the requirements, research the codebase, plan the test, implement it, then validate the result. Each
+  phase builds on the previous one, and the agent stays on track because you have told it exactly what to check
+  and when.<br />
+  Tools like Claude Code support this through agent skills and CLAUDE.md files, which give the agent project-specific
+  knowledge and a repeatable workflow to follow.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Structure eliminates the most common mistakes:</strong> Wrong locators, made-up translation keys,
+    incorrect accessible roles. These are not random errors. They are predictable. A research phase that explicitly
+    checks components, translation files, and API calls removes them before the agent writes a single line of test code.
+  </li>
+  <li>
+    <strong>The workflow improves over time:</strong> When the agent makes the same mistake twice, fix it in the skill
+    or context file. The next run, it will not make that mistake again. The setup gets smarter the more you use it,
+    without repeating yourself in every session.
+  </li>
+  <li>
+    <strong>Self-validation catches failures before you do:</strong> A proper validation phase has the agent run the
+    test, repeat it to check for flakiness, and verify it against your linting rules. You only see a test when it
+    already works.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Out of the box is a starting point, not a finish line:</strong> There are reusable skills and agent
+    instructions available on GitHub that work across different projects. They are a solid place to start. But the
+    real gains come when you tune them to your codebase: your locator strategy, your state setup, your conventions.
+    The closer the skill matches your project, the better the results.
+  </li>
+  <li>
+    <strong>It works best in a well-structured project:</strong> Strict linting rules, clear component boundaries,
+    consistent naming. The more ambiguous the codebase, the harder it is to give the agent reliable instructions.
+    Cleaning up the project often has to come first.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  Agentic test writing is not a shortcut. It is a discipline. The teams getting real value from it are the ones who
+  invested in writing good agent instructions, defined a clear skill, and treated the validation phase as
+  non-negotiable. The teams who skipped that work got vibe coding results.<br />
+  The effort pays off. Once a solid skill exists for your project, writing a new E2E test becomes a matter of
+  describing what the feature does and letting the agent handle the rest. That is a meaningful shift in how test
+  automation works.<br />
+  We recommend adopting this approach if you are already working with a coding agent like Claude Code and Playwright.
+  Start with one type of test, get the skill working reliably, then scale from there.
+</p>

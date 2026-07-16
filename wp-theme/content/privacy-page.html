@@ -1,0 +1,389 @@
+<!--
+  Privacy Policy page block markup, source of truth in git.
+
+  Template: page-templates/privacy.php
+  Hero copy comes from the page template (PHP). This file owns the body only.
+
+  Restore in WP: Pages -> Privacy Policy -> ⋮ -> Code editor -> paste/replace all.
+
+  Requirements:
+  - Every <h2> that should appear in the sidebar TOC MUST have a unique id.
+    Use the Heading block's Advanced -> HTML anchor field to set it.
+  - Do not change anchor slugs without also updating any internal href="#..." links.
+  - Paragraphs before each <h2> use CSS class "privacy-section-num" (set via
+    Paragraph block -> Advanced -> Additional CSS class(es)).
+  - Custom HTML blocks are used for the intro card, chips, and rights grid
+    (their 2-column grid layouts can't be expressed with separate sibling blocks).
+  - Callout uses a native Group block (renders styled in editor).
+  - Tables use native Table blocks with class "privacy-table" (editable in editor).
+-->
+
+<!-- wp:html -->
+<aside class="privacy-intro">
+  <div class="privacy-intro__icon" aria-hidden="true">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M8.5 12l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div>
+    <h2 class="privacy-intro__title">The short version</h2>
+    <p class="privacy-intro__body">We collect the minimum data needed to send you the TechRadar PDF, follow up on questions, and run a fast, anonymous website. We don&#8217;t sell anything to advertisers and we don&#8217;t profile you. You can ask us to delete everything at any time: see <a href="#your-rights">section 09</a>.</p>
+  </div>
+</aside>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 01</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"who-we-are"} -->
+<h2 class="wp-block-heading" id="who-we-are">Who we are</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The Test Automation TechRadar is a joint initiative of three Dutch test-automation specialists, collectively referred to as <strong>"TAG"</strong> (Test Automation Group). When you submit a form on this site, your data is shared between the partner most relevant to your request and a shared inbox managed by the group.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<ul class="privacy-chips">
+  <li><span class="dot" style="background:var(--color-platforms)"></span>deTesters B.V.</li>
+  <li><span class="dot" style="background:var(--color-languages)"></span>TestCoders B.V.</li>
+  <li><span class="dot" style="background:var(--color-tools)"></span>TechChamps B.V.</li>
+</ul>
+<!-- /wp:html -->
+
+<!-- wp:paragraph -->
+<p>All three companies are registered in the Netherlands and act as joint data controllers under Article 26 GDPR for the purposes described in this policy. For full registration details, see <a href="#contact">section 12</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 02</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"data-we-collect"} -->
+<h2 class="wp-block-heading" id="data-we-collect">The data we collect</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We only collect information you actively give us, plus a small amount of technical data needed to run the website. We never buy or enrich contact lists.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"privacy-table","hasFixedLayout":false} -->
+<figure class="wp-block-table privacy-table"><table><thead><tr><th>Category</th><th>What&#8217;s in it</th></tr></thead><tbody><tr><td>Contact details</td><td>Name, work email, company, role, country. Provided when you fill in any of our four contact forms.</td></tr><tr><td>Context fields</td><td>Team size, timeframe, the message you write, optional fields about your testing stack.</td></tr><tr><td>Customer-case material</td><td>If you share a case study with us: company name, project description, technologies used, optional interview consent.</td></tr><tr><td>Technical data</td><td>IP address (truncated), browser type, referring page, device class. Stored only in aggregated analytics.</td></tr><tr><td>Cookie preferences</td><td>Your consent choices and a session identifier, stored locally in your browser.</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph {"className":"is-muted"} -->
+<p class="is-muted">We do <strong>not</strong> collect special-category data (health, political opinions, biometrics), nor do we knowingly process data from anyone under 16.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 03</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"how-we-use"} -->
+<h2 class="wp-block-heading" id="how-we-use">How we use it</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Each form has a specific purpose, and we only use your data for that purpose plus the closely related follow-up.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Get the TechRadar PDF</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Deliver the PDF</strong> to your inbox, and notify you about new editions (max twice a year).</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Understand who reads the radar</strong> in aggregate, never tied back to an individual.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Working session requests</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Match you with the right expert</strong> from the three partner companies.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Propose times and prepare</strong> for the session based on the context you share.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Partner questions</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Route your message</strong> to the specific partner you selected, and only that partner.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Customer-case submissions</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Plan an interview</strong> and co-write the case with you. We always check with you before publishing anything.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 04</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"legal-basis"} -->
+<h2 class="wp-block-heading" id="legal-basis">Legal basis</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Under the GDPR, we rely on one of the following grounds for each processing activity:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Consent (Art. 6(1)(a)):</strong> when you tick the consent box to receive the PDF or hear about new editions. You can withdraw this at any time.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Performance of a contract (Art. 6(1)(b)):</strong> when we schedule a working session, deliver a paid engagement, or co-produce a case study with you.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Legitimate interest (Art. 6(1)(f)):</strong> for routing partner-question forms, basic anti-spam, and aggregate analytics. We balance this against your reasonable expectations.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Legal obligation (Art. 6(1)(c)):</strong> invoicing, tax records, and complying with lawful requests from supervisory authorities.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 05</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"sharing"} -->
+<h2 class="wp-block-heading" id="sharing">Sharing &amp; recipients</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Your data is shared only with the parties needed to run this service. We list them all here, by category:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>The three partner companies:</strong> joint controllers; see section 01.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Email infrastructure:</strong> a single EU-hosted transactional email provider for sending the PDF and notifications.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Form processor:</strong> the WordPress plugin Contact Form 7, running on our own EU-based server.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Analytics:</strong> a privacy-focused, cookieless analytics tool (see section 06).</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Authorities:</strong> only when required by a court order or lawful request.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:group {"className":"privacy-callout","tagName":"aside"} -->
+<aside class="wp-block-group privacy-callout">
+
+<!-- wp:paragraph -->
+<p><strong>What we don&#8217;t do.</strong> We don&#8217;t share your data with advertising networks, social platforms, or data brokers. There is no &#8220;Sell my data&#8221; toggle on this site because there&#8217;s nothing to sell.</p>
+<!-- /wp:paragraph -->
+
+</aside>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 06</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"cookies"} -->
+<h2 class="wp-block-heading" id="cookies">Cookies &amp; analytics</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The TechRadar website runs lean. We use exactly three categories of browser storage:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"privacy-table","hasFixedLayout":false} -->
+<figure class="wp-block-table privacy-table"><table><thead><tr><th>Type</th><th>Purpose</th></tr></thead><tbody><tr><td>Strictly necessary</td><td>Session identifier, CSRF token, cookie-banner preference. No consent required.</td></tr><tr><td>Analytics (anonymous)</td><td>Page view counts, aggregate device class, referring source. No cross-site tracking, no fingerprinting.</td></tr><tr><td>Preferences</td><td>Remembers your view (radar / list), dark mode, last opened quadrant. Stored only in your browser.</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph {"className":"is-muted"} -->
+<p class="is-muted">We do not use marketing, advertising, or social-tracking cookies. You can clear all preferences from your browser settings at any time without affecting access to the site.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 07</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"retention"} -->
+<h2 class="wp-block-heading" id="retention">Retention</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We keep your data only as long as we have a clear reason to:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Newsletter subscribers:</strong> until you unsubscribe, after which we retain a hash of your email for 12 months so we don&#8217;t re-send by accident.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Working-session and partner enquiries:</strong> up to 24 months after the last meaningful contact, then anonymized.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Customer-case material:</strong> kept for the lifetime of the published case; drafts deleted within 6 months if not used.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Invoicing records:</strong> 7 years, as required by Dutch tax law.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Server logs:</strong> 14 days, then automatically purged.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 08</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"security"} -->
+<h2 class="wp-block-heading" id="security">Security</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We follow practices we&#8217;d expect from any team we work with: TLS 1.2+ on every endpoint, encryption at rest, role-based access, MFA on all admin accounts, and an annual review of who has access to what. We log access to personal data and review those logs quarterly.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>If we ever experience a breach that affects your data, we&#8217;ll notify the Dutch supervisory authority (Autoriteit Persoonsgegevens) within 72 hours and contact you directly if there&#8217;s a meaningful risk to your rights.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 09</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"your-rights"} -->
+<h2 class="wp-block-heading" id="your-rights">Your rights</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Under the GDPR you have a set of rights over your personal data. You can exercise any of them by emailing <a href="mailto:privacy@testautomationtechradar.com">privacy@testautomationtechradar.com</a>. We respond within 30 days.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<ul class="privacy-rights-grid">
+  <li class="privacy-right">
+    <h4><span class="num">01</span>Access</h4>
+    <p>Get a copy of the personal data we hold about you.</p>
+  </li>
+  <li class="privacy-right">
+    <h4><span class="num">02</span>Rectification</h4>
+    <p>Correct anything that&#8217;s inaccurate or incomplete.</p>
+  </li>
+  <li class="privacy-right">
+    <h4><span class="num">03</span>Erasure</h4>
+    <p>Ask us to delete your data. We comply unless we&#8217;re legally required to keep it.</p>
+  </li>
+  <li class="privacy-right">
+    <h4><span class="num">04</span>Restriction</h4>
+    <p>Pause processing while we look into a question or correction.</p>
+  </li>
+  <li class="privacy-right">
+    <h4><span class="num">05</span>Portability</h4>
+    <p>Receive your data in a structured, machine-readable format.</p>
+  </li>
+  <li class="privacy-right">
+    <h4><span class="num">06</span>Objection</h4>
+    <p>Object to processing based on legitimate interest, including profiling.</p>
+  </li>
+  <li class="privacy-right">
+    <h4><span class="num">07</span>Withdraw consent</h4>
+    <p>Pull back any consent you gave us, without affecting prior processing.</p>
+  </li>
+  <li class="privacy-right">
+    <h4><span class="num">08</span>Complain</h4>
+    <p>Lodge a complaint with your local supervisory authority at any time.</p>
+  </li>
+</ul>
+<!-- /wp:html -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 10</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"international"} -->
+<h2 class="wp-block-heading" id="international">International transfers</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Our infrastructure runs in the European Union, and we prefer EU-based vendors. Where a sub-processor is based outside the EU, we rely on the European Commission&#8217;s <strong>Standard Contractual Clauses (SCCs)</strong> and carry out a transfer impact assessment before signing.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>You can request the current list of sub-processors and the safeguards in place at any time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 11</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"changes"} -->
+<h2 class="wp-block-heading" id="changes">Changes to this policy</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We may update this policy when our services change or to reflect new legal guidance. The &#8220;Last updated&#8221; date at the top of the page always reflects the most recent revision. For material changes that affect how we use existing data, we&#8217;ll notify subscribers by email and post a banner at the top of the site for at least 30 days.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"is-muted"} -->
+<p class="is-muted">Previous versions are available on request.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"privacy-section-num"} -->
+<p class="privacy-section-num">Section 12</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":2,"anchor":"contact"} -->
+<h2 class="wp-block-heading" id="contact">Contact &amp; complaints</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>For any privacy question, request, or complaint, including exercising any of the rights in section 09, please reach out via one of the following:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>Privacy mailbox:</strong> <a href="mailto:privacy@testautomationtechradar.com">privacy@testautomationtechradar.com</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Postal address:</strong> TAG – Test Automation Group, c/o deTesters B.V., Amsterdam, the Netherlands</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Supervisory authority:</strong> <a href="https://autoriteitpersoonsgegevens.nl" target="_blank" rel="noreferrer noopener">Autoriteit Persoonsgegevens</a> (Dutch DPA)</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

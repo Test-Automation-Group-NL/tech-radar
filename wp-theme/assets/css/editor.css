@@ -1,0 +1,61 @@
+/*
+ * Block editor (wp-admin) — WYSIWYG tweaks on top of palette.css + theme.css.
+ * Homepage hp-* / section classes are shared via :is(.site-main--landing, .editor-styles-wrapper) in theme.css.
+ */
+
+.editor-styles-wrapper {
+  font-family: var(--font-family);
+  color: var(--color-dark);
+  background: var(--color-page-bg);
+  padding: var(--space-6) var(--space-4) var(--space-10);
+}
+
+/* Hero: preview radar-behind-text (decor is injected on the front end, not a block) */
+.editor-styles-wrapper .hero-block {
+  position: relative;
+  min-height: min(520px, 72vh);
+  overflow: hidden;
+}
+
+/* Hide legacy Custom HTML or unsupported hero-decor block in the canvas */
+.editor-styles-wrapper .hero-block .wp-block-html,
+.editor-styles-wrapper .hero-block .wp-block-techradar-theme-hero-decor,
+.editor-styles-wrapper .block-editor-block-list__block[data-type="techradar-theme/hero-decor"] {
+  display: none !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Radar + left readability gradient (matches front-end hero decor) */
+.editor-styles-wrapper .hero-block::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -16%;
+  z-index: 0;
+  width: min(82%, 960px);
+  aspect-ratio: 1;
+  opacity: 0.95;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background: url('../images/hero-radar-mini.svg') center / contain no-repeat;
+}
+
+.editor-styles-wrapper .hero-block .hero-block__content,
+.editor-styles-wrapper .hero-block .kt-row-column-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+/* Kadence rows: stretch to content width in the canvas */
+.editor-styles-wrapper .kb-row-layout-wrap.alignfull {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
+/* White separator on brand hero — keep visible in editor */
+.editor-styles-wrapper .hp-separator {
+  opacity: 0.35;
+}

@@ -1,0 +1,1137 @@
+/* ── Shared centering wrapper — nav sits outside, everything else inside ─ */
+
+.techradar-main {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+  /* Single source of horizontal padding — all children inherit the same edges */
+  padding: 0 var(--page-padding);
+}
+
+/* ── Page title ────────────────────────────────────────────────── */
+
+.techradar-page-header {
+  padding: var(--space-5) 0 var(--space-4);
+  border-bottom: 1px solid var(--color-dark-20);
+  margin-bottom: var(--space-2);
+}
+
+.techradar-page-header__title {
+  margin: 0;
+  color: var(--color-heading);
+  font-family: var(--font-family);
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+/* ── Radar body layout ─────────────────────────────────────────── */
+
+.techradar-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-8) 0;
+  gap: 0;
+  min-height: calc(100vh - var(--wpadminbar-height, 0px) - var(--site-header-offset, 0px) - var(--nav-height));
+  position: relative;
+  transition: padding var(--duration-slow) var(--ease-out);
+}
+
+/* Full-width focused-state quadrant header — hidden in FULL state */
+.techradar-focused-header {
+  flex: 0 0 100%;
+  width: 100%;
+  padding: 0 0 var(--space-4);
+}
+
+.techradar-focused-header[hidden] {
+  display: none;
+}
+
+.techradar-focused-header__title {
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* Shell: full content width for corner labels; square chart lives in .techradar-chart-wrap */
+.techradar-chart-shell {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: min(var(--radar-max-size), 100%);
+  align-self: center;
+  position: relative;
+  transition: max-width var(--duration-slow) var(--ease-out);
+}
+
+/* Square cap (matches viewport height) — centred so labels can sit at shell corners without sitting on the disc */
+.techradar-chart-wrap {
+  width: min(var(--radar-max-size), 100%, var(--radar-available-height));
+  max-width: min(var(--radar-max-size), 100%, var(--radar-available-height));
+  margin-inline: auto;
+  position: relative;
+  transition:
+    width var(--duration-slow) var(--ease-out),
+    max-width var(--duration-slow) var(--ease-out);
+}
+
+/* Inner chart: SVG only */
+.techradar-chart {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Desktop: top/bottom label rows sit over the chart edges.
+   pointer-events: none on the row so the transparent gap between the two corner
+   labels does not block clicks on blips beneath it. Each corner label re-enables
+   pointer events for itself. */
+.radar-labels-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: 0 var(--space-2);
+  pointer-events: none;
+}
+
+.radar-labels-row .radar-corner-label {
+  pointer-events: auto;
+}
+
+.radar-labels-row--top {
+  top: var(--space-2);
+}
+
+.radar-labels-row--bottom {
+  bottom: var(--space-2);
+  align-items: flex-end;
+}
+
+/* No overflow clip needed — focused state uses SVG viewBox cropping instead */
+
+/* ── Focused state: 50/50 split — panel half + chart half ──────── */
+
+.techradar-body--focused {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--space-6) 0;
+}
+
+/* Override fixed panel width in focused state */
+.techradar-body--focused .techradar-panel {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 280px;
+  max-width: 50%;
+}
+
+/* Panel on LEFT (techniques=top-left, platforms=bottom-left) */
+.techradar-body--panel-left .techradar-chart-shell {
+  order: 2;
+}
+
+.techradar-body--panel-left .techradar-panel {
+  order: 1;
+}
+
+/* Panel on RIGHT (tools=top-right, languages-and-frameworks=bottom-right) */
+.techradar-body--panel-right .techradar-chart-shell {
+  order: 1;
+}
+
+.techradar-body--panel-right .techradar-panel {
+  order: 2;
+}
+
+/* Focused header always first in both layouts */
+.techradar-focused-header {
+  order: 0;
+}
+
+/* Chart shell in focused state: rigid 50% — don't use flex-basis:0 which collapses with overflow:hidden */
+.techradar-body--panel-left .techradar-chart-shell,
+.techradar-body--panel-right .techradar-chart-shell {
+  flex: 0 0 50%;
+  max-width: 50%;
+  align-self: flex-start;
+}
+
+/* ── SVG ───────────────────────────────────────────────────────── */
+
+.techradar-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Clip to viewBox in focused state — prevents overflow from other quadrants bleeding through */
+.techradar-body--focused .techradar-svg {
+  overflow: hidden;
+}
+
+/* ── SVG elements: background ──────────────────────────────────── */
+
+/* Transparent so the SVG corners blend with the page background */
+.radar-bg {
+  fill: var(--color-page-bg);
+}
+
+/* ── SVG elements: quadrant sector groups ─────────────────────── */
+
+/* No default opacity change — sectors are always fully opaque.
+   A 0.9 default causes blip circles (same hue as sectors) to blend in on hover. */
+.radar-quadrant-group {
+  pointer-events: all;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.techradar-body--focused .radar-axis {
+  opacity: 0;
+}
+
+/* Hide non-focused quadrant sectors in focused state */
+.techradar-body--focused .radar-quadrant-group {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.techradar-body--focused-techniques .radar-quadrant-group--techniques {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.techradar-body--focused-tools .radar-quadrant-group--tools {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.techradar-body--focused-languages-and-frameworks .radar-quadrant-group--languages-and-frameworks {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.techradar-body--focused-platforms .radar-quadrant-group--platforms {
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Dim non-hovered quadrant groups when hovering a blip */
+.techradar-body:not(.techradar-body--focused)[data-blip-hover] .radar-quadrant-group {
+  opacity: 0.25;
+}
+
+.techradar-body:not(.techradar-body--focused)[data-blip-hover="techniques"] .radar-quadrant-group--techniques {
+  opacity: 1;
+}
+
+.techradar-body:not(.techradar-body--focused)[data-blip-hover="tools"] .radar-quadrant-group--tools {
+  opacity: 1;
+}
+
+.techradar-body:not(.techradar-body--focused)[data-blip-hover="languages-and-frameworks"] .radar-quadrant-group--languages-and-frameworks {
+  opacity: 1;
+}
+
+.techradar-body:not(.techradar-body--focused)[data-blip-hover="platforms"] .radar-quadrant-group--platforms {
+  opacity: 1;
+}
+
+/* Highlight the matching corner label when its quadrant is hovered */
+.techradar-body:not(.techradar-body--focused)[data-blip-hover="techniques"] .radar-corner-label--techniques,
+.techradar-body:not(.techradar-body--focused)[data-blip-hover="tools"] .radar-corner-label--tools,
+.techradar-body:not(.techradar-body--focused)[data-blip-hover="languages-and-frameworks"] .radar-corner-label--languages-and-frameworks,
+.techradar-body:not(.techradar-body--focused)[data-blip-hover="platforms"] .radar-corner-label--platforms {
+  background: rgba(17, 22, 23, 0.07);
+}
+
+/* ── SVG elements: ring borders ────────────────────────────────── */
+
+.radar-ring-border {
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 1;
+}
+
+.radar-ring-border--adopt {
+  stroke-width: 1.5;
+}
+
+/* ── SVG elements: axis lines — thick page-bg stroke creates visible gaps between quadrants ── */
+
+.radar-axis {
+  stroke: var(--color-page-bg);
+  stroke-width: 24;
+  stroke-linecap: butt;
+}
+
+/* ── SVG elements: ring labels ─────────────────────────────────── */
+
+.radar-ring-label {
+  fill: var(--color-dark);
+  font-family: var(--font-family);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.65;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.radar-ring-label:hover,
+.radar-ring-label:focus,
+.radar-ring-label:focus-visible,
+.radar-ring-label:active {
+  opacity: 0.95;
+  outline: none;
+}
+
+/* Focused quadrant: ring labels sit on the axis line — nudge them away from the wedge */
+.techradar-body--focused-techniques .radar-ring-label,
+.techradar-body--focused-tools .radar-ring-label {
+  transform: translateY(var(--space-4));
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.techradar-body--focused-platforms .radar-ring-label,
+.techradar-body--focused-languages-and-frameworks .radar-ring-label {
+  transform: translateY(calc(-1 * var(--space-4)));
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ── HTML corner quadrant labels (overlay on SVG) ─────────────── */
+
+/* Hide all corner labels when a quadrant is zoomed (they don't follow the SVG transform) */
+.techradar-body--focused .radar-corner-label {
+  display: none;
+}
+
+.radar-corner-label {
+  position: relative;
+  z-index: 1;
+  cursor: default;
+  padding: var(--space-2);
+  max-width: 30%;
+  line-height: 1.3;
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+/* Tablet band: tighter corner copy so the chart can read wider */
+@media (max-width: 1024px) and (min-width: 901px) {
+  .radar-corner-label {
+    max-width: 25%;
+  }
+
+  /* Tablet marker sizing */
+  .radar-blip__circle--default {
+    r: 8px;
+  }
+
+  .radar-blip__tri {
+    transform: scale(0.67);
+  }
+
+  .radar-blip--selected .radar-blip__circle {
+    r: 10px;
+  }
+
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(0.82);
+  }
+}
+
+/* Height-aware marker sizing for desktop/tablet layouts.
+   Keeps markers proportional when the square radar is vh-capped. */
+@media (min-width: 901px) and (max-height: 1100px) {
+  .radar-blip__circle--default {
+    r: 10px;
+  }
+
+  .radar-blip__tri {
+    transform: scale(0.84);
+  }
+
+  .radar-blip--selected .radar-blip__circle {
+    r: 12px;
+  }
+
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(1.02);
+  }
+}
+
+@media (min-width: 901px) and (max-height: 860px) {
+  .radar-blip__circle--default {
+    r: 8px;
+  }
+
+  .radar-blip__tri {
+    transform: scale(0.67);
+  }
+
+  .radar-blip--selected .radar-blip__circle {
+    r: 10px;
+  }
+
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(0.82);
+  }
+}
+
+@media (min-width: 901px) and (max-height: 620px) {
+  .radar-blip__circle--default {
+    r: 6px;
+  }
+
+  .radar-blip__tri {
+    transform: scale(0.5);
+  }
+
+  .radar-blip--selected .radar-blip__circle {
+    r: 8px;
+  }
+
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(0.61);
+  }
+}
+
+.radar-corner-label--tools,
+.radar-corner-label--languages-and-frameworks {
+  text-align: right;
+}
+
+.radar-corner-label--techniques,
+.radar-corner-label--platforms {
+  text-align: left;
+}
+
+.radar-corner-label__title {
+  color: var(--color-heading);
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.radar-corner-label__heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.radar-corner-label__heading--trail-dot {
+  justify-content: flex-end;
+}
+
+.radar-corner-label__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 7px;
+}
+
+.radar-corner-label--techniques .radar-corner-label__dot {
+  background: var(--color-techniques);
+}
+
+.radar-corner-label--platforms .radar-corner-label__dot {
+  background: var(--color-platforms);
+}
+
+.radar-corner-label--tools .radar-corner-label__dot {
+  background: var(--color-tools);
+}
+
+.radar-corner-label--languages-and-frameworks .radar-corner-label__dot {
+  background: var(--color-languages);
+}
+
+.radar-corner-label__desc {
+  display: block;
+  color: var(--color-dark-60);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* ── SVG elements: blips ───────────────────────────────────────── */
+
+.radar-blip {
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.radar-blip:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* In focused/detail state the 50ms setTimeout means the blip has browser focus
+   before radar-blip--selected is applied — suppress outline for that window */
+.techradar-body--focused .radar-blip:focus,
+.techradar-body--focused .radar-blip:focus-visible,
+.radar-blip--selected:focus,
+.radar-blip--selected:focus-visible {
+  outline: none;
+}
+
+.radar-blip__circle {
+  stroke-width: 2;
+  transition:
+    r var(--duration-fast) var(--ease-spring),
+    opacity var(--duration-fast) var(--ease-out);
+  pointer-events: all;
+}
+
+/* Triangles (AOE-style): ▲ new = outline only, ▼ moved = translucent fill */
+.radar-blip__tri {
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transition:
+    transform var(--duration-fast) var(--ease-spring),
+    opacity var(--duration-fast) var(--ease-out);
+  pointer-events: all;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Blip colours — darker than adopt ring for chart contrast */
+.radar-blip--techniques .radar-blip__circle--default {
+  fill: #456d62;
+  stroke: #456d62;
+}
+
+.radar-blip--platforms .radar-blip__circle--default {
+  fill: #c86952;
+  stroke: #c86952;
+}
+
+.radar-blip--tools .radar-blip__circle--default {
+  fill: #7c4861;
+  stroke: #7c4861;
+}
+
+.radar-blip--languages-and-frameworks .radar-blip__circle--default {
+  fill: #4d7090;
+  stroke: #4d7090;
+}
+
+.radar-blip--techniques .radar-blip__tri--new {
+  fill: none;
+  stroke: #456d62;
+}
+
+.radar-blip--platforms .radar-blip__tri--new {
+  fill: none;
+  stroke: #c86952;
+}
+
+.radar-blip--tools .radar-blip__tri--new {
+  fill: none;
+  stroke: #7c4861;
+}
+
+.radar-blip--languages-and-frameworks .radar-blip__tri--new {
+  fill: none;
+  stroke: #4d7090;
+}
+
+.radar-blip--techniques .radar-blip__tri--moved {
+  fill: rgba(69, 109, 98, 0.55);
+  stroke: #456d62;
+}
+
+.radar-blip--platforms .radar-blip__tri--moved {
+  fill: rgba(200, 105, 82, 0.55);
+  stroke: #c86952;
+}
+
+.radar-blip--tools .radar-blip__tri--moved {
+  fill: rgba(124, 72, 97, 0.55);
+  stroke: #7c4861;
+}
+
+.radar-blip--languages-and-frameworks .radar-blip__tri--moved {
+  fill: rgba(77, 112, 144, 0.55);
+  stroke: #4d7090;
+}
+
+/* ── Blip states ───────────────────────────────────────────────── */
+
+.radar-blip--dimmed {
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* In focused state blips outside the focused quadrant must be fully hidden */
+.techradar-body--focused .radar-blip--dimmed {
+  opacity: 0;
+}
+
+.radar-blip--selected .radar-blip__circle {
+  r: 15;
+}
+
+.radar-blip--selected .radar-blip__tri {
+  transform: scale(1.22);
+}
+
+/* Focused-panel list hover/focus mirrors chart emphasis */
+.radar-blip--panel-hover .radar-blip__circle {
+  r: 15;
+}
+
+.radar-blip--panel-hover .radar-blip__tri {
+  transform: scale(1.22);
+}
+
+/* ── Desktop hover tooltip (fixed-positioned, created by JS) ───── */
+
+.radar-blip-tooltip {
+  background: var(--color-dark);
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  z-index: var(--z-modal);
+  animation: tooltip-in var(--duration-fast) var(--ease-out);
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(calc(-100% - 2px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(calc(-100% - 6px));
+  }
+}
+
+/* ── Corner modal (mobile) ─────────────────────────────────────── */
+
+.radar-corner-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 22, 23, 0.65);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--page-padding);
+  animation: modal-bg-in var(--duration-base) var(--ease-out);
+}
+
+.radar-corner-modal__content {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  animation: modal-in var(--duration-base) var(--ease-spring);
+}
+
+.radar-corner-modal__title {
+  font-family: var(--font-family);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0 0 var(--space-3);
+  padding-right: var(--space-8);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.radar-corner-modal__desc {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-60);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.radar-corner-modal__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: var(--color-dark-20);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+@keyframes modal-bg-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ── Desktop: design-fidelity overrides (≥ 901px) ────────────────── */
+
+@media (min-width: 901px) {
+  /* Full circle stays visible — SVG does not clip or zoom in focused state */
+  .techradar-body--focused .techradar-svg {
+    overflow: visible;
+  }
+
+  /* Axis stays visible — dividing lines remain as orientation guides */
+  .techradar-body--focused .radar-axis {
+    opacity: 1;
+  }
+
+  /* Non-focused sectors dim to 15% instead of disappearing */
+  .techradar-body--focused .radar-quadrant-group {
+    opacity: 0.15;
+  }
+
+  /* Focused quadrant stays at full opacity — must come after the dim rule above */
+  .techradar-body--focused-techniques .radar-quadrant-group--techniques,
+  .techradar-body--focused-tools .radar-quadrant-group--tools,
+  .techradar-body--focused-languages-and-frameworks .radar-quadrant-group--languages-and-frameworks,
+  .techradar-body--focused-platforms .radar-quadrant-group--platforms {
+    opacity: 1;
+  }
+
+  /* Non-focused blips dim to 7% instead of disappearing */
+  .techradar-body--focused .radar-blip--dimmed {
+    opacity: 0.07;
+  }
+
+  /* Body never wraps on desktop — panel stays in flex flow at 0 width when hidden.
+     No padding: the chart-shell fills from its own top edge to the viewport bottom. */
+  .techradar-body {
+    flex-wrap: nowrap;
+    padding: 0;
+    min-height: 0;
+  }
+
+  /* Chart-shell: explicit 100% flex-basis enables open/close animation */
+  .techradar-chart-shell {
+    flex: 0 0 100%;
+    transition: flex-basis var(--duration-slow) var(--ease-out);
+  }
+
+  /* Chart-shell shrinks to 2/3 when panel is open */
+  .techradar-body--panel-left .techradar-chart-shell,
+  .techradar-body--panel-right .techradar-chart-shell {
+    flex: 0 0 66.67%;
+    max-width: none;
+  }
+
+  /* Close animation: panel collapses on correct side while chart re-expands.
+     Must come after the rule above to win same-specificity cascade. */
+  .techradar-body--closing .techradar-chart-shell {
+    flex: 0 0 100%;
+  }
+
+  /* Panel takes 1/3 of the container in focused state */
+  .techradar-body--focused .techradar-panel {
+    flex: 0 0 33.33%;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+
+  /* Corner labels remain visible and are interactive in focused state */
+  .techradar-body--focused .radar-corner-label {
+    display: block;
+  }
+
+  .radar-corner-label {
+    cursor: pointer;
+  }
+
+  .radar-corner-label:hover,
+  .radar-corner-label:focus-visible {
+    background: rgba(17, 22, 23, 0.07);
+    outline: none;
+  }
+
+  /* Ring label nudges not needed — SVG does not zoom in focused state */
+  .techradar-body--focused-techniques .radar-ring-label,
+  .techradar-body--focused-tools .radar-ring-label,
+  .techradar-body--focused-platforms .radar-ring-label,
+  .techradar-body--focused-languages-and-frameworks .radar-ring-label {
+    transform: none;
+  }
+}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  :root {
+    --panel-width: 300px;
+  }
+
+  .techradar-main {
+    padding: 0 var(--space-2);
+  }
+
+  .techradar-body {
+    padding: var(--space-4) 0;
+  }
+
+  .techradar-chart-shell {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+  }
+
+  .techradar-chart-wrap {
+    width: 100%;
+    max-width: none;
+  }
+
+  .radar-labels-row {
+    position: static;
+    padding: 0;
+    pointer-events: auto;
+    gap: var(--space-3);
+  }
+
+  .radar-labels-row--bottom {
+    align-items: flex-start;
+  }
+
+  .radar-corner-label {
+    max-width: none;
+    flex: 1 1 0;
+    min-width: 0;
+    cursor: pointer;
+  }
+
+  .radar-corner-label:hover,
+  .radar-corner-label:focus-visible {
+    background: rgba(17, 22, 23, 0.07);
+    outline: none;
+  }
+
+  .radar-corner-label__title {
+    font-size: var(--font-size-sm);
+  }
+
+  .radar-corner-label__desc {
+    display: none;
+  }
+
+  .radar-ring-label {
+    letter-spacing: 0.04em;
+  }
+
+  .techradar-blip-legend {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+    gap: var(--space-3) var(--space-6);
+  }
+
+  .techradar-blip-legend__text {
+    font-size: var(--font-size-xs);
+  }
+
+  .techradar-section-rule {
+    margin-top: var(--space-2);
+  }
+
+  /* Narrow marker sizing */
+  .radar-blip__circle--default {
+    r: 6px;
+  }
+
+  .radar-blip__tri {
+    transform: scale(0.5);
+  }
+
+  .radar-blip--selected .radar-blip__circle {
+    r: 8px;
+  }
+
+  .radar-blip--selected .radar-blip__tri {
+    transform: scale(0.61);
+  }
+
+  /* Thicker cross on narrow — makes quadrant separation clearly visible at small sizes */
+  .radar-axis {
+    stroke-width: 18;
+  }
+}
+
+@media (max-width: 768px) {
+  .techradar-main {
+    padding: 0 var(--space-4);
+  }
+
+  .techradar-body {
+    flex-direction: column;
+    padding: var(--space-4) 0;
+    min-height: auto;
+    align-items: center;
+  }
+
+  .techradar-chart-shell {
+    width: 100%;
+  }
+
+  .techradar-chart {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .techradar-body--focused .techradar-chart-shell,
+  .techradar-body--panel-left .techradar-chart-shell,
+  .techradar-body--panel-right .techradar-chart-shell {
+    width: 100%;
+    order: 1;
+  }
+
+  /* Small mobile marker sizing */
+  .radar-blip__circle--default {
+    r: 6px;
+  }
+
+  .radar-blip--selected .radar-blip__circle {
+    r: 6px;
+  }
+
+}
+
+/* ── Blip legend (New / Moved in-out / No change) — below radar ─── */
+
+.techradar-blip-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4) var(--space-10);
+  padding: var(--space-2) var(--page-padding) var(--space-4);
+  color: var(--color-dark);
+}
+
+.techradar-blip-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.techradar-blip-legend__icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--color-dark);
+}
+
+.techradar-blip-legend__text {
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+/* ── Section rule above all blips listing ─────────────────────── */
+
+.techradar-section-rule {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-3) 0 var(--space-3);
+}
+
+.techradar-section-rule__line {
+  height: 1px;
+  background: var(--color-dark-20);
+  flex: 1 1 0;
+}
+
+.techradar-section-rule__label {
+  margin: 0;
+  color: var(--color-dark-60);
+  font-family: var(--font-family);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Ring guidance (what Adopt / Trial / Assess / Hold mean) ───── */
+
+.techradar-ring-guide__modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--page-padding);
+  background: rgba(17, 22, 23, 0.6);
+}
+
+.techradar-ring-guide__modal[hidden] {
+  display: none;
+}
+
+.techradar-ring-guide__content {
+  width: min(720px, 100%);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: relative;
+}
+
+.techradar-ring-guide__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-dark-20);
+  color: var(--color-dark);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+}
+
+.techradar-ring-guide__title {
+  margin: 0 0 var(--space-4);
+  padding-right: var(--space-8);
+  font-family: var(--font-family);
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--color-heading);
+}
+
+.techradar-ring-guide__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.techradar-ring-guide__item {
+  margin: 0;
+}
+
+.techradar-ring-guide__item-title {
+  margin: 0 0 2px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.techradar-ring-guide__item-copy {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-60);
+  line-height: 1.5;
+}
+
+/* ── Loading state ─────────────────────────────────────────────── */
+
+/* Spinner + text shown while data is fetched */
+.techradar-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  min-height: calc(100vh - var(--wpadminbar-height, 0px) - var(--site-header-offset, 0px) - 120px);
+  padding: var(--space-8);
+  font-family: var(--font-family);
+}
+
+.techradar-loader[hidden] {
+  display: none;
+}
+
+.techradar-loader__spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--color-dark-20);
+  border-top-color: var(--color-nav);
+  border-radius: 50%;
+  animation: techradar-spin 0.75s linear infinite;
+}
+
+@keyframes techradar-spin {
+  to { transform: rotate(360deg); }
+}
+
+.techradar-loader__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-dark-60);
+}
+
+/* Root is invisible until JS has committed the initial layout */
+.techradar-root {
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.techradar-root--ready {
+  opacity: 1;
+}
+
+/* Suppress ALL transitions+animations while measuring the initial layout.
+   Prevents the chart width/height from visibly animating before first reveal. */
+.techradar-root--no-anim,
+.techradar-root--no-anim * {
+  transition-duration: 0s !important;
+  animation-duration: 0s !important;
+}

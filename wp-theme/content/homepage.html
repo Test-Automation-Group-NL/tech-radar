@@ -1,0 +1,654 @@
+<!--
+  Homepage block markup (Gutenberg + Kadence) — source of truth in git.
+
+  Used by: Landing Page template (page-templates/landing-page.php) via the_content().
+
+  Restore in WP: Pages → Homepage → ⋮ → Code editor → paste/replace all content.
+  Or re-import via Tools → Export/Import if you use a full-site workflow.
+
+  Notes:
+  - Image src URLs may reference localhost uploads; re-attach media on other environments.
+  - Hero radar decor is auto-injected by the theme into .hero-block (inc/hero-decor.php). Static snapshot: assets/images/hero-radar-mini.svg (not synced to live radar.json).
+  - Shortcodes [techradar_blip_count] and [techradar_case_blips …] are expanded by the plugin.
+  - Homepage-specific CSS lives in wp-theme/assets/css/theme.css (section "Homepage (Kadence blocks)").
+  - Styling uses hp-* classes in theme.css — do not re-add colours via the block Styles panel.
+  - Section backgrounds (Kadence row → Advanced → CSS class): hp-section--brand | hp-section--page | hp-section--panel
+  - Block editor preview: palette.css + theme.css + editor.css load in wp-admin (see inc/enqueue.php).
+-->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_28b04e-1c","columns":1,"colLayout":"equal","maxWidth":1344,"padding":[120,"",80,""],"mobilePadding":[56,16,56,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_hero alignfull hero-block hp-section\u002d\u002dbrand"} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_fc8923-80","verticalAlignment":"center","kbVersion":2,"className":"hero-block__content"} -->
+<div class="wp-block-kadence-column kadence-column6_fc8923-80 hero-block__content">
+      <div class="kt-inside-inner-col">
+            <!-- wp:image {"id":45,"width":"auto","height":"100px","sizeSlug":"full","linkDestination":"none","className":"tag-logo-white"} -->
+            <figure class="wp-block-image size-full is-resized tag-logo-white"><img
+                        src="http://localhost:10018/wp-content/uploads/2026/05/tech-radar-logo-zw.wit_.rgb_.png" alt=""
+                        class="wp-image-45" /></figure>
+            <!-- /wp:image -->
+
+            <!-- wp:heading {"level":1,"className":"hp-display"} -->
+            <h1 class="wp-block-heading hp-display">
+                  Navigate the future of </h1>
+            <!-- /wp:heading -->
+
+            <!-- wp:paragraph {"className":"hp-display-line"} -->
+            <p class="hp-display-line">Test Automation</p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:paragraph {"className":"hp-display-line"} -->
+            <p class="hp-display-line">with confidence</p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:paragraph {"className":"hp-lead"} -->
+            <p class="hp-lead">Built by 60+ test automation experts across deTesters, TestCoders and TechChamps. It
+                  helps engineering teams make smart, strategic decisions in a rapidly evolving landscape.</p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:buttons {"className":"hp-buttons\u002d\u002dhero","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"left"}} -->
+            <div class="wp-block-buttons hp-buttons--hero"><!-- wp:button {"className":"hp-btn"} -->
+                  <div class="wp-block-button hp-btn"><a class="wp-block-button__link wp-element-button"
+                              href="/techradar">Explore the radar →</a></div>
+                  <!-- /wp:button -->
+            </div>
+            <!-- /wp:buttons -->
+
+            <!-- wp:separator {"className":"is-style-wide"} -->
+            <hr
+                  class="wp-block-separator has-text-color has-white-color has-alpha-channel-opacity has-white-background-color has-background is-style-wide hp-separator" />
+            <!-- /wp:separator -->
+
+            <!-- wp:paragraph {"className":"hp-tagline"} -->
+            <p class="hp-tagline"><span>Made by TAG — Test Automation Group</span></p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:kadence/rowlayout {"uniqueID":"6_969f73-4b","columns":3,"columnGutter":"none","customGutter":[0,"",""],"colLayout":"equal","firstColumnWidth":33,"secondColumnWidth":34,"thirdColumnWidth":33,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":["","","",""],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_logos  hero-radar-tag-logos"} -->
+            <!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_14470c-b2","verticalAlignment":"center","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_14470c-b2">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:image {"width":"auto","height":"50px","sizeSlug":"full","linkDestination":"custom","className":"tag-logo-white"} -->
+                        <figure class="wp-block-image size-full is-resized tag-logo-white"><a
+                                    href="https://www.detesters.nl" target="_blank" rel="noopener noreferrer"><img
+                                          src="https://www.testautomationtechradar.com/images/logo-detesters@2x.png"
+                                          alt="deTesters" /></a></figure>
+                        <!-- /wp:image -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":2,"borderWidth":["","","",""],"uniqueID":"6_b0a4f8-e1","verticalAlignment":"center","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_b0a4f8-e1">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:image {"width":"auto","height":"50px","sizeSlug":"full","linkDestination":"custom","className":"tag-logo-white"} -->
+                        <figure class="wp-block-image size-full is-resized tag-logo-white"><a
+                                    href="https://www.testcoders.nl" target="_blank" rel="noopener noreferrer"><img
+                                          src="https://www.testautomationtechradar.com/images/logo-testcoders@2x.png"
+                                          alt="TestCoders" /></a></figure>
+                        <!-- /wp:image -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":3,"borderWidth":["","","",""],"uniqueID":"6_76b7ec-2a","verticalAlignment":"center","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_76b7ec-2a">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:image {"width":"auto","height":"50px","sizeSlug":"full","linkDestination":"custom","className":"tag-logo-white"} -->
+                        <figure class="wp-block-image size-full is-resized tag-logo-white"><a
+                                    href="https://www.techchamps.io" target="_blank" rel="noopener noreferrer"><img
+                                          src="https://www.testautomationtechradar.com/images/logo-techchamps@2x.png"
+                                          alt="TechChamps" /></a></figure>
+                        <!-- /wp:image -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+            <!-- /wp:kadence/rowlayout -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+
+<!-- /wp:kadence/rowlayout -->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_c364a3-b7","columns":1,"colLayout":"equal","maxWidth":1344,"padding":[120,"",null,""],"mobilePadding":[56,16,0,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_why alignfull why-we-built-this hp-section\u002d\u002dpage"} -->
+<!-- wp:kadence/column {"id":2,"borderWidth":["","","",""],"uniqueID":"6_a9fdcb-4c","kbVersion":2,"className":"why-we-built-this-four-points"} -->
+<div class="wp-block-kadence-column kadence-column6_a9fdcb-4c why-we-built-this-four-points">
+      <div class="kt-inside-inner-col">
+            <!-- wp:kadence/rowlayout {"uniqueID":"6_cd5fe2-96","columns":1,"colLayout":"equal","padding":["","","",""],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_why_cards"} -->
+            <!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_b0887c-03","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_b0887c-03">
+                  <div class="kt-inside-inner-col"><!-- wp:heading {"level":5,"className":"hp-eyebrow"} -->
+                        <h5 class="wp-block-heading hp-eyebrow">Why we built this</h5>
+                        <!-- /wp:heading -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+            <!-- /wp:kadence/rowlayout -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+<!-- /wp:kadence/rowlayout -->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_ac3b2f-ca","colLayout":"equal","maxWidth":1344,"firstColumnWidth":50,"secondColumnWidth":50,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":[null,"",120,""],"mobilePadding":[0,16,56,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_why alignfull why-we-built-this hp-section\u002d\u002dpage"} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_25655e-b1","verticalAlignment":"center","kbVersion":2} -->
+<div class="wp-block-kadence-column kadence-column6_25655e-b1">
+      <div class="kt-inside-inner-col"><!-- wp:heading {"className":"hp-title hp-title\u002d\u002dlg"} -->
+            <h2 class="wp-block-heading hp-title hp-title--lg">Cut through the noise in <br>Test Automation</h2>
+            <!-- /wp:heading -->
+
+            <!-- wp:freeform -->
+            <p>In our experience, many organizations struggle to implement test automation successfully. Teams ask:
+                  "<em>Where do we start? Which tools are truly suitable? How do we avoid a tangle of solutions?</em>"
+            </p>
+            <p>Our TechRadar distils the hands-on experience of 60+ specialists into clear, actionable guidance, so you
+                  can make smart decisions instead of learning expensive lessons.</p>
+            <!-- /wp:freeform -->
+
+            <!-- wp:buttons -->
+            <div class="wp-block-buttons"><!-- wp:button {"className":"hp-btn hp-btn\u002d\u002doutline-techniques"} -->
+                  <div class="wp-block-button hp-btn hp-btn--outline-techniques"><a
+                              class="wp-block-button__link wp-element-button" href="/techradar">Open the radar →</a>
+                  </div>
+                  <!-- /wp:button -->
+            </div>
+            <!-- /wp:buttons -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+
+<!-- wp:kadence/column {"id":2,"borderWidth":["","","",""],"uniqueID":"6_2ee566-df","kbVersion":2,"className":"why-we-built-this-four-points"} -->
+<div class="wp-block-kadence-column kadence-column6_2ee566-df why-we-built-this-four-points">
+      <div class="kt-inside-inner-col">
+            <!-- wp:kadence/rowlayout {"uniqueID":"6_d83145-52","colLayout":"equal","firstColumnWidth":50,"secondColumnWidth":50,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":["","","",""],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_why_cards"} -->
+            <!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_cdef02-d2","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_cdef02-d2">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"hp-card hp-card\u002d\u002dspaced","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card hp-card--spaced">
+                              <!-- wp:heading {"level":3,"className":"hp-card-title"} -->
+                              <h3 class="wp-block-heading hp-card-title">Informed decisions</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Backed by hands-on experience and the expertise of 60 test automation specialists.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-card-title">Stay ahead</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Keep up with technological developments and make future-proof choices today.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":2,"borderWidth":["","","",""],"uniqueID":"6_7217a0-ca","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_7217a0-ca">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"hp-card hp-card\u002d\u002dspaced","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card hp-card--spaced">
+                              <!-- wp:heading {"level":3,"className":"hp-card-title"} -->
+                              <h3 class="wp-block-heading hp-card-title">Faster releases</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Smart test automation increases both the speed and quality of your software delivery.
+                              </p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-card-title">Cost savings</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Avoid investing in ineffective tools and focus resources on what truly works.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+            <!-- /wp:kadence/rowlayout -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+<!-- /wp:kadence/rowlayout -->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_56477d-da","columns":1,"colLayout":"equal","maxWidth":1344,"firstColumnWidth":100,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":[120,"",120,""],"mobilePadding":[56,16,56,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_how alignfull how-it-works hp-section\u002d\u002dpanel"} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_c1fdbe-c6","kbVersion":2} -->
+<div class="wp-block-kadence-column kadence-column6_c1fdbe-c6">
+      <div class="kt-inside-inner-col">
+            <!-- wp:heading {"level":5,"className":"hp-eyebrow hp-eyebrow\u002d\u002dcenter"} -->
+            <h5 class="wp-block-heading hp-eyebrow hp-eyebrow--center">How it works</h5>
+            <!-- /wp:heading -->
+
+            <!-- wp:heading {"textAlign":"center"} -->
+            <h2 class="wp-block-heading has-text-align-center hp-title hp-title--md hp-title--section">Two dimensions.
+                  Four rings. Instant clarity</h2>
+            <!-- /wp:heading -->
+
+            <!-- wp:kadence/rowlayout {"uniqueID":"6_595ed7-25","colLayout":"equal","firstColumnWidth":50,"secondColumnWidth":50,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":["","","",""],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_how_grid"} -->
+            <!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_e6ff78-6f","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_e6ff78-6f">
+                  <div class="kt-inside-inner-col"><!-- wp:heading {"level":2,"className":"hp-label"} -->
+                        <h2 class="wp-block-heading hp-label">Quadrants — What is it?</h2>
+                        <!-- /wp:heading -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-quadrant-title hp-quadrant-title--techniques">Techniques
+                              </h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Testing methodologies and<br />approaches used in modern test automation.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-quadrant-title hp-quadrant-title--tools">Tools</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Software utilities and platforms<br />that support test automation workflows.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-quadrant-title hp-quadrant-title--languages">Languages
+                                    &amp;
+                                    Frameworks</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Programming languages and test<br />frameworks used to build automation solutions.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-quadrant-title hp-quadrant-title--platforms">Platforms</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Environments for deploying,<br />running, and managing automated tests.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":2,"borderWidth":["","","",""],"uniqueID":"6_c22092-d0","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_c22092-d0">
+                  <div class="kt-inside-inner-col"><!-- wp:heading {"level":2,"className":"hp-label"} -->
+                        <h2 class="wp-block-heading hp-label">Rings — What to do with it?</h2>
+                        <!-- /wp:heading -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-quadrant-title hp-quadrant-title--techniques">Adopt</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Proven technologies we recommend<br />using right away wherever they fit your project
+                                    needs.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-quadrant-title hp-quadrant-title--languages">Trial</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Emerging technologies worth<br />experimenting with in projects that allow manageable
+                                    risks.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-quadrant-title hp-quadrant-title--platforms">Assess</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Promising technologies to monitor<br />and evaluate for future potential. Too early for
+                                    widespread adoption.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"level":3} -->
+                              <h3 class="wp-block-heading hp-quadrant-title hp-quadrant-title--tools">Hold</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Technologies we advise against for<br />new projects. Continue only if already in
+                                    place.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+            <!-- /wp:kadence/rowlayout -->
+
+            <!-- wp:buttons {"className":"hp-buttons\u002d\u002dspaced-top","layout":{"type":"flex","justifyContent":"center"}} -->
+            <div class="wp-block-buttons hp-buttons--spaced-top">
+                  <!-- wp:button {"className":"hp-btn hp-btn\u002d\u002dwide"} -->
+                  <div class="wp-block-button hp-btn hp-btn--wide"><a class="wp-block-button__link wp-element-button"
+                              href="/techradar">Explore all [techradar_blip_count] blips →</a></div>
+                  <!-- /wp:button -->
+            </div>
+            <!-- /wp:buttons -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+<!-- /wp:kadence/rowlayout -->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_3940eb-ac","columns":1,"colLayout":"equal","maxWidth":1344,"firstColumnWidth":100,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":[120,"",120,""],"mobilePadding":[56,16,56,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_who alignfull who-is-it-for hp-section\u002d\u002dpage"} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_9852d2-0a","kbVersion":2} -->
+<div class="wp-block-kadence-column kadence-column6_9852d2-0a">
+      <div class="kt-inside-inner-col">
+            <!-- wp:heading {"level":5,"className":"hp-eyebrow hp-eyebrow\u002d\u002dcenter"} -->
+            <h5 class="wp-block-heading hp-eyebrow hp-eyebrow--center">Who is it for?</h5>
+            <!-- /wp:heading -->
+
+            <!-- wp:heading {"textAlign":"center"} -->
+            <h2 class="wp-block-heading has-text-align-center hp-title hp-title--md hp-title--section">Built for
+                  everyone in <br>your engineering org</h2>
+            <!-- /wp:heading -->
+
+            <!-- wp:kadence/rowlayout {"uniqueID":"6_5fa0c5-0b","columns":4,"colLayout":"equal","firstColumnWidth":25,"secondColumnWidth":25,"thirdColumnWidth":25,"fourthColumnWidth":25,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":["","","",""],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_who_grid who-four-columns"} -->
+            <!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_e9bd68-69","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_e9bd68-69">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card">
+                              <!-- wp:heading {"textAlign":"left","level":3,"className":"hp-card-title hp-card-title\u002d\u002dloose"} -->
+                              <h3 class="wp-block-heading has-text-align-left hp-card-title hp-card-title--loose">Test
+                                    Automation Engineers</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Know which technologies are relevant, future-proof, and practically applicable in daily
+                                    work.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":2,"borderWidth":["","","",""],"uniqueID":"6_8b6304-a2","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_8b6304-a2">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"textAlign":"left","level":3} -->
+                              <h3 class="wp-block-heading has-text-align-left hp-card-title hp-card-title--loose">QA
+                                    Teams</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Improve your testing strategy, evaluate tooling, or switch to a more effective
+                                    approach.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":3,"borderWidth":["","","",""],"uniqueID":"6_64374c-ce","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_64374c-ce">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"textAlign":"left","level":3} -->
+                              <h3 class="wp-block-heading has-text-align-left hp-card-title hp-card-title--loose">
+                                    Engineering Leads &amp; CTOs</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Shape strategy around software quality, innovation, and team development with
+                                    confidence.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":4,"borderWidth":["","","",""],"uniqueID":"6_18f029-c0","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_18f029-c0">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"hp-card","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group hp-card"><!-- wp:heading {"textAlign":"left","level":3} -->
+                              <h3 class="wp-block-heading has-text-align-left hp-card-title hp-card-title--loose">Scrum
+                                    Masters &amp; Product Owners</h3>
+                              <!-- /wp:heading -->
+
+                              <!-- wp:freeform -->
+                              <p>Understand the impact of tooling on development process, team capacity, and
+                                    time-to-market.</p>
+                              <!-- /wp:freeform -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+            <!-- /wp:kadence/rowlayout -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+<!-- /wp:kadence/rowlayout -->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_67a423-c4","columns":1,"collapseGutter":"none","customRowGutter":[0,"",""],"colLayout":"equal","maxWidth":1344,"firstColumnWidth":0,"secondColumnWidth":0,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":[120,"",null,""],"mobilePadding":[56,16,0,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap homepage-case alignfull hp-section\u002d\u002dpanel"} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_ed44a2-d4","kbVersion":2} -->
+<div class="wp-block-kadence-column kadence-column6_ed44a2-d4">
+      <div class="kt-inside-inner-col"><!-- wp:heading {"level":5,"className":"hp-eyebrow"} -->
+            <h5 class="wp-block-heading hp-eyebrow">customer case</h5>
+            <!-- /wp:heading -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+<!-- /wp:kadence/rowlayout -->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_3f8715-72","customRowGutter":[30,"",""],"customGutter":[32,"",""],"colLayout":"equal","maxWidth":1344,"firstColumnWidth":0,"secondColumnWidth":0,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":[null,"",120,""],"mobilePadding":[0,16,56,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap homepage-case alignfull hp-section\u002d\u002dpanel"} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_aec931-a2","kbVersion":2} -->
+<div class="wp-block-kadence-column kadence-column6_aec931-a2">
+      <div class="kt-inside-inner-col"><!-- wp:heading {"textAlign":"left"} -->
+            <h2 class="wp-block-heading has-text-align-left hp-title hp-title--lg">How the <br>Port of Rotterdam
+                  <br>migrated from <br>TestCafé to Playwright
+            </h2>
+            <!-- /wp:heading -->
+
+            <!-- wp:freeform -->
+            <p>Since 2017, TAG professionals have worked on HaMIS, a mission-critical information system managing
+                  maritime traffic in Rotterdam's port.</p>
+            <!-- /wp:freeform -->
+
+            <!-- wp:quote -->
+            <blockquote class="wp-block-quote"><!-- wp:paragraph -->
+                  <p><em>"At the time, the Test Automation TechRadar did not yet exist, but if it had, it could have
+                              accelerated these steps."</em></p>
+                  <!-- /wp:paragraph -->
+            </blockquote>
+            <!-- /wp:quote -->
+
+            <!-- wp:buttons {"layout":{"type":"flex","flexWrap":"wrap"}} -->
+            <div class="wp-block-buttons"><!-- wp:button {"className":"hp-btn hp-btn\u002d\u002doutline-techniques"} -->
+                  <div class="wp-block-button hp-btn hp-btn--outline-techniques"><a
+                              class="wp-block-button__link wp-element-button"
+                              href="/customer-cases/port-of-rotterdam/">Read the full case →</a></div>
+                  <!-- /wp:button -->
+            </div>
+            <!-- /wp:buttons -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+
+<!-- wp:kadence/column {"id":2,"borderWidth":["","","",""],"uniqueID":"6_55a2de-e9","kbVersion":2} -->
+<div class="wp-block-kadence-column kadence-column6_55a2de-e9">
+      <div class="kt-inside-inner-col"><!-- wp:freeform -->
+            <p>[techradar_case_blips company="Port of Rotterdam" blips="Playwright, Storybook, Component Testing, Visual
+                  Regression Testing, Page Object Model"]</p>
+            <!-- /wp:freeform -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+<!-- /wp:kadence/rowlayout -->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_e789a8-ca","columns":1,"colLayout":"equal","maxWidth":1344,"firstColumnWidth":100,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":[120,"",120,""],"mobilePadding":[56,16,56,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_tag alignfull the-team hp-section\u002d\u002dpage"} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_2337a4-e4","kbVersion":2} -->
+<div class="wp-block-kadence-column kadence-column6_2337a4-e4">
+      <div class="kt-inside-inner-col">
+            <!-- wp:heading {"level":5,"className":"hp-eyebrow hp-eyebrow\u002d\u002dmuted hp-eyebrow\u002d\u002dcenter"} -->
+            <h5 class="wp-block-heading hp-eyebrow hp-eyebrow--muted hp-eyebrow--center">The team behind it</h5>
+            <!-- /wp:heading -->
+
+            <!-- wp:heading {"textAlign":"center"} -->
+            <h2 class="wp-block-heading has-text-align-center hp-title hp-title--tag">
+                  TAG — Test Automation Group</h2>
+            <!-- /wp:heading -->
+
+            <!-- wp:kadence/rowlayout {"uniqueID":"6_d2445d-92","columns":3,"colLayout":"equal","firstColumnWidth":33,"secondColumnWidth":34,"thirdColumnWidth":33,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":["","","",""],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_tag_grid tag-3-columns"} -->
+            <!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_426e2d-cc","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_426e2d-cc">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"tag-card-detesters","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group tag-card-detesters hp-card">
+                              <!-- wp:image {"id":100,"sizeSlug":"full","linkDestination":"none","className":"tag-logo-ink"} -->
+                              <figure class="wp-block-image size-full tag-logo-ink"><img
+                                          src="http://localhost:10018/wp-content/uploads/2026/05/logo-detesters.png"
+                                          alt="" class="wp-image-100" /></figure>
+                              <!-- /wp:image -->
+
+                              <!-- wp:freeform -->
+                              <p>A close-knit team of no more than 20 senior professionals with a clear focus: test
+                                    automation. We combine deep expertise in testing with a strong technical background.
+                              </p>
+                              <!-- /wp:freeform -->
+
+                              <!-- wp:paragraph {"className":"hp-tag-card-footer"} -->
+                              <p class="hp-tag-card-footer"><a class="hp-link" href="https://www.detesters.nl"
+                                          target="_blank" rel="noopener noreferrer">Visit website →</a></p>
+                              <!-- /wp:paragraph -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":2,"borderWidth":["","","",""],"uniqueID":"6_62cee7-84","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_62cee7-84">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"tag-card-testcoders","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group tag-card-testcoders hp-card">
+                              <!-- wp:image {"id":99,"sizeSlug":"full","linkDestination":"none","className":"tag-logo-ink"} -->
+                              <figure class="wp-block-image size-full tag-logo-ink"><img
+                                          src="http://localhost:10018/wp-content/uploads/2026/05/logo-testcoders.png"
+                                          alt="" class="wp-image-99" /></figure>
+                              <!-- /wp:image -->
+
+                              <!-- wp:freeform -->
+                              <p>A team of 35 Test Automation Engineers who tackle complex challenges every day for
+                                    leading clients. From our offices in Utrecht and Groningen, we accelerate software
+                                    development with smart, scalable automation solutions.</p>
+                              <!-- /wp:freeform -->
+
+                              <!-- wp:paragraph {"className":"hp-tag-card-footer"} -->
+                              <p class="hp-tag-card-footer"><a class="hp-link" href="https://www.testcoders.nl"
+                                          target="_blank" rel="noopener noreferrer">Visit website →</a></p>
+                              <!-- /wp:paragraph -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+
+            <!-- wp:kadence/column {"id":3,"borderWidth":["","","",""],"uniqueID":"6_eb115e-44","kbVersion":2} -->
+            <div class="wp-block-kadence-column kadence-column6_eb115e-44">
+                  <div class="kt-inside-inner-col">
+                        <!-- wp:group {"className":"tag-card-techchamps","layout":{"type":"constrained"}} -->
+                        <div class="wp-block-group tag-card-techchamps hp-card">
+                              <!-- wp:image {"id":101,"sizeSlug":"full","linkDestination":"none","className":"tag-logo-ink"} -->
+                              <figure class="wp-block-image size-full tag-logo-ink"><img
+                                          src="http://localhost:10018/wp-content/uploads/2026/05/logo-techchamps.png"
+                                          alt="" class="wp-image-101" /></figure>
+                              <!-- /wp:image -->
+
+                              <!-- wp:freeform -->
+                              <p>At TechChamps, everything revolves around strategic test automation that delivers
+                                    proven value. We don’t choose to TestAllTheThings() just because we can, we focus on
+                                    TestTheRightThings() and TestTheThingsRight(). That’s how we help our clients deploy
+                                    software with confidence.</p>
+                              <!-- /wp:freeform -->
+
+                              <!-- wp:paragraph {"className":"hp-tag-card-footer"} -->
+                              <p class="hp-tag-card-footer"><a class="hp-link" href="https://www.techchamps.io"
+                                          target="_blank" rel="noopener noreferrer">Visit website →</a></p>
+                              <!-- /wp:paragraph -->
+                        </div>
+                        <!-- /wp:group -->
+                  </div>
+            </div>
+            <!-- /wp:kadence/column -->
+            <!-- /wp:kadence/rowlayout -->
+
+            <!-- wp:separator {"className":"margin-top-12 is-style-default"} -->
+            <hr class="wp-block-separator has-alpha-channel-opacity margin-top-12 is-style-default" />
+            <!-- /wp:separator -->
+
+            <!-- wp:freeform -->
+            <p class="has-text-align-center">Part of</p>
+            <p class="has-text-align-center"><a class="hp-sofius-link" href="https://www.sofius.com" target="_blank"
+                        rel="noopener noreferrer">Sofius</a></p>
+            <!-- /wp:freeform -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+<!-- /wp:kadence/rowlayout -->
+
+<!-- wp:kadence/rowlayout {"uniqueID":"6_c2a03c-10","columns":1,"colLayout":"equal","maxWidth":1344,"firstColumnWidth":100,"thirdColumnWidth":0,"fourthColumnWidth":0,"fifthColumnWidth":0,"sixthColumnWidth":0,"padding":[120,"",120,""],"mobilePadding":[56,16,56,16],"kbVersion":2,"className":"wp-block-kadence-rowlayout kb-row-layout-wrap kb-row-layout-idhp_cta alignfull cta hp-section\u002d\u002dpanel"} -->
+<!-- wp:kadence/column {"borderWidth":["","","",""],"uniqueID":"6_a021f3-bf","kbVersion":2} -->
+<div class="wp-block-kadence-column kadence-column6_a021f3-bf">
+      <div class="kt-inside-inner-col"><!-- wp:group {"layout":{"type":"constrained","contentSize":"800px"}} -->
+            <div class="wp-block-group hp-cta-wrap"><!-- wp:heading {"textAlign":"center"} -->
+                  <h2 class="wp-block-heading has-text-align-center hp-title hp-title--md">
+                        Ready to choose wiser, test smarter?</h2>
+                  <!-- /wp:heading -->
+
+                  <!-- wp:freeform -->
+                  <p class="hp-text-center">Explore all [techradar_blip_count] blips across 4 quadrants.</p>
+                  <!-- /wp:freeform -->
+
+                  <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","flexWrap":"wrap"}} -->
+                  <div class="wp-block-buttons"><!-- wp:button {"className":"hp-btn hp-btn\u002d\u002dwide"} -->
+                        <div class="wp-block-button hp-btn hp-btn--wide"><a
+                                    class="wp-block-button__link wp-element-button" href="/techradar">Open the TechRadar
+                                    →</a></div>
+                        <!-- /wp:button -->
+                  </div>
+                  <!-- /wp:buttons -->
+            </div>
+            <!-- /wp:group -->
+      </div>
+</div>
+<!-- /wp:kadence/column -->
+<!-- /wp:kadence/rowlayout -->
