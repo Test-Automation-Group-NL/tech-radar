@@ -1,0 +1,71 @@
+---
+name: "IDE AI Coding Assistants"
+ring: "Adopt"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  IDE AI coding assistants are tools that live inside your editor and provide real-time, inline code suggestions as you
+  type. GitHub Copilot, JetBrains AI Assistant, and Cursor's tab completion all fall into this category. Powered by
+  large language models, they generate functions, assertions, and boilerplate based on your existing code and natural
+  language comments, without leaving the flow of writing code.<br />
+  The line between these assistants and agentic harnesses has blurred. Modern IDE assistants no longer stop at inline
+  completion: they now ship agent modes, support custom agents scoped to specific tasks, and increasingly support skills,
+  reusable workflows the assistant loads on demand. GitHub Copilot in VS Code, for example, can run multi-step agentic
+  work and load agent skills directly from the editor.<br />
+  The clearest distinction from an agentic harness is where each one lives: IDE assistants are editor-anchored and
+  centred on a developer actively writing code, while a harness is environment-native, owning the shell and filesystem
+  and running equally well with a human approving each step or as an unattended, scripted step in CI.<br />
+  In test automation, they are particularly useful for accelerating the creation of test scripts, filling in repetitive
+  setup logic, and speeding up maintenance. They support a wide range of languages and popular test frameworks, making
+  them a flexible companion for both developers and test engineers.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Productivity boost:</strong> Inline suggestions speed up test development by generating test code,
+    assertions, and setup logic with minimal manual effort, keeping you in the editor.
+  </li>
+  <li>
+    <strong>Broad language and framework support:</strong> Trained on large amounts of public code, these assistants
+    work across many languages and commonly used test automation frameworks, making them applicable across different
+    tech stacks.
+  </li>
+  <li>
+    <strong>Context-aware suggestions:</strong> They analyze the file you are working in and surrounding code to provide
+    relevant, often accurate suggestions tailored to the current test scenario.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Inline mode still reasons locally:</strong> In their classic completion mode, these assistants primarily
+    reason about the open file and nearby code. Their newer agent modes narrow the gap with dedicated agentic harnesses,
+    but the plain inline experience still will not autonomously research the wider codebase, run tests, or validate its
+    own output.
+  </li>
+  <li>
+    <strong>Code quality oversight required:</strong> Generated test code does not always follow best practices or align
+    with team standards. Suggestions should never be accepted blindly and still require human review and refinement.
+  </li>
+  <li>
+    <strong>Privacy and data governance concerns:</strong> Because these tools send code context to a model to generate
+    suggestions, organizations with strict security or compliance requirements need to evaluate data handling carefully.
+    Enterprise plans that avoid training on your code and filter suggestions by license type exist but are costly.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  IDE AI coding assistants are a strong addition to modern test automation, especially for teams that want to move
+  faster on repetitive or boilerplate-heavy work while staying in their editor.<br />
+  They have proven mature and valuable enough to adopt as a supporting tool, provided you keep privacy considerations
+  and code quality in check. They are not a replacement for testing expertise: the professionals who get the most out of
+  them are those who understand their strengths and limitations and have a solid grasp of test automation architecture
+  fundamentals. As their agent modes, custom agents, and skills mature, the boundary with dedicated agentic harnesses
+  keeps shrinking, so it is worth exploring those capabilities rather than treating these tools as autocomplete alone.
+</p>

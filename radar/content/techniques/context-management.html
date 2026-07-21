@@ -1,0 +1,60 @@
+---
+name: "Context Management"
+ring: "Adopt"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  Context management is the practice of deliberately controlling what a coding agent has in its context window at any
+  given moment. A model only reasons about what it can see, and that window is finite. Everything you load, the files,
+  the conversation history, tool output, and page snapshots, competes for the same limited space. Manage it well and the
+  agent stays accurate and focused. Let it fill with noise and quality degrades fast.<br />
+  In test automation this is not a nice-to-have. It is the single biggest lever on output quality. A cluttered or stale
+  context is exactly what produces fabricated locators, made-up translation keys, and actions based on a page state that
+  no longer exists. Techniques like scoping work to focused agents, loading skills only when relevant, compacting or
+  resetting long conversations, and preferring lean tools all serve the same goal: keep the context clean and current.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Higher accuracy:</strong> An agent reasoning from a focused, current context makes far fewer mistakes than
+    one wading through stale state and irrelevant files. Clean context is the difference between a working test and a
+    plausible-looking broken one.
+  </li>
+  <li>
+    <strong>Lower token cost:</strong> Loading only what the task needs keeps each step cheaper. On larger codebases and
+    multi-step tasks, disciplined context management is often the difference between an affordable run and a wasteful
+    one.
+  </li>
+  <li>
+    <strong>Predictable, repeatable runs:</strong> When you control what goes in, you control what comes out. Isolating
+    subtasks in their own agents and resetting context between them makes each step behave the same way every time.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Requires deliberate effort:</strong> Good context management does not happen by default. You have to decide
+    what to load, when to compact, and how to split work. That discipline takes practice and adds a layer of design on
+    top of simply prompting the agent.
+  </li>
+  <li>
+    <strong>Easy to get subtly wrong:</strong> Trim too much and the agent loses information it genuinely needed; keep
+    too much and it drowns in noise. Finding the right balance for a given task is not always obvious up front.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  Context management is the discipline that ties the rest of agentic test automation together. It is why agents exist,
+  to isolate work in a clean context; why skills load on demand, to bring in only what is relevant; and why lean tools
+  such as Playwright CLI are preferred over context-heavy alternatives.<br />
+  We recommend adopting it as a conscious practice rather than an afterthought. If your agent is producing unreliable
+  tests, the cause is very often a polluted or overloaded context, not the model itself. Teams that treat what the agent
+  sees as something to design, not something that just accumulates, get consistently better results from every other AI
+  tool in their stack.
+</p>
