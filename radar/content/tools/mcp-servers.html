@@ -1,0 +1,69 @@
+---
+name: "MCP Servers"
+ring: "Adopt"
+isNew: "TRUE"
+status: "New"
+---
+
+<h4>Description:</h4>
+<p>
+  MCP servers implement the Model Context Protocol, an open standard that lets a coding agent talk to external tools and
+  data sources through a consistent interface. Instead of hardcoding integrations, an agent connects to an MCP server
+  that exposes capabilities as callable functions: querying a database, driving a browser, reading issues from a tracker,
+  or hitting an internal API. The same server works across any MCP-compatible client, from Claude Code and Copilot CLI to
+  the agent modes of modern IDE assistants.<br />
+  In test automation, MCP servers let an agent reach beyond the codebase: inspect a running application, pull test data,
+  read requirements from a work tracker, or control a browser to explore the app before writing tests. They turn the
+  agent from something that only reasons about files into something that can interact with your wider environment.
+</p>
+
+<h4>Pros:</h4>
+<ul>
+  <li>
+    <strong>Access to context you cannot get from files or a CLI:</strong> This is the main reason to reach for MCP.
+    When the agent needs live application state (the real DOM, rendered accessibility tree, actual network responses) or
+    a structured external system with a real API (a work tracker, a database, feature flags, an internal service), an
+    MCP server gives it a clean, typed interface. Use one when that value genuinely cannot be obtained cheaply another
+    way; if a simple CLI or script already does the job, prefer that instead.
+  </li>
+  <li>
+    <strong>Standardised, reusable integrations:</strong> One MCP server works across every compatible client, so you
+    connect a capability once and use it from any agent rather than rebuilding the integration per tool. It also shines
+    in sandboxed environments, exposing exactly the capabilities you allow with no shell or filesystem access.
+  </li>
+  <li>
+    <strong>Growing ecosystem:</strong> A large and expanding set of official and community MCP servers already exists,
+    so many integrations are available off the shelf instead of being built from scratch.
+  </li>
+</ul>
+
+<h4>Cons:</h4>
+<ul>
+  <li>
+    <strong>Significant impact on the context window:</strong> This is the big one. Every tool an MCP server exposes,
+    and every response it returns, consumes context. Verbose servers stream large payloads such as full accessibility
+    trees or page snapshots back on every interaction, which can cost hundreds of tokens per call and pollute the
+    context with stale state. Connecting many servers at once also loads all their tool definitions upfront, eating into
+    the window before the agent has done any work. Choose lean servers, enable only the ones a task needs, and prefer
+    tools that return concise results.
+  </li>
+  <li>
+    <strong>Security and trust:</strong> An MCP server runs with real access to whatever it integrates. Only connect
+    servers from trusted sources, and be deliberate about the credentials and scopes you grant them.
+  </li>
+</ul>
+
+<h4>Conclusion:</h4>
+<p>
+  MCP servers are becoming the standard way to give coding agents access to the tools and data around your project. We
+  recommend adopting them for test automation when the agent needs live application state or structured external data it
+  cannot get from files alone, for example inspecting a running app to find real locators or pulling requirements and
+  test data from an external system.<br />
+  The catch is context, and there is an important rule of thumb: if a lean CLI or script already does the job, prefer it
+  over an MCP server. That is the whole Playwright MCP to Playwright CLI story, a concise command beats a server that
+  streams a large snapshot on every call. MCP is powerful precisely because it feeds more information to the agent, and
+  that same information competes for a finite context window. Treat server selection as a context management decision:
+  enable the minimum set of lean servers a task genuinely needs, favour ones that return concise output, and disconnect
+  what you are not using. Used with that discipline, MCP servers meaningfully expand what an agent can do without
+  drowning it in noise.
+</p>
